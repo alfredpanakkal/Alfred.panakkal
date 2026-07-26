@@ -42,17 +42,17 @@ const PROJECTS: Project[] = [
     gradient: 'linear-gradient(135deg, #2563eb, #06b6d4)',
     tags: [
       { label: 'Web', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
-      { label: 'App', color: 'rgba(6,182,212,0.12)', text: '#22d3ee' },
-      { label: 'Nautical', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
+      { label: 'AI Nautical', color: 'rgba(99,102,241,0.12)', text: '#818cf8' },
+      { label: 'Maritime', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
     ],
-    desc: 'A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and navigational reference data.',
-    categories: ['web', 'maritime'],
+    desc: 'A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and AI-powered navigational reference data.',
+    categories: ['web', 'maritime', 'ai'],
     live: true,
     url: 'https://helm-almanac.vercel.app',
     repo: 'alpha-mini/Helm-Almanac',
     lastCommit: 'chore: update navigation data for Q3 2026',
     lastCommitDate: '26/07/2026',
-    tech: ['React', 'Next.js', 'Tailwind']
+    tech: ['React', 'Next.js', 'Tailwind', 'AI API']
   },
   {
     id: 'helm-productivity',
@@ -61,10 +61,10 @@ const PROJECTS: Project[] = [
     tags: [
       { label: 'Tools', color: 'rgba(5,150,105,0.12)', text: '#34d399' },
       { label: 'Productivity', color: 'rgba(13,148,136,0.12)', text: '#2dd4bf' },
-      { label: 'React', color: 'rgba(6,182,212,0.12)', text: '#22d3ee' }
+      { label: 'AI Assistant', color: 'rgba(99,102,241,0.12)', text: '#818cf8' }
     ],
-    desc: 'A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and routines effectively.',
-    categories: ['tools'],
+    desc: 'A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and AI routines effectively.',
+    categories: ['tools', 'ai'],
     live: true,
     url: 'https://helmproductivity.vercel.app',
     repo: 'alpha-mini/The-Helm---Productivity-app',
@@ -132,6 +132,18 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    return (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
+  });
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
+      setTheme(currentTheme);
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
 
   const filteredProjects = PROJECTS.filter((p) => {
     const matchesFilter = filter === 'all' || p.categories.includes(filter);
@@ -144,79 +156,102 @@ export default function App() {
     return matchesFilter && matchesSearch;
   });
 
-  const liveDeploymentsCount = PROJECTS.filter((p) => p.live).length;
-
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-sans relative overflow-x-hidden">
+    <div 
+      className="min-h-screen font-sans relative overflow-x-hidden transition-colors duration-300"
+      style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}
+    >
       {/* Ambient Radial Background Effects */}
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(59,130,246,0.08)_0%,transparent_70%)] pointer-events-none z-0" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(16,185,129,0.06)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(59,130,246,0.06)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
 
       {/* Stats Bar */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-4 sm:pb-6 flex flex-wrap gap-2.5 sm:gap-4 justify-center relative z-10">
-        <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-full text-xs sm:text-sm text-gray-400 hover:border-white/20 transition-all cursor-default min-h-[36px]">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#22c55e] animate-pulse flex-shrink-0" />
-          <span>{liveDeploymentsCount} Live Deployments</span>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-4 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 relative z-10">
+        <div 
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all cursor-default min-h-[38px] w-auto shadow-sm"
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#22c55e] animate-pulse flex-shrink-0" />
+          <span>5 Live Deployments</span>
         </div>
 
-        <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-full text-xs sm:text-sm text-gray-400 hover:border-white/20 transition-all cursor-default min-h-[36px]">
-          <Github className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
-          <span>{PROJECTS.length} Repositories</span>
+        <div 
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all cursor-default min-h-[38px] w-auto shadow-sm"
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+        >
+          <Github className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          <span>10 Repositories</span>
         </div>
 
-        <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-full text-xs sm:text-sm text-gray-400 hover:border-white/20 transition-all cursor-default min-h-[36px]">
-          <Code2 className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+        <div 
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all cursor-default min-h-[38px] w-auto shadow-sm"
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+        >
+          <Code2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
           <span>React, Python, React Native</span>
         </div>
       </div>
 
       {/* Controls Bar: Filter Tabs, Search Input, Grid/List View Toggle */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4 relative z-10">
-        {/* Category Filters - Horizontally scrollable on narrow screens */}
-        <div className="flex items-center gap-2 overflow-x-auto custom-scrollbar-none py-1 -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 flex flex-col gap-3.5 relative z-10">
+        {/* Category Filters */}
+        <div className="flex items-center flex-wrap gap-2 justify-start sm:justify-start">
           {[
             { id: 'all', label: 'All Projects' },
             { id: 'web', label: 'Web' },
             { id: 'ai', label: 'AI' },
             { id: 'maritime', label: 'Maritime' },
             { id: 'tools', label: 'Tools' }
-          ].map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setFilter(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[38px] touch-manipulation ${
-                filter === cat.id
-                  ? 'bg-white text-black font-semibold shadow-md'
-                  : 'bg-transparent text-gray-400 border border-[rgba(255,255,255,0.06)] hover:border-white/20 hover:text-white hover:bg-white/[0.03]'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+          ].map((cat) => {
+            const isActive = filter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setFilter(cat.id)}
+                style={
+                  isActive
+                    ? { backgroundColor: 'var(--text)', color: 'var(--bg)' }
+                    : { backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }
+                }
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[38px] touch-manipulation ${
+                  isActive ? 'font-semibold shadow-md' : 'hover:border-sky-500/30'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          {/* Search Box */}
-          <div className="relative flex-1 md:w-64">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search projects..."
-              className="w-full pl-9 pr-4 py-2 bg-[#16161f] border border-[rgba(255,255,255,0.06)] focus:border-[#3b82f6] rounded-full text-xs sm:text-sm text-white placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#3b82f6]/20 min-h-[40px]"
-            />
-          </div>
+        {/* Search Box */}
+        <div className="relative w-full">
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 opacity-50 pointer-events-none" style={{ color: 'var(--text-muted)' }} />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search projects..."
+            style={{ 
+              backgroundColor: 'var(--bg-card)', 
+              border: '1px solid var(--border)', 
+              color: 'var(--text)' 
+            }}
+            className="w-full pl-10 pr-4 py-2.5 focus:border-[#3b82f6] rounded-full text-xs sm:text-sm outline-none transition-all focus:ring-2 focus:ring-[#3b82f6]/20 min-h-[42px]"
+          />
+        </div>
 
-          {/* View Toggle Buttons */}
-          <div className="flex items-center gap-1 bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-xl p-1 flex-shrink-0">
+        {/* View Toggle Bar */}
+        <div 
+          className="flex items-center justify-start rounded-xl p-1.5 w-full shadow-sm"
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)' }}
+        >
+          <div className="flex items-center gap-1 p-1 rounded-lg" style={{ backgroundColor: 'var(--surface-2)' }}>
             <button
               onClick={() => setView('grid')}
               title="Grid View"
-              className={`p-2 rounded-lg transition-all min-h-[36px] min-w-[36px] flex items-center justify-center ${
-                view === 'grid'
-                  ? 'bg-white/10 text-white'
-                  : 'text-gray-500 hover:text-gray-300'
+              style={view === 'grid' ? { backgroundColor: 'var(--bg-card)', color: 'var(--text)' } : { color: 'var(--text-muted)' }}
+              className={`p-2 rounded-md transition-all min-h-[34px] min-w-[34px] flex items-center justify-center ${
+                view === 'grid' ? 'shadow-sm font-semibold' : 'hover:opacity-80'
               }`}
             >
               <LayoutGrid className="w-4 h-4" />
@@ -224,10 +259,9 @@ export default function App() {
             <button
               onClick={() => setView('list')}
               title="List View"
-              className={`p-2 rounded-lg transition-all min-h-[36px] min-w-[36px] flex items-center justify-center ${
-                view === 'list'
-                  ? 'bg-white/10 text-white'
-                  : 'text-gray-500 hover:text-gray-300'
+              style={view === 'list' ? { backgroundColor: 'var(--bg-card)', color: 'var(--text)' } : { color: 'var(--text-muted)' }}
+              className={`p-2 rounded-md transition-all min-h-[34px] min-w-[34px] flex items-center justify-center ${
+                view === 'list' ? 'shadow-sm font-semibold' : 'hover:opacity-80'
               }`}
             >
               <List className="w-4 h-4" />
@@ -237,9 +271,9 @@ export default function App() {
       </div>
 
       {/* Projects Grid Container */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 relative z-10">
         {filteredProjects.length === 0 ? (
-          <div className="text-center py-16 sm:py-20 text-gray-500 flex flex-col items-center">
+          <div className="text-center py-16 sm:py-20 flex flex-col items-center" style={{ color: 'var(--text-muted)' }}>
             <Search className="w-10 h-10 sm:w-12 sm:h-12 opacity-30 mb-3 sm:mb-4" />
             <p className="text-xs sm:text-sm">No projects match your search criteria.</p>
           </div>
@@ -247,53 +281,54 @@ export default function App() {
           <div
             className={
               view === 'grid'
-                ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5'
-                : 'flex flex-col gap-3.5 sm:gap-4'
+                ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'
+                : 'flex flex-col gap-4'
             }
           >
             {filteredProjects.map((p, index) => (
               <div
                 key={p.id}
                 onClick={() => setActiveModalProject(p)}
-                style={{ animationDelay: `${index * 0.04}s` }}
-                className={`bg-[#16161f] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.18)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/60 cursor-pointer group flex active:scale-[0.99] touch-manipulation ${
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
+                  animationDelay: `${index * 0.04}s`
+                }}
+                className={`rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
+                  theme === 'light' ? 'shadow-sm hover:shadow-xl' : 'hover:shadow-2xl hover:shadow-black/70'
+                } cursor-pointer group flex active:scale-[0.99] touch-manipulation ${
                   view === 'grid' ? 'flex-col' : 'flex-col sm:flex-row items-stretch'
                 }`}
               >
                 {/* Visual Card Header */}
                 <div
-                  className={`relative flex items-center justify-center p-5 sm:p-6 overflow-hidden flex-shrink-0 ${
-                    view === 'grid' ? 'h-32 sm:h-36 w-full' : 'h-32 sm:h-auto sm:w-52'
+                  className={`relative flex items-center justify-center p-6 overflow-hidden flex-shrink-0 ${
+                    view === 'grid' ? 'h-36 sm:h-40 w-full' : 'h-36 sm:h-auto sm:w-56'
                   }`}
                   style={{ background: p.gradient }}
                 >
-                  {/* Pattern Overlay */}
+                  {/* Plus Pattern Overlay */}
                   <div 
-                    className="absolute inset-0 opacity-40 pointer-events-none"
+                    className="absolute inset-0 opacity-30 pointer-events-none"
                     style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
                     }}
                   />
 
-                  <h3 className="relative z-10 text-lg sm:text-xl font-extrabold text-white font-['Space_Grotesk',sans-serif] text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)] px-2">
+                  <h3 className="relative z-10 text-xl sm:text-2xl font-extrabold text-white font-['Space_Grotesk',sans-serif] text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] px-3 tracking-wide">
                     {p.name}
                   </h3>
-
-                  {/* External Link Badge */}
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center sm:opacity-0 group-hover:opacity-100 sm:scale-75 group-hover:scale-100 transition-all duration-300">
-                    <ExternalLink className="w-3.5 h-3.5 text-white" />
-                  </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-2.5">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       {p.tags.map((t) => (
                         <span
                           key={t.label}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wider uppercase"
+                          className="px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase"
                           style={{ backgroundColor: t.color, color: t.text }}
                         >
                           {t.label}
@@ -301,19 +336,28 @@ export default function App() {
                       ))}
                     </div>
 
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1 font-['Space_Grotesk',sans-serif] group-hover:text-[#3b82f6] transition-colors">
+                    <h4 
+                      className="text-base sm:text-lg font-bold mb-1.5 font-['Space_Grotesk',sans-serif] group-hover:text-[#3b82f6] transition-colors"
+                      style={{ color: 'var(--text)' }}
+                    >
                       {p.name}
                     </h4>
 
-                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 mb-3.5">
+                    <p 
+                      className="text-xs sm:text-sm leading-relaxed line-clamp-3 mb-4"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
                       {p.desc}
                     </p>
                   </div>
 
                   {/* Card Footer */}
-                  <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] flex flex-wrap items-center justify-between gap-2 text-xs">
-                    <div className="flex items-center gap-2.5 text-gray-500 text-[11px]">
-                      <div className="flex items-center gap-1 truncate max-w-[95px] sm:max-w-[110px]" title={p.repo}>
+                  <div 
+                    className="pt-3 border-t flex flex-wrap items-center justify-between gap-2.5 text-xs"
+                    style={{ borderColor: 'var(--border)' }}
+                  >
+                    <div className="flex items-center gap-3 text-[11px]" style={{ color: 'var(--text-muted)' }}>
+                      <div className="flex items-center gap-1 truncate max-w-[100px] sm:max-w-[120px]" title={p.repo}>
                         <Github className="w-3.5 h-3.5 flex-shrink-0" />
                         <span className="truncate">{p.repo.split('/')[1]}</span>
                       </div>
@@ -323,20 +367,24 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 flex-shrink-0 ml-auto">
+                    <div className="flex items-center gap-2 flex-shrink-0 ml-auto">
                       {p.live ? (
                         <a
                           href={p.url}
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="px-2.5 py-1.5 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#60a5fa] hover:bg-[#3b82f6]/20 hover:border-[#3b82f6]/40 text-[11px] font-medium flex items-center gap-1 transition-all min-h-[32px]"
+                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all min-h-[34px] ${
+                            theme === 'light'
+                              ? 'bg-sky-50 border border-sky-200 text-sky-700 hover:bg-sky-100'
+                              : 'bg-[#152a42] border border-[#23456c] text-[#38bdf8] hover:bg-[#1e3a5c]'
+                          }`}
                         >
-                          <ExternalLink className="w-3 h-3" />
-                          <span>Open</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          <span>Open App</span>
                         </a>
                       ) : (
-                        <span className="flex items-center gap-1 text-[11px] text-gray-500 px-2 py-1">
+                        <span className="flex items-center gap-1 text-xs px-2 py-1" style={{ color: 'var(--text-muted)' }}>
                           <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_6px_#ef4444]" />
                           <span>Offline</span>
                         </span>
@@ -347,9 +395,10 @@ export default function App() {
                           e.stopPropagation();
                           setActiveModalProject(p);
                         }}
-                        className="px-2.5 py-1.5 rounded-lg border border-[rgba(255,255,255,0.08)] hover:border-white/20 text-gray-300 hover:text-white hover:bg-white/5 text-[11px] font-medium flex items-center gap-1 transition-all min-h-[32px]"
+                        style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text)' }}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all min-h-[34px] hover:border-sky-500/30"
                       >
-                        <Info className="w-3 h-3" />
+                        <Info className="w-3.5 h-3.5" />
                         <span>Details</span>
                       </button>
                     </div>
@@ -364,17 +413,18 @@ export default function App() {
       {/* Details Modal */}
       {activeModalProject && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 animate-modal-overlay"
           onClick={() => setActiveModalProject(null)}
         >
           <div
-            className="bg-[#111118] border border-[rgba(255,255,255,0.1)] rounded-t-2xl sm:rounded-2xl w-full max-w-lg max-h-[88vh] sm:max-h-[85vh] overflow-y-auto p-5 sm:p-6 shadow-2xl text-white relative animate-scaleIn"
+            style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--text)' }}
+            className="rounded-t-2xl sm:rounded-2xl w-full max-w-lg max-h-[88vh] sm:max-h-[85vh] overflow-y-auto p-5 sm:p-6 shadow-2xl relative animate-modal-slide"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-start justify-between pb-3.5 border-b border-[rgba(255,255,255,0.06)] mb-4 sm:mb-5">
+            <div className="flex items-start justify-between pb-3.5 border-b mb-4 sm:mb-5" style={{ borderColor: 'var(--border)' }}>
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-1 block">
+                <span className="text-[10px] uppercase tracking-wider font-bold mb-1 block text-sky-500">
                   Project Overview
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold font-['Space_Grotesk',sans-serif]">
@@ -383,7 +433,8 @@ export default function App() {
               </div>
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="p-2 rounded-xl border border-[rgba(255,255,255,0.1)] text-gray-400 hover:text-white hover:bg-white/5 transition-all min-w-[38px] min-h-[38px] flex items-center justify-center"
+                style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+                className="p-2 rounded-xl transition-all min-w-[38px] min-h-[38px] flex items-center justify-center hover:opacity-80"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -391,24 +442,25 @@ export default function App() {
 
             {/* Description */}
             <div className="mb-4 sm:mb-5">
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
                 Description
               </h4>
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {activeModalProject.desc}
               </p>
             </div>
 
             {/* Tech Stack */}
             <div className="mb-4 sm:mb-5">
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
                 Tech Stack
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {activeModalProject.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-1 bg-[#16161f] border border-[rgba(255,255,255,0.06)] text-gray-300 rounded-md text-xs font-medium"
+                    style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+                    className="px-2.5 py-1 rounded-md text-xs font-medium"
                   >
                     {t}
                   </span>
@@ -418,7 +470,7 @@ export default function App() {
 
             {/* Links */}
             <div className="mb-4 sm:mb-5">
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
                 Links & Repository
               </h4>
               <div className="space-y-2">
@@ -427,9 +479,10 @@ export default function App() {
                     href={activeModalProject.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2.5 p-3 bg-[#16161f] border border-[rgba(255,255,255,0.06)] hover:border-white/20 rounded-xl text-xs text-gray-300 hover:text-white transition-all min-h-[44px]"
+                    style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text)' }}
+                    className="flex items-center gap-2.5 p-3 rounded-xl text-xs transition-all min-h-[44px] hover:border-sky-500/40"
                   >
-                    <Globe className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                    <Globe className="w-4 h-4 text-sky-500 flex-shrink-0" />
                     <span className="truncate">{activeModalProject.url}</span>
                   </a>
                 )}
@@ -437,9 +490,10 @@ export default function App() {
                   href={`https://github.com/${activeModalProject.repo}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2.5 p-3 bg-[#16161f] border border-[rgba(255,255,255,0.06)] hover:border-white/20 rounded-xl text-xs text-gray-300 hover:text-white transition-all min-h-[44px]"
+                  style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text)' }}
+                  className="flex items-center gap-2.5 p-3 rounded-xl text-xs transition-all min-h-[44px] hover:border-sky-500/40"
                 >
-                  <Github className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <Github className="w-4 h-4 text-purple-500 flex-shrink-0" />
                   <span className="truncate">github.com/{activeModalProject.repo}</span>
                 </a>
               </div>
@@ -447,25 +501,28 @@ export default function App() {
 
             {/* Recent Commits */}
             <div className="mb-4 sm:mb-5">
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
                 Recent Commits
               </h4>
-              <div className="bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-xl divide-y divide-[rgba(255,255,255,0.06)]">
+              <div 
+                className="rounded-xl divide-y" 
+                style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', borderColor: 'var(--border)' }}
+              >
                 <div className="p-3 flex items-center justify-between text-xs gap-2">
-                  <div className="flex items-center gap-2 text-gray-300 min-w-0">
-                    <GitCommit className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                  <div className="flex items-center gap-2 min-w-0" style={{ color: 'var(--text-secondary)' }}>
+                    <GitCommit className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--text-muted)' }} />
                     <span className="truncate">{activeModalProject.lastCommit}</span>
                   </div>
-                  <span className="text-[11px] text-gray-500 flex-shrink-0">
+                  <span className="text-[11px] flex-shrink-0" style={{ color: 'var(--text-muted)' }}>
                     {activeModalProject.lastCommitDate}
                   </span>
                 </div>
                 <div className="p-3 flex items-center justify-between text-xs gap-2">
-                  <div className="flex items-center gap-2 text-gray-300 min-w-0">
-                    <GitCommit className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                  <div className="flex items-center gap-2 min-w-0" style={{ color: 'var(--text-secondary)' }}>
+                    <GitCommit className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--text-muted)' }} />
                     <span className="truncate">chore: update dependencies and security patches</span>
                   </div>
-                  <span className="text-[11px] text-gray-500 flex-shrink-0">
+                  <span className="text-[11px] flex-shrink-0" style={{ color: 'var(--text-muted)' }}>
                     {activeModalProject.lastCommitDate}
                   </span>
                 </div>
@@ -474,11 +531,14 @@ export default function App() {
 
             {/* Deployment Status */}
             <div>
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
                 Deployment Status
               </h4>
-              <div className="flex items-center gap-2.5 p-3 bg-[#16161f] border border-[rgba(255,255,255,0.06)] rounded-xl text-xs text-gray-300">
-                <Server className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <div 
+                style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
+                className="flex items-center gap-2.5 p-3 rounded-xl text-xs"
+              >
+                <Server className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                 <span>
                   {activeModalProject.live
                     ? 'Live on Vercel Edge Infrastructure'

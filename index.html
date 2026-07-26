@@ -8,7 +8,7 @@
     <meta name="keywords" content="Alfred Panakkal Jose, Alfred Panakkal, alpha-mini, seafarer developer, maritime software, Helm Almanac, Helm Productivity, Helm Bond, Helm Fasting, Mudhra Converter, React developer, TypeScript, maritime technology">
     <meta name="author" content="Alfred Panakkal Jose">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="theme-color" content="#f8fafc">
     <link rel="canonical" href="https://helmproductivity.vercel.app/">
     <meta property="og:site_name" content="Alfred Panakkal Jose Portfolio">
     <meta property="og:title" content="Alfred Panakkal Jose — Seafarer & Full Stack Software Developer">
@@ -34,7 +34,7 @@
     <link rel="manifest" href="/manifest.json">
     <style>
         :root { --bg:#0a0a0f; --surface:#12121a; --surface-2:#1a1a25; --surface-3:#22222f; --text:#f0f0f5; --text-muted:#8a8a9a; --text-secondary:#a0a0b0; --accent:#6366f1; --accent-2:#8b5cf6; --accent-glow:rgba(99,102,241,0.3); --border:rgba(255,255,255,0.06); --border-hover:rgba(255,255,255,0.15); --ocean:#0ea5e9; --ocean-glow:rgba(14,165,233,0.3); --wave:rgba(14,165,233,0.03); --bg-elevated:#111118; --bg-card:#16161f; --success:#22c55e; --radius:16px; --radius-sm:10px; }
-        [data-theme="light"] { --bg:#f8fafc; --surface:#ffffff; --surface-2:#f1f5f9; --surface-3:#e2e8f0; --text:#0f172a; --text-muted:#64748b; --text-secondary:#64748b; --border:rgba(0,0,0,0.08); --border-hover:rgba(0,0,0,0.15); --wave:rgba(14,165,233,0.08); --bg-elevated:#f1f5f9; --bg-card:#ffffff; }
+        [data-theme="light"] { --bg:#f8fafc; --surface:#ffffff; --surface-2:#f1f5f9; --surface-3:#e2e8f0; --text:#0f172a; --text-muted:#64748b; --text-secondary:#334155; --border:rgba(0,0,0,0.08); --border-hover:rgba(0,0,0,0.18); --wave:rgba(14,165,233,0.08); --bg-elevated:#ffffff; --bg-card:#ffffff; }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; transition:background 0.3s ease, color 0.3s ease; }
@@ -175,6 +175,10 @@
         .modal-overlay.open { opacity:1; pointer-events:all; }
         .modal { background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius); max-width:560px; width:100%; max-height:85vh; overflow-y:auto; transform:scale(0.95) translateY(10px); transition:transform 0.3s cubic-bezier(0.16,1,0.3,1); }
         .modal-overlay.open .modal { transform:scale(1) translateY(0); }
+        @keyframes modalOverlayFade { from { opacity:0; backdrop-filter:blur(0px); } to { opacity:1; backdrop-filter:blur(12px); } }
+        @keyframes modalSlideIn { from { opacity:0; transform:translateY(28px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+        .animate-modal-overlay { animation: modalOverlayFade 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
+        .animate-modal-slide { animation: modalSlideIn 0.4s cubic-bezier(0.16,1,0.3,1) forwards; }
         .modal-header { padding:24px 24px 0; display:flex; justify-content:space-between; align-items:flex-start; }
         .modal-title { font-size:1.3rem; font-weight:700; }
         .modal-close { width:32px; height:32px; border-radius:8px; border:1px solid var(--border); background:transparent; color:var(--text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }
@@ -302,54 +306,16 @@
 <div class="wave-divider"><svg viewBox="0 0 1280 128" preserveAspectRatio="none"><path d="M0,64 C320,100 420,20 640,64 C860,100 960,20 1280,64 L1280,128 L0,128 Z"/></svg></div>
 <section id="works">
     <div class="section-header reveal"><h2>My Projects</h2><p>Free tools and apps I've built to make life easier for others.</p></div>
-    <div class="stats-bar reveal">
-        <div class="stat-chip"><span class="dot"></span><span id="liveDeploymentsCount">4 Live Deployments</span></div>
-        <div class="stat-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            <span id="repoCount">5 Repositories</span>
-        </div>
-        <div class="stat-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <span>React, TypeScript, Next.js</span>
-        </div>
-    </div>
-    <div class="controls reveal">
-        <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="web">Web</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="maritime">Maritime</button>
-            <button class="filter-btn" data-filter="tools">Tools</button>
-        </div>
-        <div class="search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="searchInput" placeholder="Search projects...">
-        </div>
-        <div class="view-toggle">
-            <button class="view-btn active" data-view="grid" title="Grid view">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            </button>
-            <button class="view-btn" data-view="list" title="List view">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            </button>
-        </div>
-    </div>
-    <div class="projects-container reveal">
-        <div class="projects-grid" id="projectsGrid"></div>
-        <div class="empty-state" id="emptyState" style="display:none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <p>No projects match your search.</p>
-        </div>
-    </div>
+    <div id="works-react-root"></div>
 </section>
-<div class="wave-divider"><svg viewBox="0 0 1280 128" preserveAspectRatio="none"><path d="M0,64 C320,100 420,20 640,64 C860,100 960,20 1280,64 L1280,128 L0,128 Z"/></svg></div>
+<div class="wave-divider"><svg viewBox="0 0 1280 128" preserveAspectRatio="none"><path d="M0,64 C320,100 420,20 640,64 C860,20 960,100 1280,64 L1280,128 L0,128 Z"/></svg></div>
 <section class="support" id="support">
     <div class="section-header reveal"><h2>Support My Work</h2><p>Your support keeps these tools free and fuels future projects.</p></div>
     <div class="support-card reveal">
         <div class="coffee-icon">☕</div>
         <h3>Buy Me a Coffee</h3>
         <p>I build these apps and tools in my spare time while working at sea. If one of my projects has helped you, a small coffee goes a long way. Your support helps keep these tools free and encourages future updates. Thank you for being part of this journey.</p>
-        <a href="https://github.com/alpha-mini" target="_blank" class="btn btn-coffee" onclick="showToast('Thank you for supporting my open-source work!');">☕ Buy Me a Coffee</a>
+        <a href="https://github.com/sponsors/alpha-mini" target="_blank" rel="noreferrer" class="btn btn-coffee" onclick="showToast('Thank you for supporting my open-source work!');">☕ Buy Me a Coffee</a>
     </div>
 </section>
 <div class="wave-divider"><svg viewBox="0 0 1280 128" preserveAspectRatio="none"><path d="M0,64 C320,100 420,20 640,64 C860,100 960,20 1280,64 L1280,128 L0,128 Z"/></svg></div>
@@ -369,10 +335,10 @@
             <a href="https://github.com/alpha-mini" target="_blank" rel="noreferrer" class="social-link" title="GitHub">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
-            <a href="https://github.com/alpha-mini" target="_blank" rel="noreferrer" class="social-link" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/alpha-mini" target="_blank" rel="noreferrer" class="social-link" title="LinkedIn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <a href="https://github.com/alpha-mini" target="_blank" rel="noreferrer" class="social-link" title="Twitter">
+            <a href="https://x.com/alpha-mini" target="_blank" rel="noreferrer" class="social-link" title="Twitter">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
         </div>
@@ -395,7 +361,7 @@
 <script>
 // ========== THEME TOGGLE ==========
 const themeToggle = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('theme') || 'dark';
+const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 function toggleTheme() {
@@ -554,8 +520,10 @@ window.addEventListener('click', (e) => {
 // ========== NAVBAR ==========
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    }
 });
 
 // ========== SCROLL TO SECTION ==========
@@ -563,13 +531,15 @@ function scrollToSection(id) {
     const element = document.getElementById(id);
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('navLinks').classList.remove('active');
+        const nav = document.getElementById('navLinks');
+        if (nav) nav.classList.remove('active');
     }
 }
 
 // ========== MOBILE MENU ==========
 function toggleMobileMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
+    const nav = document.getElementById('navLinks');
+    if (nav) nav.classList.toggle('active');
 }
 
 // ========== REVEAL ON SCROLL ==========
@@ -623,50 +593,59 @@ skillBars.forEach(el => skillObserver.observe(el));
 
 // ========== TYPING EFFECT (Hero) ==========
 const typewriter = document.getElementById('typewriter');
-const text = typewriter.textContent;
-typewriter.textContent = '';
-let charIndex = 0;
-function typeWriter() {
-    if (charIndex < text.length) {
-        typewriter.textContent += text.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 100);
+if (typewriter) {
+    const text = typewriter.textContent || '';
+    typewriter.textContent = '';
+    let charIndex = 0;
+    function typeWriter() {
+        if (charIndex < text.length) {
+            typewriter.textContent += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeWriter, 100);
+        }
     }
+    setTimeout(typeWriter, 1000);
 }
-setTimeout(typeWriter, 1000);
 
 // ========== TYPING PLACEHOLDER (Contact) ==========
 const messageArea = document.getElementById('contactMessage');
-const placeholders = [
-    "Tell me about your project...",
-    "Share your feedback on my tools...",
-    "Suggest a new feature idea...",
-    "Just say hello from the sea! 🌊"
-];
-let placeholderIndex = 0;
-let placeholderChar = 0;
-let isDeleting = false;
-function typePlaceholder() {
-    const current = placeholders[placeholderIndex];
-    if (isDeleting) {
-        messageArea.setAttribute('placeholder', current.substring(0, placeholderChar - 1));
-        placeholderChar--;
-    } else {
-        messageArea.setAttribute('placeholder', current.substring(0, placeholderChar + 1));
-        placeholderChar++;
+if (messageArea) {
+    const placeholders = [
+        "Tell me about your project...",
+        "Share your feedback on my tools...",
+        "Suggest a new feature idea...",
+        "Just say hello from the sea! 🌊"
+    ];
+    let placeholderIndex = 0;
+    let placeholderChar = 0;
+    let isDeleting = false;
+    function typePlaceholder() {
+        if (!messageArea) return;
+        if (document.activeElement === messageArea || messageArea.value) {
+            setTimeout(typePlaceholder, 1000);
+            return;
+        }
+        const current = placeholders[placeholderIndex];
+        if (isDeleting) {
+            messageArea.setAttribute('placeholder', current.substring(0, placeholderChar - 1));
+            placeholderChar--;
+        } else {
+            messageArea.setAttribute('placeholder', current.substring(0, placeholderChar + 1));
+            placeholderChar++;
+        }
+        if (!isDeleting && placeholderChar === current.length) {
+            isDeleting = true;
+            setTimeout(typePlaceholder, 2000);
+        } else if (isDeleting && placeholderChar === 0) {
+            isDeleting = false;
+            placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+            setTimeout(typePlaceholder, 500);
+        } else {
+            setTimeout(typePlaceholder, isDeleting ? 30 : 80);
+        }
     }
-    if (!isDeleting && placeholderChar === current.length) {
-        isDeleting = true;
-        setTimeout(typePlaceholder, 2000);
-    } else if (isDeleting && placeholderChar === 0) {
-        isDeleting = false;
-        placeholderIndex = (placeholderIndex + 1) % placeholders.length;
-        setTimeout(typePlaceholder, 500);
-    } else {
-        setTimeout(typePlaceholder, isDeleting ? 30 : 80);
-    }
+    setTimeout(typePlaceholder, 2000);
 }
-setTimeout(typePlaceholder, 2000);
 
 // ========== FORM HANDLING ==========
 function handleSubmit(e) {
@@ -678,285 +657,11 @@ function handleSubmit(e) {
 // ========== TOAST ==========
 function showToast(message) {
     const toast = document.getElementById('toast');
+    if (!toast) return;
     toast.textContent = message;
     toast.classList.add('show');
     setTimeout(() => { toast.classList.remove('show'); }, 3000);
 }
-
-// ========== PROJECTS DATA & RENDERING ==========
-const projects = [
-  {
-    id: 'helm-almanac',
-    name: 'Helm Almanac',
-    gradient: 'linear-gradient(135deg, #2563eb, #06b6d4)',
-    tags: [
-      { label: 'Web', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
-      { label: 'App', color: 'rgba(6,182,212,0.12)', text: '#22d3ee' },
-      { label: 'Nautical', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
-    ],
-    desc: 'A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and navigational reference data.',
-    categories: ['web', 'maritime'],
-    live: true,
-    url: 'https://helm-almanac.vercel.app',
-    repo: 'alpha-mini/Helm-Almanac',
-    lastCommit: 'chore: update navigation data for Q3 2026',
-    lastCommitDate: '26/07/2026',
-    tech: ['React', 'Next.js', 'Tailwind']
-  },
-  {
-    id: 'helm-productivity',
-    name: 'Helm Productivity',
-    gradient: 'linear-gradient(135deg, #059669, #0d9488, #06b6d4)',
-    tags: [
-      { label: 'Tools', color: 'rgba(5,150,105,0.12)', text: '#34d399' },
-      { label: 'Productivity', color: 'rgba(13,148,136,0.12)', text: '#2dd4bf' },
-      { label: 'React', color: 'rgba(6,182,212,0.12)', text: '#22d3ee' }
-    ],
-    desc: 'A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and routines effectively.',
-    categories: ['tools'],
-    live: true,
-    url: 'https://helmproductivity.vercel.app',
-    repo: 'alpha-mini/The-Helm---Productivity-app',
-    lastCommit: 'feat(admin): implement feedback dashboard',
-    lastCommitDate: '24/07/2026',
-    tech: ['React', 'TypeScript', 'Vercel']
-  },
-  {
-    id: 'helm-bond',
-    name: 'Helm Bond',
-    gradient: 'linear-gradient(135deg, #ea580c, #f59e0b, #fbbf24)',
-    tags: [
-      { label: 'Web', color: 'rgba(234,88,12,0.12)', text: '#fb923c' },
-      { label: 'Networking', color: 'rgba(245,158,11,0.12)', text: '#fbbf24' },
-      { label: 'Community', color: 'rgba(251,191,36,0.12)', text: '#fcd34d' }
-    ],
-    desc: 'A specialized networking platform connecting maritime professionals, shipping agencies, and maritime officers worldwide.',
-    categories: ['web', 'maritime'],
-    live: false,
-    url: null,
-    repo: 'alpha-mini/Helm-Bond',
-    lastCommit: 'feat: add real-time messaging via WebSocket',
-    lastCommitDate: '20/07/2026',
-    tech: ['Next.js', 'Socket.io', 'PostgreSQL']
-  },
-  {
-    id: 'helm-fasting',
-    name: 'Helm Fasting',
-    gradient: 'linear-gradient(135deg, #7c3aed, #c026d3, #ec4899)',
-    tags: [
-      { label: 'Tools', color: 'rgba(124,58,237,0.12)', text: '#a78bfa' },
-      { label: 'Health', color: 'rgba(192,38,211,0.12)', text: '#e879f9' },
-      { label: 'PWA', color: 'rgba(236,72,153,0.12)', text: '#f472b6' }
-    ],
-    desc: 'A dedicated health and intermittent fasting companion designed to maintain fitness goals during long ocean voyages.',
-    categories: ['tools'],
-    live: true,
-    url: 'https://helmfasting.vercel.app',
-    repo: 'alpha-mini/The-Helm-Fasting',
-    lastCommit: 'Add Vercel Web Analytics to project',
-    lastCommitDate: '18/07/2026',
-    tech: ['React', 'PWA', 'Chart.js']
-  },
-  {
-    id: 'mudhra-converter',
-    name: 'Mudhra Converter',
-    gradient: 'linear-gradient(135deg, #10b981, #059669, #0d9488)',
-    tags: [
-      { label: 'Web', color: 'rgba(16,185,129,0.12)', text: '#34d399' },
-      { label: 'Tools', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
-      { label: 'Converter', color: 'rgba(245,158,11,0.12)', text: '#fbbf24' }
-    ],
-    desc: 'A fast currency and unit conversion application designed for intuitive everyday transactions.',
-    categories: ['web', 'tools'],
-    live: true,
-    url: 'https://mudhra-converter.vercel.app',
-    repo: 'alpha-mini/mudhra-converter',
-    lastCommit: 'feat: release mudhra converter v1.0',
-    lastCommitDate: '26/07/2026',
-    tech: ['React', 'TypeScript', 'Tailwind']
-  }
-];
-
-const grid = document.getElementById('projectsGrid');
-const emptyState = document.getElementById('emptyState');
-const searchInput = document.getElementById('searchInput');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const viewBtns = document.querySelectorAll('.view-btn');
-const modalOverlay = document.getElementById('modalOverlay');
-const modalClose = document.getElementById('modalClose');
-const modalTitle = document.getElementById('modalTitle');
-const modalBody = document.getElementById('modalBody');
-
-let currentFilter = 'all';
-let currentSearch = '';
-let currentView = 'grid';
-
-function renderProjects() {
-  if (!grid) return;
-  grid.innerHTML = '';
-  let visibleCount = 0;
-
-  projects.forEach((p, i) => {
-    const matchesFilter = currentFilter === 'all' || p.categories.includes(currentFilter);
-    const matchesSearch = p.name.toLowerCase().includes(currentSearch) ||
-                          p.desc.toLowerCase().includes(currentSearch) ||
-                          p.tags.some(t => t.label.toLowerCase().includes(currentSearch));
-
-    if (!matchesFilter || !matchesSearch) return;
-    visibleCount++;
-
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    card.style.animationDelay = `${i * 0.05}s`;
-    card.dataset.id = p.id;
-
-    const tagsHtml = p.tags.map(t =>
-      `<span class="tag" style="background:${t.color};color:${t.text}">${t.label}</span>`
-    ).join('');
-
-    const liveActions = p.live
-      ? `<a href="${p.url}" target="_blank" rel="noreferrer" class="action-btn primary" onclick="event.stopPropagation()">
-           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-           Open App
-         </a>`
-      : `<span class="meta-item"><span class="status-dot offline"></span>Offline</span>`;
-
-    card.innerHTML = `
-      <div class="card-header" style="background: ${p.gradient}">
-        <h3>${p.name}</h3>
-        <div class="external-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="tags">${tagsHtml}</div>
-        <div class="card-title">${p.name}</div>
-        <div class="card-desc">${p.desc}</div>
-        <div class="card-footer">
-          <div class="card-meta">
-            <div class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              ${p.repo.split('/')[1]}
-            </div>
-            <div class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              ${p.lastCommitDate}
-            </div>
-          </div>
-          <div class="card-actions">
-            ${liveActions}
-            <button class="action-btn" onclick="event.stopPropagation(); openProjectModal('${p.id}')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              Details
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    card.addEventListener('click', () => openProjectModal(p.id));
-    grid.appendChild(card);
-  });
-
-  if (emptyState) {
-    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-  }
-}
-
-function openProjectModal(projectId) {
-  const p = projects.find(x => x.id === projectId);
-  if (!p) return;
-
-  if (modalTitle) modalTitle.textContent = p.name;
-
-  const techStack = p.tech.map(t => `<span class="tag" style="background:rgba(255,255,255,0.06);color:var(--text-secondary);margin-right:6px;margin-bottom:6px;">${t}</span>`).join('');
-
-  if (modalBody) {
-    modalBody.innerHTML = `
-      <div class="modal-section">
-        <div class="modal-label">Description</div>
-        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">${p.desc}</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-label">Tech Stack</div>
-        <div style="display:flex;flex-wrap:wrap;">${techStack}</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-label">Links</div>
-        ${p.live ? `<a href="${p.url}" target="_blank" rel="noreferrer" class="modal-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          ${p.url}
-        </a>` : ''}
-        <a href="https://github.com/${p.repo}" target="_blank" rel="noreferrer" class="modal-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          github.com/${p.repo}
-        </a>
-      </div>
-      <div class="modal-section">
-        <div class="modal-label">Recent Commits</div>
-        <div class="commit-row">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);flex-shrink:0;"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
-          <span class="commit-msg">${p.lastCommit}</span>
-          <span class="commit-date">${p.lastCommitDate}</span>
-        </div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-label">Deployment Status</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);">
-          <span class="status-dot ${p.live ? '' : 'offline'}"></span>
-          <span style="font-size:0.9rem;color:var(--text-secondary);">${p.live ? 'Live on Vercel' : 'Not deployed yet'}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  if (modalOverlay) modalOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeProjectModal() {
-  if (modalOverlay) modalOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-if (modalOverlay) {
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeProjectModal();
-  });
-}
-if (modalClose) {
-  modalClose.addEventListener('click', closeProjectModal);
-}
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeProjectModal();
-});
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    renderProjects();
-  });
-});
-
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    currentSearch = e.target.value.toLowerCase().trim();
-    renderProjects();
-  });
-}
-
-viewBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    viewBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentView = btn.dataset.view;
-    if (grid) grid.classList.toggle('list-view', currentView === 'list');
-  });
-});
-
-renderProjects();
 </script>
 <script type="module" src="/src/main.tsx"></script>
 </body>
