@@ -108,107 +108,22 @@ const PROJECTS: Project[] = [
     tech: ['React', 'PWA', 'Chart.js']
   },
   {
-    id: 'ai-studio',
-    name: 'AI Studio App',
-    gradient: 'linear-gradient(135deg, #4f46e5, #2563eb, #7c3aed)',
+    id: 'mudhra-converter',
+    name: 'Mudhra Converter',
+    gradient: 'linear-gradient(135deg, #10b981, #059669, #0d9488)',
     tags: [
-      { label: 'AI', color: 'rgba(79,70,229,0.12)', text: '#818cf8' },
-      { label: 'Web App', color: 'rgba(37,99,235,0.12)', text: '#60a5fa' },
-      { label: 'Python', color: 'rgba(124,58,237,0.12)', text: '#a78bfa' }
+      { label: 'Web', color: 'rgba(16,185,129,0.12)', text: '#34d399' },
+      { label: 'Tools', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
+      { label: 'Converter', color: 'rgba(245,158,11,0.12)', text: '#fbbf24' }
     ],
-    desc: 'An AI-powered application built to streamline maritime workflows and boost productivity using intelligent automation and LLMs.',
-    categories: ['ai', 'web'],
+    desc: 'A fast currency and unit conversion application designed for intuitive everyday transactions.',
+    categories: ['web', 'tools'],
     live: true,
-    url: 'https://ai-studio-app.vercel.app',
-    repo: 'alpha-mini/AI-Studio-App',
-    lastCommit: 'feat: integrate OpenAI GPT-4o for log analysis',
-    lastCommitDate: '22/07/2026',
-    tech: ['Python', 'FastAPI', 'React', 'OpenAI']
-  },
-  {
-    id: 'maritime-calc',
-    name: 'Maritime Calculator',
-    gradient: 'linear-gradient(135deg, #0891b2, #0d9488, #10b981)',
-    tags: [
-      { label: 'Tool', color: 'rgba(8,145,178,0.12)', text: '#22d3ee' },
-      { label: 'Utility', color: 'rgba(13,148,136,0.12)', text: '#2dd4bf' },
-      { label: 'Maritime', color: 'rgba(16,185,129,0.12)', text: '#34d399' }
-    ],
-    desc: 'Essential calculations and unit conversions for seafarers — from cargo stability planning to passage navigation formulas.',
-    categories: ['tools', 'maritime'],
-    live: false,
-    repo: 'alpha-mini/Maritime-Calculator',
-    lastCommit: 'fix: correct GM calculation formula',
-    lastCommitDate: '15/07/2026',
-    tech: ['JavaScript', 'Math.js', 'PWA']
-  },
-  {
-    id: 'ship-log-parser',
-    name: 'Ship Log Parser',
-    gradient: 'linear-gradient(135deg, #dc2626, #ea580c, #f59e0b)',
-    tags: [
-      { label: 'Automation', color: 'rgba(220,38,38,0.12)', text: '#f87171' },
-      { label: 'Python', color: 'rgba(234,88,12,0.12)', text: '#fb923c' },
-      { label: 'Data', color: 'rgba(245,158,11,0.12)', text: '#fbbf24' }
-    ],
-    desc: 'Automated parsing and analysis of raw ship log files for compliance reporting, engine performance insights, and audit trails.',
-    categories: ['tools'],
-    live: false,
-    repo: 'alpha-mini/Ship-Log-Parser',
-    lastCommit: 'feat: add CSV export for audit reports',
-    lastCommitDate: '12/07/2026',
-    tech: ['Python', 'Pandas', 'Regex']
-  },
-  {
-    id: 'crew-manager',
-    name: 'Crew Manager',
-    gradient: 'linear-gradient(135deg, #db2777, #e11d48, #f43f5e)',
-    tags: [
-      { label: 'Web', color: 'rgba(219,39,119,0.12)', text: '#f472b6' },
-      { label: 'Dashboard', color: 'rgba(225,29,72,0.12)', text: '#fb7185' },
-      { label: 'React', color: 'rgba(244,63,94,0.12)', text: '#fda4af' }
-    ],
-    desc: 'Lightweight crew management dashboard for tracking vessel sign-ons, STCW certification expiry, and sea time logs.',
-    categories: ['web'],
-    live: false,
-    repo: 'alpha-mini/Crew-Manager',
-    lastCommit: 'feat: add certificate expiry alerts',
-    lastCommitDate: '10/07/2026',
-    tech: ['React', 'Recharts', 'LocalStorage']
-  },
-  {
-    id: 'port-info-api',
-    name: 'Port Info API',
-    gradient: 'linear-gradient(135deg, #0284c7, #3b82f6, #6366f1)',
-    tags: [
-      { label: 'API', color: 'rgba(2,132,199,0.12)', text: '#38bdf8' },
-      { label: 'Data', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
-      { label: 'Maritime', color: 'rgba(99,102,241,0.12)', text: '#818cf8' }
-    ],
-    desc: 'Real-time port information and berth availability REST API for logistics planning, covering 500+ ports worldwide with live updates.',
-    categories: ['tools', 'maritime'],
-    live: false,
-    repo: 'alpha-mini/Port-Info-API',
-    lastCommit: 'feat: add rate limiting and caching',
-    lastCommitDate: '08/07/2026',
-    tech: ['Node.js', 'Express', 'Redis', 'MongoDB']
-  },
-  {
-    id: 'sea-weather',
-    name: 'Sea Weather',
-    gradient: 'linear-gradient(135deg, #16a34a, #10b981, #14b8a6)',
-    tags: [
-      { label: 'Mobile', color: 'rgba(22,163,74,0.12)', text: '#4ade80' },
-      { label: 'React Native', color: 'rgba(16,185,129,0.12)', text: '#34d399' },
-      { label: 'Weather', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
-    ],
-    desc: 'Marine weather forecasts and route risk analytics optimized for vessel-specific stability limits and ocean safety.',
-    categories: ['tools', 'maritime'],
-    live: false,
-    repo: 'alpha-mini/Sea-Weather',
-    lastCommit: 'feat: integrate NOAA marine weather API',
-    lastCommitDate: '05/07/2026',
-    tech: ['React Native', 'Expo', 'WeatherAPI']
+    url: 'https://mudhra-converter.vercel.app',
+    repo: 'alpha-mini/mudhra-converter',
+    lastCommit: 'feat: release mudhra converter v1.0',
+    lastCommitDate: '26/07/2026',
+    tech: ['React', 'TypeScript', 'Tailwind']
   }
 ];
 

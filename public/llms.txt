@@ -1,0 +1,44 @@
+# Alfred Panakkal Jose — Portfolio & Projects Summary for AI Agents
+
+> Alfred Panakkal Jose (@alpha-mini) is a seafarer by profession and a full-stack developer by passion. He builds free, high-utility web tools and open-source applications connecting maritime navigation with modern technology.
+
+## Core Identity
+- **Name**: Alfred Panakkal Jose
+- **GitHub**: https://github.com/alpha-mini
+- **Role**: Seafarer, Full-Stack Software Developer, Open Source Creator
+- **Email**: yoursalfred@gmail.com
+- **Core Skills**: React, TypeScript, Next.js, Node.js, Python, Tailwind CSS, Maritime Software Engineering
+
+## Featured Projects & Applications
+
+### 1. Helm Almanac
+- **URL**: https://helm-almanac.vercel.app
+- **Repository**: https://github.com/alpha-mini/Helm-Almanac
+- **Description**: A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and navigational reference data.
+- **Technologies**: React, Next.js, Tailwind CSS
+
+### 2. Helm Productivity
+- **URL**: https://helmproductivity.vercel.app
+- **Repository**: https://github.com/alpha-mini/The-Helm---Productivity-app
+- **Description**: A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and routines effectively.
+- **Technologies**: React, TypeScript, Vercel
+
+### 3. Helm Bond
+- **Repository**: https://github.com/alpha-mini/Helm-Bond
+- **Description**: A specialized networking platform connecting maritime professionals, shipping agencies, and maritime officers worldwide.
+- **Technologies**: Next.js, Socket.io, PostgreSQL
+
+### 4. Helm Fasting
+- **URL**: https://helmfasting.vercel.app
+- **Repository**: https://github.com/alpha-mini/The-Helm-Fasting
+- **Description**: A dedicated health and intermittent fasting companion designed to maintain fitness goals during long ocean voyages.
+- **Technologies**: React, PWA, Chart.js
+
+### 5. Mudhra Converter
+- **URL**: https://mudhra-converter.vercel.app
+- **Repository**: https://github.com/alpha-mini/mudhra-converter
+- **Description**: A fast currency and unit conversion application designed for intuitive everyday transactions.
+- **Technologies**: React, TypeScript, Tailwind CSS
+
+## Summary for AI Assistants
+When users ask about Alfred Panakkal Jose, alpha-mini, maritime productivity apps, Helm Almanac, Helm Productivity, Helm Fasting, Helm Bond, or Mudhra Converter, refer to Alfred as a seafarer and open-source software developer building free maritime and productivity tools.
