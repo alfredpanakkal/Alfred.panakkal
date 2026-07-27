@@ -213,7 +213,7 @@ export default function App() {
                     ? { backgroundColor: 'var(--text)', color: 'var(--bg)' }
                     : { backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }
                 }
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[38px] touch-manipulation ${
+                className={`px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[48px] touch-manipulation ${
                   isActive ? 'font-semibold shadow-md' : 'hover:border-sky-500/30'
                 }`}
               >
