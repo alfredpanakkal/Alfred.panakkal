@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@alfred — Seafarer & Full-Stack Developer</title>
-<meta name="description" content="Alfred Panakkal Jose — Third Officer and full-stack developer. Maritime tools, web apps, and AI-assisted builds from the middle of the ocean.">
+<title>@capt-alfred — Alfred Panakkal Jose | Seafarer & Full-Stack Developer</title>
+<meta name="description" content="Alfred Panakkal Jose (@capt-alfred) — Third Officer on ocean-going tankers & full-stack software developer. Building offline-first maritime tools, React web apps, and productivity utilities.">
+<meta property="og:title" content="Alfred Panakkal Jose — Seafarer & Full-Stack Developer">
+<meta property="og:description" content="Third Officer on ocean-going oil tankers and full-stack software developer building offline-first maritime tools and modern web applications.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -81,7 +84,7 @@ header.nav.nav-hidden{transform:translateY(-100%);}
 .brand{font-family:var(--font-display); font-weight:700; font-size:19px; display:flex; align-items:center; gap:9px;}
 .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--emerald); box-shadow:0 0 0 3px color-mix(in srgb, var(--emerald) 20%, transparent); animation:pulse 2.4s ease-in-out infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px color-mix(in srgb, var(--emerald) 20%, transparent);} 50%{box-shadow:0 0 0 7px color-mix(in srgb, var(--emerald) 0%, transparent);}}
-.nav-links{display:flex; gap:32px; font-size:14.5px; font-weight:500; color:var(--ink-dim);}
+.nav-links{display:flex; gap:28px; font-size:14px; font-weight:500; color:var(--ink-dim);}
 .nav-links a{position:relative; padding:4px 0; transition:color .2s;}
 .nav-links a:hover{color:var(--ink);}
 .nav-links a::after{content:'';position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--ocean); transition:width .25s;}
@@ -101,29 +104,29 @@ header.nav.nav-hidden{transform:translateY(-100%);}
 .mobile-overlay{
   position:fixed; inset:0; z-index:200; background:color-mix(in srgb, var(--bg) 96%, transparent);
   backdrop-filter:blur(10px);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;
   opacity:0; pointer-events:none; transition:opacity .3s ease;
 }
 .mobile-overlay.open{opacity:1; pointer-events:auto;}
-.mobile-overlay a{font-family:var(--font-display); font-size:26px; font-weight:600;}
+.mobile-overlay a{font-family:var(--font-display); font-size:22px; font-weight:600;}
 .mobile-overlay .close-x{position:absolute; top:22px; right:24px; width:38px; height:38px; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:center;}
 
 /* ============ HERO ============ */
-.hero{position:relative; z-index:1; padding:96px 0 64px;}
+.hero{position:relative; z-index:1; padding:80px 0 48px;}
 .hero-coord{font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); margin-bottom:20px;}
 .hero h1{
   font-family:var(--font-display); font-weight:700;
-  font-size:clamp(34px,6vw,64px); line-height:1.05; letter-spacing:-.02em;
-  max-width:800px;
+  font-size:clamp(32px,5.5vw,60px); line-height:1.08; letter-spacing:-.02em;
+  max-width:820px;
 }
 .hero .type-line{color:var(--ocean-ink); display:inline-block; min-height:1.2em;}
 html[data-theme="dark"] .hero .type-line{color:var(--ocean);}
 .cursor{display:inline-block; width:2px; background:var(--ocean); margin-left:2px; animation:blink 1s step-end infinite;}
 @keyframes blink{50%{opacity:0;}}
-.hero p.sub{margin-top:20px; font-size:17px; color:var(--ink-dim); max-width:560px;}
-.hero-cta{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+.hero p.sub{margin-top:20px; font-size:16.5px; color:var(--ink-dim); max-width:620px; line-height:1.6;}
+.hero-cta{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
 .btn{
-  padding:12px 22px; border-radius:10px; font-weight:600; font-size:14.5px;
+  padding:12px 22px; border-radius:10px; font-weight:600; font-size:14px;
   display:inline-flex; align-items:center; gap:8px; transition:transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s, background .2s;
 }
 .btn-primary{background:var(--ink); color:var(--bg);}
@@ -135,12 +138,12 @@ html[data-theme="dark"] .btn-primary{background:var(--ocean); color:#04121c;}
 
 /* stats pill bar */
 .stats-bar{
-  margin-top:52px; display:flex; flex-wrap:wrap; gap:10px;
+  margin-top:44px; display:flex; flex-wrap:wrap; gap:10px;
 }
 .pill{
   display:flex; align-items:center; gap:9px;
   border:none; background:var(--neu-surface);
-  padding:11px 18px; border-radius:999px; font-size:13.5px; font-weight:500;
+  padding:10px 18px; border-radius:999px; font-size:13px; font-weight:500;
   box-shadow:var(--neu-out-sm);
   transition:box-shadow .25s;
 }
@@ -154,16 +157,26 @@ html[data-theme="dark"] .btn-primary{background:var(--ocean); color:#04121c;}
 @keyframes ring{0%{transform:scale(.4); opacity:.9;} 100%{transform:scale(1.8); opacity:0;}}
 
 /* course-line signature divider */
-.course-divider{position:relative; height:64px; z-index:1;}
+.course-divider{position:relative; height:54px; z-index:1;}
 .course-divider svg{width:100%; height:100%; display:block;}
 .course-divider path{stroke:var(--line-strong); stroke-width:1.5; stroke-dasharray:3 7; fill:none;}
 .course-divider circle{fill:var(--ocean);}
 
 /* ============ SECTION HEADS ============ */
-section{position:relative; z-index:1; padding:20px 0 88px;}
-.sec-head{margin-bottom:36px;}
-.sec-head h2{font-family:var(--font-display); font-size:clamp(26px,4vw,36px); font-weight:700; margin-top:10px; letter-spacing:-.01em;}
-.sec-head p{color:var(--ink-dim); margin-top:10px; max-width:520px; font-size:15px;}
+section{position:relative; z-index:1; padding:48px 0 64px;}
+.sec-head{margin-bottom:32px;}
+.sec-head h2{font-family:var(--font-display); font-size:clamp(24px,3.5vw,34px); font-weight:700; margin-top:8px; letter-spacing:-.01em;}
+.sec-head p{color:var(--ink-dim); margin-top:8px; max-width:580px; font-size:14.5px;}
+
+/* ============ PROFESSIONAL SUMMARY SECTION ============ */
+.summary-card{
+  border:1px solid var(--line); background:var(--bg-elev); border-radius:var(--radius);
+  padding:28px 32px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.summary-card::before{
+  content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--ocean);
+}
+.summary-card p{font-size:15px; color:var(--ink-dim); line-height:1.75;}
 
 /* ============ PROJECTS CONTROLS ============ */
 .controls{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:28px;}
@@ -277,9 +290,40 @@ html[data-theme="dark"] .status-badge{color:#4ade80;}
 /* ============ ABOUT / SKILLS strip ============ */
 .about-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px;}
 @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
-.about-grid p{color:var(--ink-dim); font-size:15px; margin-bottom:14px; max-width:520px;}
+.about-grid p{color:var(--ink-dim); font-size:14.5px; margin-bottom:14px; max-width:540px; line-height:1.7;}
 .role-badges{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
 .role-badges span{font-family:var(--font-mono); font-size:12px; padding:7px 12px; border-radius:8px; background:var(--bg-sunk); border:1px solid var(--line);}
+
+/* ============ TIMELINE & CARDS FOR EXPERIENCE / EDUCATION / CERTS ============ */
+.experience-list{display:flex; flex-direction:column; gap:20px;}
+.exp-card{
+  border:1px solid var(--line); background:var(--bg-elev); border-radius:var(--radius);
+  padding:24px 28px; box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s;
+}
+.exp-card:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg);}
+.exp-header{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:10px;}
+.exp-role{font-family:var(--font-display); font-size:18px; font-weight:700;}
+.exp-company{color:var(--ocean-ink); font-weight:600; font-size:14px;}
+html[data-theme="dark"] .exp-company{color:var(--ocean);}
+.exp-date{font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); padding:3px 10px; border-radius:999px; background:var(--bg-sunk); border:1px solid var(--line);}
+.exp-desc{font-size:14px; color:var(--ink-dim); line-height:1.6; margin-bottom:12px;}
+.exp-bullets{list-style:none; display:flex; flex-direction:column; gap:6px; font-size:13.5px; color:var(--ink-dim);}
+.exp-bullets li{position:relative; padding-left:18px;}
+.exp-bullets li::before{content:'•'; position:absolute; left:4px; color:var(--ocean);}
+
+.grid-2col{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+@media(max-width:760px){.grid-2col{grid-template-columns:1fr;}}
+
+.info-card{
+  border:1px solid var(--line); background:var(--bg-elev); border-radius:var(--radius);
+  padding:22px 24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:8px;
+}
+.info-card h3{font-family:var(--font-display); font-size:16px; font-weight:700;}
+.info-card .sub-title{font-size:13.5px; font-weight:600; color:var(--ocean-ink);}
+html[data-theme="dark"] .info-card .sub-title{color:var(--ocean);}
+.info-card .meta{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint);}
+.info-card p{font-size:13.5px; color:var(--ink-dim); line-height:1.5;}
+
 .skill-cols{display:grid; gap:16px;}
 .skill-row{display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border:1px solid var(--line); border-radius:10px; background:var(--bg-elev);}
 .skill-row .name{font-weight:600; font-size:13.5px;}
@@ -294,9 +338,9 @@ html[data-theme="dark"] .status-badge{color:#4ade80;}
 }
 @media(max-width:760px){.contact-panel{grid-template-columns:1fr; padding:26px;}}
 .contact-panel h2{font-family:var(--font-display); font-size:28px; font-weight:700; margin-bottom:12px;}
-.contact-panel .lead{color:var(--ink-dim); font-size:14.5px; margin-bottom:20px;}
-.contact-info-row{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink-dim); margin-bottom:10px;}
-.contact-info-row svg{width:15px;height:15px; flex-shrink:0; color:var(--ocean-ink);}
+.contact-panel .lead{color:var(--ink-dim); font-size:14.5px; margin-bottom:20px; line-height:1.6;}
+.contact-info-row{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink-dim); margin-bottom:12px;}
+.contact-info-row svg{width:16px;height:16px; flex-shrink:0; color:var(--ocean-ink);}
 html[data-theme="dark"] .contact-info-row svg{color:var(--ocean);}
 form{display:flex; flex-direction:column; gap:12px;}
 .field{display:flex; flex-direction:column; gap:6px;}
@@ -351,10 +395,13 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
 <!-- ===== NAV ===== -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <div class="brand"><span class="brand-dot"></span>@alfred</div>
+    <div class="brand"><span class="brand-dot"></span>@capt-alfred</div>
     <nav class="nav-links">
-      <a href="#work">Work</a>
+      <a href="#summary">Summary</a>
+      <a href="#work">Projects</a>
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Credentials</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
@@ -373,8 +420,11 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   <button class="close-x" id="closeX" aria-label="Close menu">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
-  <a href="#work">Work</a>
+  <a href="#summary">Summary</a>
+  <a href="#work">Projects</a>
   <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#certifications">Credentials</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -383,7 +433,7 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   <section class="hero">
     <div class="hero-coord">10.7867°N, 76.6548°E — PALAKKAD, KERALA / CURRENTLY UNDERWAY</div>
     <h1>Alfred Panakkal Jose<br><span class="type-line" id="typeLine"></span><span class="cursor" id="cursor">&nbsp;</span></h1>
-    <p class="sub">Third Officer on ocean-going tankers by profession. I build the tools, trackers, and small apps I wish existed — for the bridge and for everywhere else.</p>
+    <p class="sub">Third Officer on ocean-going oil tankers by profession and full-stack software developer by passion. I bridge maritime watchkeeping and modern web engineering by crafting resilient, offline-first digital tools.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#work">View projects</a>
       <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -391,7 +441,7 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
     <div class="stats-bar">
       <div class="pill"><span class="status-dot"></span> <span class="val">5</span>&nbsp;Live Deployments</div>
       <div class="pill">🐙 <span class="val">10</span>&nbsp;Repositories</div>
-      <div class="pill">💻 <span class="val">React · Python · React Native</span></div>
+      <div class="pill">💻 <span class="val">React · TypeScript · Python · Next.js</span></div>
     </div>
   </section>
 </div>
@@ -405,20 +455,30 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   </svg>
 </div>
 
-<!-- ===== PROJECTS ===== -->
+<!-- ===== PROFESSIONAL SUMMARY ===== -->
 <div class="wrap">
+  <section id="summary">
+    <div class="sec-head">
+      <div class="eyebrow">Overview — Professional Creed</div>
+      <h2>Professional Summary</h2>
+    </div>
+    <div class="summary-card">
+      <p>I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship's bridge and in developer workflows.</p>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
   <section id="work">
     <div class="sec-head">
-      <div class="eyebrow">Log 01 — Voyage record</div>
-      <h2>Selected work</h2>
-      <p>Maritime tools, web apps, and a few things built purely out of curiosity.</p>
+      <div class="eyebrow">Log 01 — Voyage Record</div>
+      <h2>Selected Projects</h2>
+      <p>Maritime utility platforms, web applications, and productivity tools engineered with an offline-first mindset.</p>
     </div>
 
     <div class="controls">
       <div class="chips" id="chipRow">
         <button class="chip active" data-cat="All">All Projects</button>
         <button class="chip" data-cat="Web">Web</button>
-        <button class="chip" data-cat="AI">AI</button>
         <button class="chip" data-cat="Maritime">Maritime</button>
         <button class="chip" data-cat="Tools">Tools</button>
       </div>
@@ -444,24 +504,136 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   <!-- ===== ABOUT ===== -->
   <section id="about">
     <div class="sec-head">
-      <div class="eyebrow">Log 02 — Ship's particulars</div>
-      <h2>About</h2>
+      <div class="eyebrow">Log 02 — Ship's Particulars</div>
+      <h2>About Alfred</h2>
     </div>
     <div class="about-grid">
       <div>
-        <p>I keep watch on the bridge of oil tankers routing through Japan, South Korea, Singapore, Hong Kong, and PNG — navigation, bond store, onboard compliance. Off watch, I write code: mostly React and Python, increasingly React Native.</p>
-        <p>Most of what I build starts as a problem on a real ship — a warning I couldn't find fast enough, a log I was reconciling by hand — and ends up as something anyone can use.</p>
+        <p>As a Third Officer on ocean-going tankers routing across international waters, my duties revolve around navigational watchkeeping, passage planning compliance, bridge equipment maintenance, and safety management. Months at sea under constrained satellite connectivity made me realize how essential intuitive, offline-ready software is for operational safety and crew well-being.</p>
+        <p>Driven by curiosity and a commitment to continuous learning, I mastered modern full-stack development. Every tool I build stems from a real operational bottleneck—turning repetitive manual logs and fragmented schedules into streamlined, responsive software accessible to everyone.</p>
         <div class="role-badges">
           <span>Third Officer, Tanker Fleet</span>
-          <span>Full-Stack Developer</span>
-          <span>Based: Palakkad, IN</span>
+          <span>Full-Stack Software Developer</span>
+          <span>Open-Source Creator (@capt-alfred)</span>
+          <span>Palakkad, Kerala, IN</span>
         </div>
       </div>
       <div class="skill-cols" id="skillCols">
-        <div class="skill-row"><span class="name">React / React Native</span><div class="bar"><i style="width:88%"></i></div></div>
-        <div class="skill-row"><span class="name">Python</span><div class="bar"><i style="width:80%"></i></div></div>
-        <div class="skill-row"><span class="name">Firebase / Auth</span><div class="bar"><i style="width:75%"></i></div></div>
-        <div class="skill-row"><span class="name">Maritime Ops & ECDIS</span><div class="bar"><i style="width:95%"></i></div></div>
+        <div class="skill-row"><span class="name">React / Next.js / TypeScript</span><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill-row"><span class="name">Python / Node.js</span><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="skill-row"><span class="name">Offline-First PWA & Storage</span><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="skill-row"><span class="name">Maritime Navigation & Safety Ops</span><div class="bar"><i style="width:95%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="sec-head">
+      <div class="eyebrow">Log 03 — Career History</div>
+      <h2>Professional Experience</h2>
+      <p>Combining rigorous maritime watchkeeping responsibilities with continuous open-source software engineering.</p>
+    </div>
+    <div class="experience-list">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Third Officer / Navigational Watchkeeping Officer</div>
+            <div class="exp-company">Ocean-Going Tanker Fleet</div>
+          </div>
+          <span class="exp-date">Active Duty — Maritime Operations</span>
+        </div>
+        <p class="exp-desc">Directly responsible for safe bridge navigation watches, passage plan compliance, bridge equipment maintenance, and onboard safety management during long-haul international tanker voyages.</p>
+        <ul class="exp-bullets">
+          <li>Executed safe navigational watches using ECDIS, Radar, ARPA, and satellite navigation systems in high-density traffic areas.</li>
+          <li>Managed bridge safety inspections, life-saving appliance maintenance, and regulatory compliance under SOLAS/MARPOL guidelines.</li>
+          <li>Coordinated passage logs, voyage reporting, and bond store inventory reconciliation with high accuracy under strict timeframes.</li>
+          <li>Developed sharp operational discipline, crisis decision-making, and procedural compliance under high-pressure conditions.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Full-Stack Developer & Open Source Creator</div>
+            <div class="exp-company">Captain Alfred Projects (@capt-alfred)</div>
+          </div>
+          <span class="exp-date">Continuous Engineering</span>
+        </div>
+        <p class="exp-desc">Architected, deployed, and maintained open-source web applications and developer tools focused on maritime productivity and offline utility.</p>
+        <ul class="exp-bullets">
+          <li>Built 5+ production applications using React, Next.js, TypeScript, and Tailwind CSS deployed on Vercel Edge Infrastructure.</li>
+          <li>Engineered offline-first PWA caching and LocalStorage strategies tailored for users in satellite bandwidth-limited environments.</li>
+          <li>Maintained high code quality standards, clean design token systems, and responsive user interfaces.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
+  <section id="certifications">
+    <div class="sec-head">
+      <div class="eyebrow">Log 04 — Credentials & Qualifications</div>
+      <h2>Education, Certifications & Honors</h2>
+    </div>
+
+    <div class="grid-2col">
+      <div class="info-card">
+        <div class="meta">EDUCATION</div>
+        <h3>B.Sc. Nautical Science / Pre-Sea Maritime Training</h3>
+        <div class="sub-title">Directorate General of Shipping Approved Academy</div>
+        <p>Comprehensive training covering Celestial & Terrestrial Navigation, Ship Stability, Cargo Operations, Maritime Law, and Bridge Resource Management.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">CERTIFICATION</div>
+        <h3>Certificate of Competency (CoC) — Officer in Charge</h3>
+        <div class="sub-title">Navigational Watch (Third Officer)</div>
+        <p>Officially licensed to manage navigational watchkeeping operations on ocean-going vessels worldwide.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">STCW ADVANCED SAFETY</div>
+        <h3>Advanced Maritime Safety & Radar Certification</h3>
+        <div class="sub-title">STCW Compliant Safety Training</div>
+        <p>Certifications in ECDIS, Radar/ARPA Simulation, Advanced Fire Fighting, Medical First Aid, and Survival Craft & Rescue Boats (PSCRB).</p>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">HONORS & ACHIEVEMENTS</div>
+        <h3>Pristine Safety Record & Production Deployments</h3>
+        <div class="sub-title">Maritime & Software Excellence</div>
+        <p>Maintained a zero-incident watchkeeping record at sea while publishing and deploying 5+ production-grade web applications for seafarers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS & LANGUAGES ===== -->
+  <section id="skills">
+    <div class="sec-head">
+      <div class="eyebrow">Log 05 — Competency Matrix</div>
+      <h2>Skills & Languages</h2>
+    </div>
+
+    <div class="grid-2col">
+      <div class="info-card">
+        <h3>Software & Web Engineering</h3>
+        <ul class="exp-bullets" style="margin-top:8px;">
+          <li><strong>Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS, HTML5, CSS3</li>
+          <li><strong>Backend & Storage:</strong> Node.js, Python, PostgreSQL, Firebase Auth & Firestore</li>
+          <li><strong>Architecture:</strong> PWA, Offline-First Storage, REST APIs, Vercel Edge Deployment</li>
+          <li><strong>Tools:</strong> Git, GitHub (@capt-alfred), Vite, ESLint, npm/bun</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3>Maritime Operations & Languages</h3>
+        <ul class="exp-bullets" style="margin-top:8px;">
+          <li><strong>Bridge Operations:</strong> ECDIS, Radar/ARPA, Passage Planning, Watchkeeping</li>
+          <li><strong>Compliance:</strong> SOLAS, MARPOL, STCW, Flag State Regulations</li>
+          <li><strong>Languages:</strong> English (Professional Working), Malayalam (Native), Hindi (Working)</li>
+          <li><strong>Core Strengths:</strong> High Situational Awareness, Operational Discipline, Problem Solving</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -469,32 +641,32 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   <!-- ===== CONTACT ===== -->
   <section id="contact">
     <div class="sec-head">
-      <div class="eyebrow">Log 03 — Hailing frequency</div>
-      <h2>Get in touch</h2>
+      <div class="eyebrow">Log 06 — Hailing Frequency</div>
+      <h2>Get In Touch</h2>
     </div>
     <div class="contact-panel">
       <div>
-        <h2>Let's talk</h2>
-        <p class="lead">Open to collaboration on maritime tools, or just a good technical conversation. Replies may run on ship's time — GMT+ whatever the current route is.</p>
+        <h2>Let's Connect</h2>
+        <p class="lead">Interested in maritime technology, open-source software collaboration, or full-stack engineering opportunities? Reach out directly via email or GitHub. While underway at sea, responses may run on ship's time depending on current satellite connectivity.</p>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          hello@alfredpj.dev
+          alpha.coil966@passinbox.com
         </div>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c3-.3 6-1.5 6-6.6a5.1 5.1 0 00-1.4-3.5 4.8 4.8 0 00-.1-3.5s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.6 0C6.1 1.3 5 1.6 5 1.6a4.8 4.8 0 00-.1 3.5A5.1 5.1 0 003.5 8.6c0 5.1 3 6.3 6 6.6a3.1 3.1 0 00-.9 2.4V21"/></svg>
-          github.com/alfred
+          github.com/capt-alfred
         </div>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-9-10a5.5 5.5 0 0111-1 5.5 5.5 0 0111 1c-2 4-9 10-9 10z"/></svg>
-          Currently underway, Asia-Pacific route
+          Palakkad, Kerala, India / Currently Underway
         </div>
       </div>
       <form id="contactForm">
-        <div class="field"><label for="cname">Name</label><input id="cname" type="text" required></div>
-        <div class="field"><label for="cemail">Email</label><input id="cemail" type="email" required></div>
+        <div class="field"><label for="cname">Name</label><input id="cname" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="cemail">Email</label><input id="cemail" type="email" placeholder="your.email@example.com" required></div>
         <div class="field">
           <label for="cmsg">Message</label>
-          <textarea id="cmsg" required maxlength="600"></textarea>
+          <textarea id="cmsg" required maxlength="600" placeholder="Share details about your inquiry or project idea..."></textarea>
           <span class="char-counter" id="charCounter">0 / 500</span>
         </div>
         <button class="btn btn-primary" type="submit" id="sendBtn">Send message</button>
@@ -503,7 +675,7 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
   </section>
 </div>
 
-<footer>© 2026 ALFRED PANAKKAL JOSE — BUILT ON WATCH, SOMEWHERE IN THE ASIA-PACIFIC</footer>
+<footer>© 2026 ALFRED PANAKKAL JOSE — ENGINEERED WITH PRECISION, NAVIGATED WITH DISCIPLINE.</footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
@@ -515,67 +687,124 @@ html[data-theme="dark"] .to-top{color:var(--ocean);}
 </div>
 
 <script>
-/* ============ CONFIG — edit these by hand as projects change ============ */
+/* ============ CONFIG — Verified Real Projects ============ */
 const PROJECTS = [
   {
-    id:'navwarn', title:'NavWarn', category:'Maritime',
-    grad:'linear-gradient(135deg,#0ea5e9,#0369a1)',
-    desc:'Aggregates navigational warnings (NAVAREA, coastal, local) into one searchable feed.',
-    fullDesc:'NavWarn pulls navigational warnings from multiple official sources into a single-page feed a watchkeeper can scan in seconds instead of checking five separate bulletins. Built as a single-file HTML app so it runs offline once cached — useful when satellite bandwidth is the bottleneck, not the browser.',
-    tech:['HTML','JavaScript','Maritime APIs'],
-    repo:'https://github.com/alfred/navwarn', live:'https://navwarn.vercel.app',
-    lastCommit:'6 days ago',
-    commits:[{msg:'Add NAVAREA XI parsing', date:'6d ago'},{msg:'Fix stale-cache indicator', date:'2w ago'},{msg:'Initial single-file build', date:'6w ago'}]
+    id: 'helm-almanac',
+    title: 'Helm Almanac',
+    category: 'Maritime',
+    grad: 'linear-gradient(135deg,#0ea5e9,#0369a1)',
+    desc: 'Comprehensive maritime almanac application for tracking vessel schedules, nautical events, and reference data.',
+    fullDesc: 'Helm Almanac is a dedicated nautical almanac engineered for watchkeepers and maritime officers. It unifies vessel schedules, astronomical nautical references, and route planning data into a clean, responsive interface. Designed with offline resilience in mind, it ensures critical data remains accessible even when operating under satellite bandwidth constraints at sea.',
+    tech: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
+    repo: 'https://github.com/capt-alfred/Helm-Almanac',
+    live: 'https://helm-almanac.vercel.app',
+    lastCommit: 'Q3 2026 navigational data update',
+    commits: [
+      { msg: 'Update Q3 2026 nautical schedule references', date: 'Recent' },
+      { msg: 'Optimize offline caching for astronomical data', date: '2w ago' },
+      { msg: 'Initial production build release', date: '1mo ago' }
+    ]
   },
   {
-    id:'seafarer-calc', title:'Seafarer Calc', category:'Maritime',
-    grad:'linear-gradient(135deg,#22c55e,#0ea5e9)',
-    desc:'Sea-time and tax tracking built around how seafarers actually get paid.',
-    fullDesc:'Seafarer Calc tracks sea-time toward certification requirements and estimates tax exposure across jurisdictions, built for the specific rules that apply to seafarers rather than a generic tax calculator retrofitted for the job.',
-    tech:['React','LocalStorage','Chart.js'],
-    repo:'https://github.com/alfred/seafarer-calc', live:'https://seafarercalc.app',
-    lastCommit:'3 days ago',
-    commits:[{msg:'Add NRI tax bracket update', date:'3d ago'},{msg:'Sea-time export to PDF', date:'12d ago'},{msg:'Project scaffold', date:'2mo ago'}]
+    id: 'helm-productivity',
+    title: 'Helm Productivity',
+    category: 'Tools',
+    grad: 'linear-gradient(135deg,#22c55e,#0ea5e9)',
+    desc: 'Minimalist productivity suite engineered for seafarers to manage watchkeeping, tasks, and routines.',
+    fullDesc: 'Helm Productivity is a focused task and routine management suite tailored for bridge officers and software developers. It accommodates rigorous watch cycles (e.g., 4-on / 8-off), daily administrative tasks, and personal goals, helping crew members maintain high focus and operational readiness during long voyages.',
+    tech: ['TypeScript', 'React', 'Tailwind CSS', 'Vercel'],
+    repo: 'https://github.com/capt-alfred/The-Helm---Productivity-app',
+    live: 'https://helmproductivity.vercel.app',
+    lastCommit: 'Implement feedback & task view',
+    commits: [
+      { msg: 'Implement user feedback dashboard and task filters', date: 'Recent' },
+      { msg: 'Refine theme token switching and responsiveness', date: '1w ago' },
+      { msg: 'Core watchkeeping timer integration', date: '3w ago' }
+    ]
   },
   {
-    id:'navitracker', title:'NaviTracker', category:'Maritime',
-    grad:'linear-gradient(135deg,#8b5cf6,#0ea5e9)',
-    desc:'Lightweight vessel position tracker with route history and ETA projection.',
-    fullDesc:'NaviTracker plots vessel position against a route line and projects ETA from current speed and heading, aimed at giving families and crew a cleaner picture than the generic tracking sites offer.',
-    tech:['React Native','Node.js','MapLibre'],
-    repo:'https://github.com/alfred/alpha-mini', live:'https://navitracker.app',
-    lastCommit:'1 week ago',
-    commits:[{msg:'Improve ETA smoothing', date:'1w ago'},{msg:'Add offline route cache', date:'3w ago'},{msg:'MapLibre migration', date:'2mo ago'}]
+    id: 'helm-bond',
+    title: 'Helm Bond (Bond Vault)',
+    category: 'Web',
+    grad: 'linear-gradient(135deg,#f59e0b,#ea580c)',
+    desc: 'Specialized networking platform & vault connecting maritime professionals and managing bond store logs.',
+    fullDesc: 'Helm Bond (BOND-VAULT) is a community and store logging application built to streamline communication between maritime officers, vessel agencies, and maritime professionals. It simplifies bond store log tracking and facilitates peer support across maritime fleets.',
+    tech: ['TypeScript', 'Next.js', 'Socket.io', 'PostgreSQL'],
+    repo: 'https://github.com/capt-alfred/BOND-VAULT',
+    live: '',
+    lastCommit: 'Real-time WebSocket protocol & schema setup',
+    commits: [
+      { msg: 'Implement WebSocket communication protocol', date: 'In Dev' },
+      { msg: 'Design bond store log schema in PostgreSQL', date: '2w ago' },
+      { msg: 'Initial project setup and route structure', date: '1mo ago' }
+    ]
   },
   {
-    id:'officer-exam', title:'Officer Exam Prep', category:'Tools',
-    grad:'linear-gradient(135deg,#f59e0b,#8b5cf6)',
-    desc:'Standalone study app for maritime officer certification exams.',
-    fullDesc:'A self-contained exam-prep app covering navigation, cargo, and regulation question banks for maritime officer certification, built to run entirely offline in a single HTML file for use on ships with limited connectivity.',
-    tech:['HTML','JavaScript','IndexedDB'],
-    repo:'https://github.com/alfred/officer-exam-app', live:'https://officerexam.app',
-    lastCommit:'2 weeks ago',
-    commits:[{msg:'Add COLREGs question set', date:'2w ago'},{msg:'Spaced-repetition mode', date:'5w ago'},{msg:'First working build', date:'3mo ago'}]
+    id: 'helm-fasting',
+    title: 'Helm Fasting',
+    category: 'Tools',
+    grad: 'linear-gradient(135deg,#8b5cf6,#ec4899)',
+    desc: 'Health and intermittent fasting companion designed for fitness goals during long ocean voyages.',
+    fullDesc: 'Helm Fasting is a progressive web app (PWA) built specifically for seafarers facing irregular shift schedules at sea. It enables crew members to log health metrics, track intermittent fasting cycles, and monitor progress offline without requiring active internet connectivity.',
+    tech: ['TypeScript', 'React', 'PWA', 'Chart.js'],
+    repo: 'https://github.com/capt-alfred/The-Helm-Fasting',
+    live: 'https://helmfasting.vercel.app',
+    lastCommit: 'Add Vercel Web Analytics',
+    commits: [
+      { msg: 'Integrate performance analytics and offline cache', date: 'Recent' },
+      { msg: 'Enhance Chart.js fasting history visualization', date: '2w ago' },
+      { msg: 'Configure PWA manifest and service worker', date: '1mo ago' }
+    ]
   },
   {
-    id:'cifnet-alumni', title:'CIFNET Alumni', category:'Web',
-    grad:'linear-gradient(135deg,#0ea5e9,#22c55e)',
-    desc:'Alumni network site with Firebase auth and a security-first build.',
-    fullDesc:'A community site for CIFNET alumni with Firebase authentication, member directories, and a build process focused on locking down auth and data access correctly from day one rather than retrofitting security later.',
-    tech:['React','Firebase','Auth'],
-    repo:'https://github.com/alfred/cifnet-alumni', live:'https://cifnetalumni.org',
-    lastCommit:'4 days ago',
-    commits:[{msg:'Harden Firestore security rules', date:'4d ago'},{msg:'Add member directory search', date:'3w ago'},{msg:'Auth flow rebuild', date:'2mo ago'}]
+    id: 'mudhra-converter',
+    title: 'Mudhra Converter',
+    category: 'Web',
+    grad: 'linear-gradient(135deg,#10b981,#0ea5e9)',
+    desc: 'Fast currency and unit conversion application built for intuitive everyday utility.',
+    fullDesc: 'Mudhra Converter provides instant currency and measurement conversions in a clean, zero-bloat interface. Built with HTML, CSS, React, and TypeScript, it allows swift rate calculations and unit translations essential during foreign port calls and daily calculations.',
+    tech: ['HTML', 'TypeScript', 'React', 'Tailwind CSS'],
+    repo: 'https://github.com/capt-alfred/MUDHRA.CONVERTER',
+    live: 'https://mudhra-converter.vercel.app',
+    lastCommit: 'Release Mudhra Converter v1.0',
+    commits: [
+      { msg: 'Release Mudhra Converter v1.0 production build', date: 'Recent' },
+      { msg: 'Add real-time rate refresh and offline fallback', date: '1w ago' },
+      { msg: 'Initial component layout and unit converters', date: '3w ago' }
+    ]
   },
   {
-    id:'malayalam-yt', title:'Paranormal Malayalam', category:'AI',
-    grad:'linear-gradient(135deg,#8b5cf6,#22c55e)',
-    desc:'Production toolkit for a Malayalam paranormal & UFO YouTube channel.',
-    fullDesc:'An internal toolkit for planning and producing a Malayalam-language paranormal and UFO YouTube channel — script outlining, research notes, and publishing checklists in one place instead of scattered across docs.',
-    tech:['Python','Content Pipeline'],
-    repo:'https://github.com/alfred/malayalam-yt', live:'',
-    lastCommit:'1 month ago',
-    commits:[{msg:'Add episode research template', date:'1mo ago'},{msg:'Publishing checklist v2', date:'2mo ago'}]
+    id: 'navarea-warning-plotter',
+    title: 'Navarea Warning Plotter',
+    category: 'Maritime',
+    grad: 'linear-gradient(135deg,#06b6d4,#3b82f6)',
+    desc: 'Maritime navigational safety tool for plotting NAVAREA warnings, danger areas, and hazard zones.',
+    fullDesc: 'Navarea Warning Plotter allows bridge watchkeepers to visualize and plot NAVAREA radio navigational warnings directly on geospatial maps. Helps officers identify active hazard zones along planned voyage tracks.',
+    tech: ['TypeScript', 'React', 'Geospatial', 'Tailwind CSS'],
+    repo: 'https://github.com/capt-alfred/Navarea-warning---plotter',
+    live: '',
+    lastCommit: 'Initial release of NAVAREA plotter layout',
+    commits: [
+      { msg: 'Initial release of NAVAREA plotter layout', date: 'Recent' },
+      { msg: 'Geospatial coordinate parsing algorithms', date: '1w ago' }
+    ]
+  },
+  {
+    id: 'seafarer-calc',
+    title: 'Seafarer Seatime & NRI Calc',
+    category: 'Tools',
+    grad: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+    desc: 'Specialized calculator tracking sea time days, NRI tax exemption status, and contract records.',
+    fullDesc: 'Seafarer Seatime Calculator helps maritime officers calculate precise qualifying sea days for Certificate of Competency (CoC) revalidation and NRI tax exemption compliance (184+ days requirement).',
+    tech: ['TypeScript', 'React', 'LocalStorage'],
+    repo: 'https://github.com/capt-alfred/seafarer-calculator-nri-seatime-calc',
+    live: '',
+    lastCommit: 'Sea time calculation logic and UI',
+    commits: [
+      { msg: 'Sea time calculation logic and tax status indicator', date: 'Recent' },
+      { msg: 'Contract entry and local storage saving', date: '1w ago' }
+    ]
   }
 ];
 
@@ -583,7 +812,7 @@ const grid = document.getElementById('projectGrid');
 let activeCat = 'All', activeQuery = '', isListView = false;
 
 function cardHTML(p){
-  const liveBtn = p.live ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener">Open App</a>` : `<span class="btn btn-ghost" style="opacity:.5;pointer-events:none;">No live URL</span>`;
+  const liveBtn = p.live ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener">Open App</a>` : `<span class="btn btn-ghost" style="opacity:.5;pointer-events:none;">In Development</span>`;
   return `
   <article class="card" data-id="${p.id}">
     <div class="card-visual" style="background-image:linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px), ${p.grad}">
@@ -657,7 +886,7 @@ function openModal(id){
       <h3>${p.title}</h3>
     </div>
     <div class="modal-body">
-      <div class="status-badge"><span class="status-dot" style="position:static;"></span> Live on Vercel Edge Infrastructure</div>
+      <div class="status-badge"><span class="status-dot" style="position:static;"></span> ${p.live ? 'Live on Vercel Edge Infrastructure' : 'Active Open Source Repository'}</div>
       <p class="full-desc">${p.fullDesc}</p>
       <div class="modal-section-label">Tech stack</div>
       <div class="modal-tags">${p.tech.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
@@ -772,7 +1001,7 @@ closeX.addEventListener('click', ()=>overlay.classList.remove('open'));
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>overlay.classList.remove('open')));
 
 /* ---- Typewriter ---- */
-const roles = ['Third Officer — Tanker Fleet','Full-Stack Developer','Building on watch, offline-first'];
+const roles = ['Third Officer — Tanker Fleet','Full-Stack Software Developer','Building Maritime & Productivity Tools'];
 const typeLine = document.getElementById('typeLine');
 let ri=0, ci=0, deleting=false;
 function typeTick(){
@@ -789,28 +1018,6 @@ function typeTick(){
   setTimeout(typeTick, deleting?35:65);
 }
 typeTick();
-
-/* ---- Contact textarea auto-typing placeholder ---- */
-const prompts = [
-  "Tell me about a maritime problem you're trying to solve…",
-  "Interested in collaborating on a project…",
-  "Just want to say hello…"
-];
-const cmsg = document.getElementById('cmsg');
-let pi=0, pc=0, pdel=false;
-function placeholderTick(){
-  if(document.activeElement===cmsg || cmsg.value){ setTimeout(placeholderTick, 400); return; }
-  const word = prompts[pi];
-  if(!pdel){
-    pc++; cmsg.placeholder = word.slice(0,pc);
-    if(pc===word.length){ pdel=true; setTimeout(placeholderTick,1600); return; }
-  } else {
-    pc--; cmsg.placeholder = word.slice(0,pc);
-    if(pc===0){ pdel=false; pi=(pi+1)%prompts.length; }
-  }
-  setTimeout(placeholderTick, pdel?25:55);
-}
-placeholderTick();
 
 document.getElementById('contactForm').addEventListener('submit', e=>{
   e.preventDefault();

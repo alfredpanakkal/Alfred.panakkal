@@ -42,17 +42,16 @@ const PROJECTS: Project[] = [
     gradient: 'linear-gradient(135deg, #2563eb, #06b6d4)',
     tags: [
       { label: 'Web', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' },
-      { label: 'AI Nautical', color: 'rgba(99,102,241,0.12)', text: '#818cf8' },
       { label: 'Maritime', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
     ],
-    desc: 'A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and AI-powered navigational reference data.',
-    categories: ['web', 'maritime', 'ai'],
+    desc: 'A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and navigational reference data.',
+    categories: ['web', 'maritime'],
     live: true,
     url: 'https://helm-almanac.vercel.app',
-    repo: 'alpha-mini/Helm-Almanac',
+    repo: 'capt-alfred/Helm-Almanac',
     lastCommit: 'chore: update navigation data for Q3 2026',
     lastCommitDate: '26/07/2026',
-    tech: ['React', 'Next.js', 'Tailwind', 'AI API']
+    tech: ['React', 'Next.js', 'Tailwind', 'TypeScript']
   },
   {
     id: 'helm-productivity',
@@ -60,31 +59,30 @@ const PROJECTS: Project[] = [
     gradient: 'linear-gradient(135deg, #059669, #0d9488, #06b6d4)',
     tags: [
       { label: 'Tools', color: 'rgba(5,150,105,0.12)', text: '#34d399' },
-      { label: 'Productivity', color: 'rgba(13,148,136,0.12)', text: '#2dd4bf' },
-      { label: 'AI Assistant', color: 'rgba(99,102,241,0.12)', text: '#818cf8' }
+      { label: 'Productivity', color: 'rgba(13,148,136,0.12)', text: '#2dd4bf' }
     ],
-    desc: 'A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and AI routines effectively.',
-    categories: ['tools', 'ai'],
+    desc: 'A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and routines effectively.',
+    categories: ['tools'],
     live: true,
     url: 'https://helmproductivity.vercel.app',
-    repo: 'alpha-mini/The-Helm---Productivity-app',
+    repo: 'capt-alfred/The-Helm---Productivity-app',
     lastCommit: 'feat(admin): implement feedback dashboard',
     lastCommitDate: '24/07/2026',
     tech: ['React', 'TypeScript', 'Vercel']
   },
   {
     id: 'helm-bond',
-    name: 'Helm Bond',
+    name: 'Helm Bond (Bond Vault)',
     gradient: 'linear-gradient(135deg, #ea580c, #f59e0b, #fbbf24)',
     tags: [
       { label: 'Web', color: 'rgba(234,88,12,0.12)', text: '#fb923c' },
       { label: 'Networking', color: 'rgba(245,158,11,0.12)', text: '#fbbf24' },
-      { label: 'Community', color: 'rgba(251,191,36,0.12)', text: '#fcd34d' }
+      { label: 'Bond Store', color: 'rgba(251,191,36,0.12)', text: '#fcd34d' }
     ],
-    desc: 'A specialized networking platform connecting maritime professionals, shipping agencies, and maritime officers worldwide.',
+    desc: 'A specialized networking platform and bond store vault connecting maritime professionals and shipping agencies.',
     categories: ['web'],
     live: false,
-    repo: 'alpha-mini/Helm-Bond',
+    repo: 'capt-alfred/BOND-VAULT',
     lastCommit: 'feat: add real-time messaging via WebSocket',
     lastCommitDate: '20/07/2026',
     tech: ['Next.js', 'Socket.io', 'PostgreSQL']
@@ -102,7 +100,7 @@ const PROJECTS: Project[] = [
     categories: ['tools'],
     live: true,
     url: 'https://helmfasting.vercel.app',
-    repo: 'alpha-mini/The-Helm-Fasting',
+    repo: 'capt-alfred/The-Helm-Fasting',
     lastCommit: 'Add Vercel Web Analytics to project',
     lastCommitDate: '18/07/2026',
     tech: ['React', 'PWA', 'Chart.js']
@@ -120,10 +118,42 @@ const PROJECTS: Project[] = [
     categories: ['web', 'tools'],
     live: true,
     url: 'https://mudhra-converter.vercel.app',
-    repo: 'alpha-mini/mudhra-converter',
+    repo: 'capt-alfred/MUDHRA.CONVERTER',
     lastCommit: 'feat: release mudhra converter v1.0',
     lastCommitDate: '26/07/2026',
-    tech: ['React', 'TypeScript', 'Tailwind']
+    tech: ['HTML', 'TypeScript', 'React', 'Tailwind']
+  },
+  {
+    id: 'navarea-warning-plotter',
+    name: 'Navarea Warning Plotter',
+    gradient: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+    tags: [
+      { label: 'Maritime', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' },
+      { label: 'Geospatial', color: 'rgba(59,130,246,0.12)', text: '#60a5fa' }
+    ],
+    desc: 'Maritime navigational safety tool for plotting NAVAREA warnings, danger areas, and hazard zones.',
+    categories: ['maritime', 'tools'],
+    live: false,
+    repo: 'capt-alfred/Navarea-warning---plotter',
+    lastCommit: 'feat: initial release of NAVAREA plotter layout',
+    lastCommitDate: '26/07/2026',
+    tech: ['TypeScript', 'React', 'Geospatial', 'Tailwind']
+  },
+  {
+    id: 'seafarer-calc',
+    name: 'Seafarer Seatime & NRI Calc',
+    gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+    tags: [
+      { label: 'Tools', color: 'rgba(99,102,241,0.12)', text: '#818cf8' },
+      { label: 'Maritime', color: 'rgba(20,184,166,0.12)', text: '#2dd4bf' }
+    ],
+    desc: 'Specialized calculator tracking sea time days, NRI tax exemption status, and contract records.',
+    categories: ['tools', 'maritime'],
+    live: false,
+    repo: 'capt-alfred/seafarer-calculator-nri-seatime-calc',
+    lastCommit: 'feat: sea time calculation logic and UI',
+    lastCommitDate: '26/07/2026',
+    tech: ['TypeScript', 'React', 'LocalStorage']
   }
 ];
 
