@@ -1620,9 +1620,13 @@ msgField.addEventListener('input', () => {
   sendBtn.disabled = len > HARD_MAX;
 });
 
-document.getElementById('contactForm').addEventListener('submit', e => {
+document.getElementById('contactForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const name = document.getElementById('cname').value;
+  const email = document.getElementById('cemail').value;
+  const message = document.getElementById('cmsg').value;
   
   if (!prefersReducedMotion) {
     for(let i=0; i<3; i++) {
@@ -1640,9 +1644,26 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   
   const original = btn.textContent;
   btn.textContent = 'Transmitting...';
-  setTimeout(() => {
+  
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/alpha.coil966@passinbox.com', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+        _subject: `New message from ${name} on Portfolio`
+      })
+    });
+    
+    if (!res.ok) throw new Error('Network response was not ok');
+    
     btn.textContent = 'Message Sent';
-    document.getElementById('contactForm').reset();
+    form.reset();
     document.querySelectorAll('.field label').forEach(l => {
       l.textContent = '';
       l.classList.remove('dimmed');
@@ -1652,7 +1673,11 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     charCounter.textContent = `0 / ${SOFT_MAX}`;
     sendBtn.disabled = false;
     setTimeout(() => btn.textContent = original, 2200);
-  }, 1500);
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    btn.textContent = 'Transmission Failed';
+    setTimeout(() => btn.textContent = original, 3000);
+  }
 });
 
 /* ============ MOBILE MENU ============ */
