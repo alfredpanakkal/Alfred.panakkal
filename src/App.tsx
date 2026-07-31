@@ -238,9 +238,9 @@ export default function App() {
       </div>
 
       {/* Controls Bar: Filter Tabs, Search Input, Grid/List View Toggle */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 flex flex-col gap-3.5 relative z-10">
-        {/* Category Filters */}
-        <div className="flex items-center flex-wrap gap-2 justify-start sm:justify-start">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 mb-6 sm:mb-8 flex flex-col gap-3.5 relative z-10">
+        {/* Category Filters (Horizontal Scroll on Mobile, Flex Wrap on Larger Screens) */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-3 px-3 sm:mx-0 sm:px-0 sm:flex-wrap">
           {[
             { id: 'all', label: 'All Projects' },
             { id: 'web', label: 'Web' },
@@ -258,7 +258,7 @@ export default function App() {
                     ? { backgroundColor: 'var(--text)', color: 'var(--bg)' }
                     : { backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }
                 }
-                className={`px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[48px] touch-manipulation ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[44px] flex-shrink-0 sm:flex-shrink touch-manipulation ${
                   isActive ? 'font-semibold shadow-md' : 'hover:border-sky-500/30'
                 }`}
               >
@@ -281,7 +281,7 @@ export default function App() {
               border: '1px solid var(--border)', 
               color: 'var(--text)' 
             }}
-            className="w-full pl-10 pr-4 py-2.5 focus:border-[#3b82f6] rounded-full text-xs sm:text-sm outline-none transition-all focus:ring-2 focus:ring-[#3b82f6]/20 min-h-[42px]"
+            className="w-full pl-10 pr-4 py-2.5 focus:border-[#3b82f6] rounded-full text-base sm:text-sm outline-none transition-all focus:ring-2 focus:ring-[#3b82f6]/20 min-h-[44px]"
           />
         </div>
 
@@ -295,7 +295,7 @@ export default function App() {
               onClick={() => setView('grid')}
               title="Grid View"
               style={view === 'grid' ? { backgroundColor: 'var(--bg-card)', color: 'var(--text)' } : { color: 'var(--text-muted)' }}
-              className={`p-2 rounded-md transition-all min-h-[34px] min-w-[34px] flex items-center justify-center ${
+              className={`p-2 rounded-md transition-all min-h-[38px] min-w-[38px] flex items-center justify-center ${
                 view === 'grid' ? 'shadow-sm font-semibold' : 'hover:opacity-80'
               }`}
             >
@@ -305,7 +305,7 @@ export default function App() {
               onClick={() => setView('list')}
               title="List View"
               style={view === 'list' ? { backgroundColor: 'var(--bg-card)', color: 'var(--text)' } : { color: 'var(--text-muted)' }}
-              className={`p-2 rounded-md transition-all min-h-[34px] min-w-[34px] flex items-center justify-center ${
+              className={`p-2 rounded-md transition-all min-h-[38px] min-w-[38px] flex items-center justify-center ${
                 view === 'list' ? 'shadow-sm font-semibold' : 'hover:opacity-80'
               }`}
             >

@@ -513,20 +513,93 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
 .to-top:active{box-shadow:var(--neu-in);}
 .to-top svg { transition: transform 0.3s; }
 
-/* ============ RESPONSIVE: TABLET / MOBILE ============ */
-@media(max-width:820px){
-  .nav-links{display:none;}
-  .menu-btn{display:flex;}
-  .controls{flex-direction:column; align-items:stretch;}
+/* ============ RESPONSIVE & MOBILE ACCESSIBILITY ============ */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  body, button, a, input, textarea { cursor: auto !important; }
+  .cursor-dot, .cursor-outline { display: none !important; }
+}
 
-  /* FIX #7: Stack search layout & remove min-width constraint on small screens */
-  .search-layout{flex-direction:column; width:100%; align-items:stretch;}
-  .search-box{width:100%; min-width:0;}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  input, textarea, select { font-size: 16px !important; } /* Prevents iOS/Android input focus zoom */
+}
+@media (max-width: 360px) {
+  .wrap { padding: 0 12px; }
+}
 
-  /* FIX #4: Prevent horizontal overflow by subtracting the 40px left margin from the card width */
-  .exp-card { width: calc(100% - 40px); }
-  .experience-list::before { left: 20px; }
-  .exp-card:nth-child(odd), .exp-card:nth-child(even) { transform: translateX(0); align-self: flex-end; margin-left: 40px; }
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; width: 44px; height: 44px; min-height: 44px; }
+  .controls { flex-direction: column; align-items: stretch; gap: 12px; }
+  .search-layout { flex-direction: column; width: 100%; align-items: stretch; }
+  .search-box { width: 100%; min-width: 0; min-height: 44px; }
+  .layout-toggle { width: 100%; justify-content: flex-end; }
+  .layout-toggle button { min-height: 40px; min-width: 40px; justify-content: center; }
+}
+
+/* Category Chips Horizontal Scroll on Small Screens */
+@media (max-width: 600px) {
+  .chips {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; white-space: nowrap; min-height: 44px; }
+}
+
+/* Hero & CTA Small Screens */
+@media (max-width: 480px) {
+  .hero { padding: 44px 0 28px; }
+  .hero h1 { font-size: clamp(26px, 7.5vw, 38px); }
+  .hero p.sub { font-size: 14.5px; margin-top: 14px; }
+  .hero-cta { flex-direction: column; width: 100%; gap: 10px; }
+  .hero-cta .btn { width: 100%; justify-content: center; text-align: center; min-height: 46px; }
+  .stats-bar { margin-top: 24px; gap: 8px; }
+  .pill { width: 100%; justify-content: flex-start; font-size: 12px; padding: 9px 14px; }
+}
+
+/* Timeline / Experience on Mobile & Small Android Devices */
+@media (max-width: 680px) {
+  .experience-list::before { left: 14px; }
+  .exp-card {
+    width: calc(100% - 28px) !important;
+    margin-left: 28px !important;
+    padding: 16px 14px !important;
+  }
+  .exp-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .exp-role { font-size: 16px; }
+  .exp-company { font-size: 13px; }
+  .exp-date { font-size: 11px; padding: 2px 8px; transform: none; }
+  .exp-desc { font-size: 13px; }
+}
+
+/* Skills Layout on Small Screens */
+@media (max-width: 480px) {
+  .skill-row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 12px; }
+  .skill-row .bar { width: 100%; height: 6px; }
+}
+
+/* Modal Bottom-Sheet on Mobile */
+@media (max-width: 640px) {
+  .modal-backdrop { padding: 0; align-items: flex-end; }
+  .modal {
+    max-height: 90dvh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+  }
+  .modal-hero { min-height: 110px; padding: 16px; padding-right: 48px; }
+  .modal-body { padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); }
+  .modal-close { top: 12px; right: 12px; width: 44px; height: 44px; min-height: 44px; }
+  .modal-links { flex-direction: column; gap: 10px; }
+  .modal-links .btn { width: 100%; justify-content: center; text-align: center; min-height: 44px; }
 }
 </style>
 </head>
