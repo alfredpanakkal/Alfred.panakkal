@@ -137,12 +137,12 @@ input, textarea { cursor: text; }
   box-shadow: 0 0 10px var(--ocean);
 }
 
-/* ============ AMBIENT GLOW (Parallax Layer 1) ============ */
-.glow{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; will-change: transform;}
-.glow span{position:absolute; border-radius:50%; filter:blur(90px); opacity:.35;}
-.glow .g1{width:520px;height:520px; background:var(--ocean); top:-180px; left:-120px;}
-.glow .g2{width:460px;height:460px; background:var(--purple); top:200px; right:-160px; opacity:.2;}
-.glow .g3{width:400px;height:400px; background:var(--emerald); bottom:-160px; left:30%; opacity:.15;}
+/* ============ AMBIENT GLOW (Parallax Background) ============ */
+.glow{position:fixed; top:-200px; bottom:0; left:0; right:0; pointer-events:none; z-index:0; overflow:hidden;}
+.glow span{position:absolute; border-radius:50%; filter:blur(90px); opacity:.35; will-change: transform;}
+.glow .g1{width:520px;height:520px; background:var(--ocean); top:0px; left:-120px;}
+.glow .g2{width:460px;height:460px; background:var(--purple); top:380px; right:-160px; opacity:.2;}
+.glow .g3{width:400px;height:400px; background:var(--emerald); bottom:-100px; left:30%; opacity:.15;}
 
 /* ============ NAV ============ */
 header.nav{
@@ -813,15 +813,15 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
       </div>
       <form id="contactForm">
         <div class="field">
-          <label for="cname" id="lbl-cname"></label>
+          <label for="cname" id="lbl-cname" class="dimmed">Visitor.name</label>
           <input id="cname" type="text" placeholder="Your name" required>
         </div>
         <div class="field">
-          <label for="cemail" id="lbl-cemail"></label>
+          <label for="cemail" id="lbl-cemail" class="dimmed">Visitor.email</label>
           <input id="cemail" type="email" placeholder="your.email@example.com" required>
         </div>
         <div class="field">
-          <label for="cmsg" id="lbl-cmsg"></label>
+          <label for="cmsg" id="lbl-cmsg" class="dimmed">Transmission.message</label>
           <textarea id="cmsg" required maxlength="600" placeholder="Share details about your inquiry or project idea..."></textarea>
           <span class="char-counter" id="charCounter">0 / 500</span>
         </div>
@@ -989,9 +989,15 @@ if (supportsHover && !prefersReducedMotion) {
   }
   animCursor();
 
-  document.querySelectorAll('[data-hover], a, button, input, textarea').forEach(el => {
-    el.addEventListener('mouseover', () => outline.classList.add('hovered'));
-    el.addEventListener('mouseout', () => outline.classList.remove('hovered'));
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('[data-hover], a, button, input, textarea, .card, .chip, .btn')) {
+      outline.classList.add('hovered');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('[data-hover], a, button, input, textarea, .card, .chip, .btn')) {
+      outline.classList.remove('hovered');
+    }
   });
 } else {
   document.body.style.cursor = 'auto';
@@ -1015,21 +1021,32 @@ document.addEventListener('pointerdown', e => {
 const navEl = document.getElementById('nav');
 const scrollProgress = document.getElementById('scrollProgress');
 const toTop = document.getElementById('toTop');
-const toTopIcon = toTop.querySelector('svg');
+const toTopIcon = toTop ? toTop.querySelector('svg') : null;
+
+if (toTop) {
+  toTop.addEventListener('click', () => {
+    if (lenis) lenis.scrollTo(0);
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 function handleScroll() {
   const st = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = (st / docHeight) * 100;
-  scrollProgress.style.setProperty('--scroll', progress + '%');
+  const progress = docHeight > 0 ? (st / docHeight) * 100 : 0;
+  if (scrollProgress) scrollProgress.style.setProperty('--scroll', progress + '%');
   
-  navEl.classList.toggle('nav-solid', st > 100);
-  toTop.classList.toggle('show', st > 480);
-  if (st > lastScrollY && st > 120) navEl.classList.add('nav-hidden');
-  else navEl.classList.remove('nav-hidden');
+  if (navEl) {
+    navEl.classList.toggle('nav-solid', st > 100);
+    if (st > lastScrollY && st > 120) navEl.classList.add('nav-hidden');
+    else navEl.classList.remove('nav-hidden');
+  }
+  if (toTop) toTop.classList.toggle('show', st > 480);
   
-  if (st > 100 && !prefersReducedMotion) toTopIcon.style.transform = `rotate(${st}deg)`;
-  else toTopIcon.style.transform = 'rotate(0deg)';
+  if (toTopIcon) {
+    if (st > 100 && !prefersReducedMotion) toTopIcon.style.transform = `rotate(${st}deg)`;
+    else toTopIcon.style.transform = 'rotate(0deg)';
+  }
   
   lastScrollY = st;
 }
@@ -1037,6 +1054,24 @@ function handleScroll() {
 let lastScrollY = window.scrollY;
 window.addEventListener('scroll', handleScroll, { passive: true });
 handleScroll();
+
+/* Smooth Anchor Scrolling with Lenis */
+document.addEventListener('click', e => {
+  const anchor = e.target.closest('a[href^="#"]');
+  if (anchor) {
+    const targetId = anchor.getAttribute('href');
+    if (targetId && targetId !== '#') {
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        if (lenis) lenis.scrollTo(targetEl, { offset: -70 });
+        else targetEl.scrollIntoView({ behavior: 'smooth' });
+        const overlay = document.getElementById('mobileOverlay');
+        if (overlay) overlay.classList.remove('open');
+      }
+    }
+  }
+});
 
 /* ============ HERO COORD TYPEWRITER ============ */
 const heroCoord = document.getElementById('heroCoord');
@@ -1055,16 +1090,29 @@ if (heroCoord) {
 }
 
 const heroContent = document.getElementById('heroContent');
-const glowLayer = document.getElementById('glowLayer');
+const g1 = document.querySelector('.glow .g1');
+const g2 = document.querySelector('.glow .g2');
+const g3 = document.querySelector('.glow .g3');
+
 if (!prefersReducedMotion) {
   window.addEventListener('scroll', () => {
     const st = window.scrollY;
-    if (st < window.innerHeight) {
-      heroContent.style.transform = `translateY(${st * 0.3}px) scale(${1 - st / 1500})`;
-      heroContent.style.filter = `blur(${st / 100}px)`;
-      heroContent.style.opacity = 1 - (st / 500);
-      glowLayer.style.transform = `translateY(${st * 0.2}px)`; // Parallax background
+    
+    // Parallax on hero text content only when hero is visible
+    if (heroContent) {
+      if (st < window.innerHeight) {
+        heroContent.style.transform = `translateY(${st * 0.25}px) scale(${Math.max(0.85, 1 - st / 1800)})`;
+        heroContent.style.filter = `blur(${Math.min(6, st / 80)}px)`;
+        heroContent.style.opacity = `${Math.max(0, 1 - st / 600)}`;
+      } else if (heroContent.style.opacity !== '0') {
+        heroContent.style.opacity = '0';
+      }
     }
+    
+    // Smooth subtle ambient glow movement without moving fixed container boundary
+    if (g1) g1.style.transform = `translateY(${st * 0.12}px) translateX(${st * 0.05}px)`;
+    if (g2) g2.style.transform = `translateY(${-st * 0.08}px)`;
+    if (g3) g3.style.transform = `translateY(${st * 0.06}px)`;
   }, { passive: true });
 }
 
@@ -1467,18 +1515,17 @@ closeX.addEventListener('click', () => { overlay.classList.remove('open'); if (l
 overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); if (lenis) lenis.start(); }));
 
 /* ============ GLOBAL RIPPLE ============ */
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    if (prefersReducedMotion) return;
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    const rect = this.getBoundingClientRect();
-    ripple.style.left = (e.clientX - rect.left) + 'px';
-    ripple.style.top = (e.clientY - rect.top) + 'px';
-    ripple.style.width = ripple.style.height = '10px';
-    this.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-  });
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn');
+  if (!btn || prefersReducedMotion) return;
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const rect = btn.getBoundingClientRect();
+  ripple.style.left = (e.clientX - rect.left) + 'px';
+  ripple.style.top = (e.clientY - rect.top) + 'px';
+  ripple.style.width = ripple.style.height = '10px';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
 });
 </script>
 </body>
