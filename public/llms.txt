@@ -5,6 +5,7 @@
 ## Core Identity
 - **Name**: Alfred Panakkal Jose
 - **GitHub**: https://github.com/capt-alfred
+- **LinkedIn**: https://www.linkedin.com/in/alfredpanakkal
 - **Role**: Third Officer, Full-Stack Software Developer, Open Source Creator
 - **Email**: alpha.coil966@passinbox.com
 - **Core Skills**: React, TypeScript, Next.js, Node.js, Python, Tailwind CSS, Maritime Software Engineering
@@ -24,6 +25,7 @@
 - **Technologies**: React, TypeScript, Vercel
 
 ### 3. Helm Bond (Bond Vault)
+- **URL**: https://helmbond.vercel.app
 - **Repository**: https://github.com/capt-alfred/BOND-VAULT
 - **Description**: A specialized networking platform connecting maritime professionals, shipping agencies, and maritime officers worldwide.
 - **Technologies**: Next.js, Socket.io, PostgreSQL
@@ -46,6 +48,7 @@
 - **Technologies**: TypeScript, React, Maps/Geospatial
 
 ### 7. Seafarer NRI & Seatime Calculator
+- **URL**: https://helm-nri.vercel.app
 - **Repository**: https://github.com/capt-alfred/seafarer-calculator-nri-seatime-calc
 - **Description**: Dedicated calculator for seafarers to track sea time days, NRI tax exemption status, and voyage contracts.
 - **Technologies**: TypeScript, React, LocalStorage

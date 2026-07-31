@@ -14,6 +14,30 @@ import {
   Server
 } from 'lucide-react';
 
+
+function useSystemTheme() {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleChange = (e) => {
+      setIsDark(e.matches);
+      // This state change will trigger a re-render for any dynamic JS components (e.g., Canvas, Charts)
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  return isDark;
+}
+
 export interface Tag {
   label: string;
   color: string;
@@ -81,7 +105,8 @@ const PROJECTS: Project[] = [
     ],
     desc: 'A specialized networking platform and bond store vault connecting maritime professionals and shipping agencies.',
     categories: ['web'],
-    live: false,
+    live: true,
+    url: 'https://helmbond.vercel.app',
     repo: 'capt-alfred/BOND-VAULT',
     lastCommit: 'feat: add real-time messaging via WebSocket',
     lastCommitDate: '20/07/2026',
@@ -149,7 +174,8 @@ const PROJECTS: Project[] = [
     ],
     desc: 'Specialized calculator tracking sea time days, NRI tax exemption status, and contract records.',
     categories: ['tools', 'maritime'],
-    live: false,
+    live: true,
+    url: 'https://helm-nri.vercel.app',
     repo: 'capt-alfred/seafarer-calculator-nri-seatime-calc',
     lastCommit: 'feat: sea time calculation logic and UI',
     lastCommitDate: '26/07/2026',
@@ -162,18 +188,7 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    return (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
-  });
-
-  React.useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const currentTheme = (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || 'light';
-      setTheme(currentTheme);
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useSystemTheme(); // Live listener for OS theme changes (available for dynamic components)
 
   const filteredProjects = PROJECTS.filter((p) => {
     const matchesFilter = filter === 'all' || p.categories.includes(filter);
@@ -325,7 +340,7 @@ export default function App() {
                   animationDelay: `${index * 0.04}s`
                 }}
                 className={`rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
-                  theme === 'light' ? 'shadow-sm hover:shadow-xl' : 'hover:shadow-2xl hover:shadow-black/70'
+                  'shadow-sm hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-black/70'
                 } cursor-pointer group flex active:scale-[0.99] touch-manipulation ${
                   view === 'grid' ? 'flex-col' : 'flex-col sm:flex-row items-stretch'
                 }`}
@@ -404,11 +419,7 @@ export default function App() {
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all min-h-[34px] ${
-                            theme === 'light'
-                              ? 'bg-sky-50 border border-sky-200 text-sky-700 hover:bg-sky-100'
-                              : 'bg-[#152a42] border border-[#23456c] text-[#38bdf8] hover:bg-[#1e3a5c]'
-                          }`}
+                          className="px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all min-h-[34px] bg-sky-50 border border-sky-200 text-sky-700 hover:bg-sky-100 dark:bg-[#152a42] dark:border-[#23456c] dark:text-[#38bdf8] dark:hover:bg-[#1e3a5c]"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                           <span>Open App</span>
