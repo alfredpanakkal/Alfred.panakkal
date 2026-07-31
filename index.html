@@ -1050,6 +1050,7 @@ function cardHTML(p){
   </article>`;
 }
 
+const tiltMap = new WeakMap();
 let renderPending = false;
 function render(){
   if(renderPending) return;
@@ -1193,7 +1194,6 @@ window.addEventListener('scroll', ()=>{
 /* ---- Card tilt — gsap.quickTo() spring physics (desktop, motion-safe only) ---- */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const supportsHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-const tiltMap = new WeakMap();
 
 function getTiltTargets(card){
   if(tiltMap.has(card)) return tiltMap.get(card);
