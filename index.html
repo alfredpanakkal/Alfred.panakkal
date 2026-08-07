@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@capt-alfred — Alfred Panakkal Jose | Seafarer & Full-Stack Developer</title>
-<meta name="description" content="Alfred Panakkal Jose (@capt-alfred) — Third Officer on ocean-going tankers & full-stack software developer. Building offline-first maritime tools, React web apps, and productivity utilities.">
+<title>Alfred Panakkal Jose — Seafarer & Full-Stack Developer</title>
+<meta name="description" content="Alfred Panakkal Jose — Third Officer on ocean tankers & full-stack developer building offline-first maritime software and modern web applications.">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 <meta name="google-site-verification" content="4s1bay3OXeqPzy-WaYKfv2LY-w2k6R0A1wUMsyEvb-8">
 <meta property="og:title" content="Alfred Panakkal Jose — Seafarer & Full-Stack Developer">
 <meta property="og:description" content="Third Officer on ocean-going oil tankers and full-stack software developer building offline-first maritime tools and modern web applications.">
@@ -14,10 +16,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- CDNs for GSAP, ScrollTrigger, Flip, and Lenis -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 
 <style>
 /* ============ TOKENS & RESET ============ */
@@ -764,6 +766,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
   <a href="#contact">Contact</a>
 </div>
 
+<main id="mainContent">
 <!-- ===== HERO ===== -->
 <div class="wrap">
   <section class="hero">
@@ -978,7 +981,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     </div>
     <div class="contact-panel">
       <div>
-        <h2 class="reveal-text">Let's Connect</h2>
+        <h3 class="reveal-text">Let's Connect</h3>
         <p class="lead reveal-text">Interested in maritime technology, open-source software collaboration, or full-stack engineering opportunities? Reach out directly via email, GitHub, or LinkedIn. While underway at sea, responses may run on ship's time depending on current satellite connectivity.</p>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
@@ -1020,6 +1023,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     </div>
   </section>
 </div>
+</main>
 
 <footer>© 2026 ALFRED PANAKKAL JOSE — ENGINEERED WITH PRECISION, NAVIGATED WITH DISCIPLINE.</footer>
 
@@ -1029,7 +1033,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
 
 <!-- ===== MODAL ===== -->
 <div class="modal-backdrop" id="modalBackdrop">
-  <div class="modal" id="modalBody" role="dialog" aria-modal="true"></div>
+  <div class="modal" id="modalBody" role="dialog" aria-modal="true" aria-label="Project Details Modal"></div>
 </div>
 
 <script>
@@ -1511,7 +1515,7 @@ function openModal(id) {
   
   modalBody.innerHTML = `
     <div class="modal-hero" style="background-image:${p.grad}">
-      <button class="modal-close" id="modalClose" data-hover>
+      <button class="modal-close" id="modalClose" aria-label="Close modal dialog" data-hover>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
       <h3>${p.title}</h3>
