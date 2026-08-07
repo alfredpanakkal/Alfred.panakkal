@@ -3,17 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alfred Panakkal Jose — Seafarer & Full-Stack Developer</title>
-<meta name="description" content="Alfred Panakkal Jose — Third Officer on ocean tankers & full-stack developer building offline-first maritime software and modern web applications.">
+<title>Alfred Panakkal Jose — Third Officer & Full-Stack Developer</title>
+<meta name="description" content="Alfred Panakkal Jose — Third Officer on ocean tankers & full-stack software developer building practical, offline-first maritime tools and modern web platforms.">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <meta name="google-site-verification" content="4s1bay3OXeqPzy-WaYKfv2LY-w2k6R0A1wUMsyEvb-8">
-<meta property="og:title" content="Alfred Panakkal Jose — Seafarer & Full-Stack Developer">
-<meta property="og:description" content="Third Officer on ocean-going oil tankers and full-stack software developer building offline-first maritime tools and modern web applications.">
+<meta property="og:title" content="Alfred Panakkal Jose — Third Officer & Full-Stack Developer">
+<meta property="og:description" content="Third Officer on ocean tankers & full-stack software developer building practical, offline-first maritime software and modern web applications.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alfred Panakkal Jose",
+  "jobTitle": "Third Officer & Full-Stack Developer",
+  "url": "https://capt-alfred.github.io",
+  "email": "yoursalfred@gmail.com",
+  "sameAs": [
+    "https://github.com/capt-alfred",
+    "https://www.linkedin.com/in/alfredpanakkal"
+  ],
+  "knowsAbout": [
+    "Navigational Watchkeeping",
+    "STCW Operations",
+    "Full-Stack Web Development",
+    "React",
+    "TypeScript",
+    "Python",
+    "Offline-First Software Architecture"
+  ]
+}
+</script>
 
 <!-- CDNs for GSAP, ScrollTrigger, Flip, and Lenis -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -22,6 +47,14 @@
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 
 <style>
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--ocean-ink); color: #ffffff; padding: 10px 18px;
+  border-radius: 8px; z-index: 9999; font-weight: 600; font-size: 13px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 16px; outline: 2px solid #ffffff; }
 /* ============ TOKENS & RESET ============ */
 :root{
   color-scheme: light dark;
@@ -483,53 +516,6 @@ body[data-view-mode="dev"] {
   --ocean-ink: #0f766e;
 }
 
-/* ============ REACTIVE SEA STATE CANVAS ============ */
-.sea-state-wrapper {
-  position: relative;
-  width: 100%;
-  height: 110px;
-  margin-top: 32px;
-  background: color-mix(in srgb, var(--bg-elev) 50%, var(--bg));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  user-select: none;
-  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.02));
-}
-
-.sea-state-status {
-  position: absolute;
-  top: 10px;
-  left: 14px;
-  z-index: 3;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: color-mix(in srgb, var(--bg-elev) 85%, var(--bg));
-  backdrop-filter: blur(6px);
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.sea-state-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-}
-
 /* ============ PROJECTS ============ */
 .controls{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:28px;}
 .chips{display:flex; gap:8px; flex-wrap:wrap;}
@@ -911,6 +897,9 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
 </head>
 <body>
 
+<!-- Skip link for keyboard accessibility -->
+<a href="#summary" class="skip-link">Skip to main content</a>
+
 <!-- Custom Cursor -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-outline" id="cursorOutline"></div>
@@ -932,12 +921,15 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     <nav class="nav-links">
       <a href="#summary" data-hover>Summary</a>
       <a href="#work" data-hover>Projects</a>
+      <a href="#maritime" data-hover>Maritime Ops</a>
+      <a href="#developer" data-hover>Developer Stack</a>
       <a href="#about" data-hover>About</a>
       <a href="#experience" data-hover>Experience</a>
       <a href="#certifications" data-hover>Credentials</a>
       <a href="#contact" data-hover>Contact</a>
     </nav>
     <div class="nav-right">
+      <a class="btn btn-primary" href="#contact" style="padding: 6px 14px; font-size: 12px; font-weight: 600;" data-hover>Hire Me</a>
       <div class="view-mode-toggle nav-mode-toggle" role="radiogroup" aria-label="View Perspective Switcher">
         <button class="mode-btn active" data-mode="bridge" role="radio" aria-checked="true" data-hover title="Bridge Watchkeeping View">
           <span class="mode-icon">⚓</span>
@@ -961,10 +953,13 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
   </button>
   <a href="#summary">Summary</a>
   <a href="#work">Projects</a>
+  <a href="#maritime">Maritime Ops</a>
+  <a href="#developer">Developer Stack</a>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#certifications">Credentials</a>
   <a href="#contact">Contact</a>
+  <a href="#contact" style="color: var(--ocean); font-weight: 700;">Hire Me →</a>
 </div>
 
 <main id="mainContent">
@@ -975,14 +970,15 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     <div class="hero-content" id="heroContent">
       <div class="hero-coord"><span id="heroCoord"></span><span class="coord-cursor">&nbsp;</span></div>
       <h1 class="reveal-text">Alfred Panakkal Jose</h1>
-      <p class="sub reveal-text">Third Officer on ocean-going oil tankers by profession and full-stack software developer by passion. I bridge maritime watchkeeping and modern web engineering by crafting resilient, offline-first digital tools.</p>
+      <p class="sub reveal-text">Full-Stack Developer and Third Officer building practical, high-performance software for maritime operations, productivity, and modern web platforms.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#work" data-hover>View projects</a>
-        <a class="btn btn-ghost" href="#contact" data-hover>Get in touch</a>
+        <a class="btn btn-primary" href="#contact" data-hover>Hire Me</a>
+        <a class="btn btn-ghost" href="#work" data-hover>Explore Projects</a>
       </div>
       <div class="stats-bar">
         <div class="pill" data-hover><span class="status-dot"></span> <span class="val" data-counter="5">0</span>&nbsp;Live Deployments</div>
         <div class="pill" data-hover>🐙 <span class="val" data-counter="10">0</span>&nbsp;Repositories</div>
+        <div class="pill" data-hover>⚓ <span class="val" data-counter="720" data-suffix="+">0</span>&nbsp;Days Sea Time</div>
         <div class="pill" data-hover>💻 <span class="val">React · TypeScript · Python · Next.js</span></div>
       </div>
     </div>
@@ -1025,7 +1021,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     <div class="summary-card" id="summaryCard">
       <div class="scanline" id="scanline"></div>
       <div class="mode-badge" id="modeBadge">⚓ BRIDGE WATCHKEEPING VIEW</div>
-      <p class="reveal-text" id="summaryText">I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship's bridge and in developer workflows.</p>
+      <p class="reveal-text" id="summaryText">Full-Stack Developer and Third Officer on ocean-going oil tankers building practical software for maritime operations, productivity, and modern web platforms. Managing navigational watches demands relentless attention to detail and procedural compliance, which I bring directly to full-stack software development.</p>
 
       <div class="telemetry-grid reveal-text" id="telemetryGrid">
         <div class="telemetry-item" data-hover>
@@ -1035,8 +1031,8 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         </div>
         <div class="telemetry-item" data-hover>
           <div class="telemetry-num" data-counter="100" data-suffix="%" data-decimals="0">0</div>
-          <div class="telemetry-label">Safety Record</div>
-          <div class="telemetry-sub">Zero Incident Operations</div>
+          <div class="telemetry-label">STCW II/1 Compliant</div>
+          <div class="telemetry-sub">Officer of the Watch Certified</div>
         </div>
         <div class="telemetry-item" data-hover>
           <div class="telemetry-num" data-counter="14000" data-suffix="+" data-decimals="0" data-format="comma">0</div>
@@ -1084,6 +1080,115 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     </div>
 
     <div class="grid" id="projectGrid"></div>
+  </section>
+
+  <!-- ===== MARITIME OPERATIONS SECTION ===== -->
+  <section id="maritime">
+    <div class="sec-head">
+      <div class="eyebrow reveal-text">Log 02 — Maritime Operations</div>
+      <h2 class="reveal-text">Navigational & Watchkeeping Profile</h2>
+      <p class="reveal-text">STCW-certified Third Officer on ocean-going oil tankers with 720+ days at sea managing navigational watches, bridge equipment, and cargo safety.</p>
+    </div>
+
+    <div class="grid-2col" style="margin-bottom: 24px;">
+      <div class="info-card">
+        <div class="meta">OFFICER CREDENTIALS & CERTIFICATIONS (STCW)</div>
+        <h3>STCW II/1 Navigational Watchkeeping CoC</h3>
+        <div class="sub-title">Officer in Charge of Navigational Watch (Unlimited Vessels)</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li>STCW II/1 Officer CoC (Directorate General of Shipping Approved)</li>
+          <li>GMDSS General Operator's Certificate (GOC) for global radio distress monitoring</li>
+          <li>ECDIS Radar / ARPA Simulator Certification (Transas, JRC, Furuno)</li>
+          <li>Advanced Fire Fighting (STCW A-VI/3) & Medical First Aid</li>
+          <li>Proficiency in Survival Craft and Rescue Boats (PSCRB)</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">NAVIGATIONAL WATCH & BRIDGE DUTIES</div>
+        <h3>0800–1200 & 2000–0000 Watchkeeping</h3>
+        <div class="sub-title">COLREGs Compliance & Passage Execution</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Safe navigational watches in congested international straits & open oceans</li>
+          <li>COLREGs collision avoidance maneuvers & look-out supervision</li>
+          <li>Passage plan execution, chart corrections & Notice to Mariners updates</li>
+          <li>Compass error checks via celestial bearings & terrestrial landmarks</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">BRIDGE EQUIPMENT & NAVIGATION SYSTEMS</div>
+        <h3>ECDIS, RADAR / ARPA & GMDSS Operations</h3>
+        <div class="sub-title">Precision Navigation Hardware & Software</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Dual ECDIS monitoring, route safety checking & depth contour alerts</li>
+          <li>S-Band & X-Band RADAR tracking with ARPA target trial maneuvers</li>
+          <li>GMDSS station testing (Inmarsat-C, MF/HF DSC, VHF Radio)</li>
+          <li>Magnetic & Gyro Compass deviation logging</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">TANKER CARGO & SAFETY OPERATIONS</div>
+        <h3>Oil Tanker Cargo & Ballast Systems</h3>
+        <div class="sub-title">IGS, Ballast Management & Safety Equipment</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Inert Gas System (IGS) O2 concentration monitoring during cargo discharge</li>
+          <li>Ballast Water Management System (BWMS) & ship stability monitoring</li>
+          <li>Crude Oil Washing (COW) safety monitoring</li>
+          <li>Bridge Safety Officer & Life-Saving Appliances (LSA) maintenance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEVELOPER STACK SECTION ===== -->
+  <section id="developer">
+    <div class="sec-head">
+      <div class="eyebrow reveal-text">Log 03 — Software Engineering</div>
+      <h2 class="reveal-text">Developer Stack & Open Source</h2>
+      <p class="reveal-text">Building full-stack web applications, offline-first PWA tools, and developer utilities with modern TypeScript, React, and Python.</p>
+    </div>
+
+    <div class="grid-2col" style="margin-bottom: 24px;">
+      <div class="info-card">
+        <div class="meta">GITHUB PROFILE & DEPLOYMENTS</div>
+        <h3>@capt-alfred | Open Source Portfolio</h3>
+        <div class="sub-title">10 Open-Source Repositories · 5 Production Web Apps</div>
+        <p style="margin-top: 8px; font-size: 13.5px; color: var(--ink-dim);">Full public activity and source code available at <a href="https://github.com/capt-alfred" target="_blank" rel="noopener" style="color: var(--ocean); font-weight: 600;">github.com/capt-alfred</a>. Every repository features clean git commit histories, comprehensive documentation, and modular TypeScript architecture.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">OFFLINE-FIRST PWA ARCHITECTURE</div>
+        <h3>Low-Bandwidth Satellite Reliability</h3>
+        <div class="sub-title">PWA Service Workers & LocalStorage Persistence</div>
+        <p style="margin-top: 8px; font-size: 13.5px; color: var(--ink-dim);">Designed specifically for seafarers and users in remote environments without stable internet connectivity. Applications feature offline caching, instantaneous cold starts, zero-dependency local math routines, and seamless client data synchronization.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">FULL-STACK TECH STACK</div>
+        <h3>React 19, TypeScript, Python & Next.js</h3>
+        <div class="sub-title">Modern Web Stack & Automated Scripting</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li><strong>Frontend:</strong> React 19, Next.js App Router, TypeScript, Tailwind CSS</li>
+          <li><strong>Backend & Automation:</strong> Python (FastAPI, Pandas), Node.js, Express</li>
+          <li><strong>Storage & Database:</strong> PostgreSQL, SQLite, IndexedDB, LocalStorage</li>
+          <li><strong>UI & UX Design:</strong> WCAG AA Compliance, Responsive Layouts, Neumorphic Systems</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="meta">AUTOMATED CI/CD & EDGE DEPLOYMENT</div>
+        <h3>GitHub Actions & Vercel Edge Infrastructure</h3>
+        <div class="sub-title">Continuous Integration & Automated Testing</div>
+        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--ink-dim); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Automated build validation via GitHub Actions workflows</li>
+          <li>Edge network deployment on Vercel for sub-100ms global latency</li>
+          <li>ESLint & TypeScript strict type checking across all codebase repos</li>
+          <li>Semantic versioning and clean changelog tracking</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
@@ -1222,7 +1327,7 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         <p class="lead reveal-text">Interested in maritime technology, open-source software collaboration, or full-stack engineering opportunities? Reach out directly via email, GitHub, or LinkedIn. While underway at sea, responses may run on ship's time depending on current satellite connectivity.</p>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          <a href="mailto:alpha.coil966@passinbox.com" id="emailLink" data-hover>alpha.coil966@passinbox.com</a>
+          <a href="mailto:yoursalfred@gmail.com" id="emailLink" data-hover>yoursalfred@gmail.com</a>
           <button type="button" class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address" title="Copy email address" data-hover>
             <svg id="copyEmailIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span id="copyEmailText">Copy</span>
@@ -1257,14 +1362,6 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         </div>
         <button class="btn btn-primary" type="submit" id="sendBtn" data-hover>Send message</button>
       </form>
-    </div>
-
-    <!-- Reactive Sea State Footer Canvas -->
-    <div class="sea-state-wrapper reveal-text" id="seaStateWrapper" title="Live Sea State Swell — Responds dynamically to scroll velocity">
-      <div class="sea-state-status" id="seaStateStatus">
-        <span class="status-dot"></span> SEA STATE: CALM (SWELL 0.4m)
-      </div>
-      <canvas id="seaStateCanvas" class="sea-state-canvas"></canvas>
     </div>
   </section>
 </div>
@@ -1506,13 +1603,10 @@ function handleScroll() {
     toTopIcon.style.transform = isTopHalf ? 'rotate(180deg)' : 'rotate(0deg)';
   }
   
-  const delta = Math.abs(st - lastScrollY);
-  scrollVelocity += delta;
   lastScrollY = st;
 }
 
 let lastScrollY = window.scrollY;
-let scrollVelocity = 0;
 window.addEventListener('scroll', handleScroll, { passive: true });
 handleScroll();
 
@@ -1653,10 +1747,10 @@ function animateCounter(el) {
 const modeData = {
   bridge: {
     badge: '⚓ BRIDGE WATCHKEEPING VIEW',
-    summary: 'I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship\'s bridge and in developer workflows.',
+    summary: 'Full-Stack Developer and Third Officer on ocean-going oil tankers building practical software for maritime operations, productivity, and modern web platforms. Managing navigational watches demands relentless attention to detail and procedural compliance, which I bring directly to full-stack software development.',
     telemetry: [
       { num: '720', suffix: '+', decimals: '0', format: '', label: 'Days at Sea', sub: 'Navigational Watchkeeping' },
-      { num: '100', suffix: '%', decimals: '0', format: '', label: 'Safety Record', sub: 'Zero Incident Operations' },
+      { num: '100', suffix: '%', decimals: '0', format: '', label: 'STCW II/1 Compliant', sub: 'Officer of the Watch Certified' },
       { num: '14000', suffix: '+', decimals: '0', format: 'comma', label: 'Nautical Miles', sub: 'Global Tanker Routes' },
       { num: '10', suffix: '+', decimals: '0', format: '', label: 'Maritime & Web Apps', sub: 'Offline-First Software' }
     ]
@@ -1665,10 +1759,10 @@ const modeData = {
     badge: '💻 DEVELOPER TERMINAL VIEW',
     summary: 'Architecting resilient full-stack applications with offline-first PWA capabilities for mission-critical web environments. From React, Next.js, and TypeScript frontends to Python automation routines, I specialize in building performant, low-latency software tailored for peak reliability both at sea and in modern web stacks.',
     telemetry: [
-      { num: '12', suffix: '+', decimals: '0', format: '', label: 'Production Web Apps', sub: 'React, TypeScript & Python' },
-      { num: '25000', suffix: '+', decimals: '0', format: 'comma', label: 'Lines of Clean Code', sub: 'Modular TypeScript Architecture' },
-      { num: '100', suffix: '%', decimals: '0', format: '', label: 'Offline Resilience', sub: 'PWA Service Workers' },
-      { num: '99', suffix: '.9%', decimals: '0', format: '', label: 'Build Reliability', sub: 'CI/CD Automated Pipelines' }
+      { num: '5', suffix: ' Live', decimals: '0', format: '', label: 'Production Web Apps', sub: 'Vercel Edge Deployments' },
+      { num: '10', suffix: '+', decimals: '0', format: '', label: 'Open Source Repos', sub: 'GitHub @capt-alfred' },
+      { num: '100', suffix: '%', decimals: '0', format: '', label: 'Offline Resilience', sub: 'PWA & LocalStorage Cache' },
+      { num: '100', suffix: '%', decimals: '0', format: '', label: 'WCAG AA Standard', sub: 'Accessible & Responsive UI' }
     ]
   }
 };
@@ -2157,7 +2251,7 @@ document.getElementById('contactForm').addEventListener('submit', async e => {
 const copyEmailBtn = document.getElementById('copyEmailBtn');
 if (copyEmailBtn) {
   copyEmailBtn.addEventListener('click', async () => {
-    const email = 'alpha.coil966@passinbox.com';
+    const email = 'yoursalfred@gmail.com';
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(email);
@@ -2212,120 +2306,6 @@ document.addEventListener('click', function(e) {
   btn.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
 });
-
-/* ============ REACTIVE SEA STATE CANVAS ============ */
-function initSeaStateCanvas() {
-  const canvas = document.getElementById('seaStateCanvas');
-  const statusEl = document.getElementById('seaStateStatus');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let width = 0, height = 0;
-
-  function resize() {
-    const rect = canvas.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = rect.width;
-    height = rect.height;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.scale(dpr, dpr);
-  }
-
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  let waveOffset = 0;
-  let currentAmplitude = 6;
-  const baseAmplitude = 6;
-  const maxAmplitude = 34;
-
-  function draw() {
-    // Decaying velocity swell
-    const targetAmp = baseAmplitude + Math.min(scrollVelocity * 0.45, maxAmplitude - baseAmplitude);
-    scrollVelocity *= 0.88; // decay
-    currentAmplitude += (targetAmp - currentAmplitude) * 0.08;
-
-    // Determine current sea state readout
-    if (statusEl) {
-      let stateName = 'CALM';
-      let dotColor = '#10b981';
-      const swellMeters = (0.4 + (currentAmplitude / maxAmplitude) * 2.8).toFixed(1);
-      if (currentAmplitude > 22) {
-        stateName = 'HEAVY SWELL';
-        dotColor = '#f59e0b';
-      } else if (currentAmplitude > 12) {
-        stateName = 'MODERATE SWELL';
-        dotColor = '#0ea5e9';
-      }
-      statusEl.innerHTML = `<span class="status-dot" style="background:${dotColor};"></span> SEA STATE: ${stateName} (SWELL ${swellMeters}m)`;
-    }
-
-    ctx.clearRect(0, 0, width, height);
-
-    if (prefersReducedMotion) {
-      currentAmplitude = baseAmplitude;
-    } else {
-      waveOffset += 0.02 + (currentAmplitude / maxAmplitude) * 0.02;
-    }
-
-    const primaryColor = getComputedStyle(document.body).getPropertyValue('--ocean').trim() || '#0ea5e9';
-    const isDark = document.body.dataset.theme === 'dark';
-
-    // 3 layered waves
-    const layers = [
-      { speedMult: 0.6, freqMult: 0.008, ampMult: 0.5, yRatio: 0.65, alpha: isDark ? 0.15 : 0.08 },
-      { speedMult: 1.0, freqMult: 0.012, ampMult: 0.85, yRatio: 0.55, alpha: isDark ? 0.35 : 0.18 },
-      { speedMult: 1.4, freqMult: 0.018, ampMult: 1.0, yRatio: 0.5, alpha: isDark ? 0.7 : 0.4 }
-    ];
-
-    layers.forEach((layer, index) => {
-      ctx.beginPath();
-      ctx.moveTo(0, height);
-
-      const layerOffset = waveOffset * layer.speedMult + index * 1.5;
-      const layerAmp = currentAmplitude * layer.ampMult;
-      const baseHeight = height * layer.yRatio;
-
-      for (let x = 0; x <= width; x += 4) {
-        const y = baseHeight + Math.sin(x * layer.freqMult + layerOffset) * layerAmp 
-                           + Math.cos(x * layer.freqMult * 0.5 + layerOffset * 0.7) * (layerAmp * 0.3);
-        ctx.lineTo(x, y);
-      }
-
-      ctx.lineTo(width, height);
-      ctx.closePath();
-
-      const grad = ctx.createLinearGradient(0, baseHeight - layerAmp, 0, height);
-      grad.addColorStop(0, primaryColor);
-      ctx.globalAlpha = layer.alpha;
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Top crest line on primary wave layer
-      if (index === 2) {
-        ctx.globalAlpha = isDark ? 0.9 : 0.6;
-        ctx.strokeStyle = primaryColor;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-      }
-    });
-
-    ctx.globalAlpha = 1.0;
-
-    if (!prefersReducedMotion) {
-      requestAnimationFrame(draw);
-    }
-  }
-
-  draw();
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSeaStateCanvas);
-} else {
-  initSeaStateCanvas();
-}
 </script>
 </body>
 </html>

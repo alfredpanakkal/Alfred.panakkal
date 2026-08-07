@@ -233,7 +233,7 @@ export default function App() {
           style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)' }}
         >
           <Code2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
-          <span>React, Python, React Native</span>
+          <span>React, TypeScript, Python, Next.js</span>
         </div>
       </div>
 
