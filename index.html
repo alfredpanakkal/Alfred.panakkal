@@ -177,17 +177,33 @@ header.nav.nav-solid { background: color-mix(in srgb, var(--bg) 95%, transparent
 .nav-links a:hover::after{width:100%;}
 .nav-right{display:flex; align-items:center; gap:10px;}
 
-.menu-btn{display:none; width:40px; height:40px; align-items:center; justify-content:center; border:none; border-radius:12px; background:var(--neu-surface); box-shadow:var(--neu-out-sm); transition:box-shadow .18s;}
-.menu-btn:active{box-shadow:var(--neu-in);}
-.mobile-overlay{
-  position:fixed; inset:0; z-index:200; background:color-mix(in srgb, var(--bg) 96%, transparent);
-  backdrop-filter:blur(10px);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;
-  opacity:0; pointer-events:none; transition:opacity .3s ease;
+.menu-btn, .mobile-overlay .close-x {
+  width: 44px; height: 44px; min-height: 44px; min-width: 44px;
+  align-items: center; justify-content: center;
+  border: none; border-radius: 12px;
+  background: var(--neu-surface); box-shadow: var(--neu-out-sm);
+  color: var(--ink);
+  transition: box-shadow .18s, transform .18s;
+  cursor: pointer;
 }
-.mobile-overlay.open{opacity:1; pointer-events:auto;}
-.mobile-overlay a{font-family:var(--font-display); font-size:22px; font-weight:600;}
-.mobile-overlay .close-x{position:absolute; top:22px; right:24px; width:38px; height:38px; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:center;}
+.menu-btn { display: none; }
+.menu-btn:active, .mobile-overlay .close-x:active { box-shadow: var(--neu-in); }
+
+.mobile-overlay {
+  position: fixed; inset: 0; z-index: 200; background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(10px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  opacity: 0; pointer-events: none; transition: opacity .3s ease;
+}
+.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 22px; font-weight: 600; }
+.mobile-overlay .close-x {
+  position: absolute; top: 11px; right: 16px;
+  display: flex;
+}
+@media (min-width: 641px) {
+  .mobile-overlay .close-x { top: 11px; right: 24px; }
+}
 
 /* ============ HERO ============ */
 .hero{position:relative; z-index:1; padding:80px 0 48px; perspective: 1000px; overflow: hidden;}
@@ -555,10 +571,24 @@ section{position:relative; z-index:1; padding:48px 0 64px; overflow:hidden;}
 @media(max-width:760px){.contact-panel{grid-template-columns:1fr; padding:26px;}}
 .contact-panel h2{font-family:var(--font-display); font-size:28px; font-weight:700; margin-bottom:12px;}
 .contact-panel .lead{color:var(--ink-dim); font-size:14.5px; margin-bottom:20px; line-height:1.6;}
-.contact-info-row{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink-dim); margin-bottom:12px;}
+.contact-info-row{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink-dim); margin-bottom:12px; flex-wrap:wrap;}
 .contact-info-row a{color:var(--ink-dim); text-decoration:none; transition:color .2s;}
 .contact-info-row a:hover{color:var(--accent-color); text-decoration:underline;}
 .contact-info-row svg{width:16px;height:16px; flex-shrink:0; color:var(--accent-color);}
+.copy-email-btn{
+  display:inline-flex; align-items:center; gap:5px; padding:3px 9px;
+  font-size:11.5px; font-family:var(--font-mono); font-weight:500;
+  color:var(--ink-dim); background:var(--neu-surface); border:1px solid var(--line);
+  border-radius:8px; cursor:pointer; box-shadow:var(--neu-out-sm);
+  transition:all .2s ease; margin-left:2px;
+}
+.copy-email-btn:hover{color:var(--ocean-ink); border-color:color-mix(in srgb, var(--ocean) 40%, transparent);}
+.copy-email-btn:active{box-shadow:var(--neu-in);}
+.copy-email-btn.copied{
+  color:var(--emerald); border-color:var(--emerald);
+  background:color-mix(in srgb, var(--emerald) 12%, var(--neu-surface));
+}
+.copy-email-btn svg{width:12px; height:12px; flex-shrink:0; color:inherit;}
 
 form{display:flex; flex-direction:column; gap:12px;}
 .field{display:flex; flex-direction:column; gap:6px; position: relative;}
@@ -583,15 +613,18 @@ form .btn:disabled{opacity:.45; pointer-events:none; transform:none !important;}
 footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size:12.5px; font-family:var(--font-mono);}
 
 .to-top{
-  position:fixed; bottom:26px; right:26px; width:50px; height:50px; border-radius:50%;
+  position:fixed; bottom:24px; right:24px; width:38px; height:38px; border-radius:50%;
   background:var(--neu-surface); color:var(--ocean-ink); display:flex; align-items:center; justify-content:center;
-  box-shadow:var(--neu-out); z-index:90;
-  opacity:0; pointer-events:none; transform:translateY(12px) scale(.8);
+  box-shadow:var(--neu-out-sm); z-index:90;
+  opacity:1; pointer-events:auto; transform:translateY(0) scale(1);
   transition:opacity .3s, transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .18s;
+  cursor: pointer;
 }
-.to-top.show{opacity:1; pointer-events:auto; transform:translateY(0) scale(1);}
 .to-top:active{box-shadow:var(--neu-in);}
-.to-top svg { transition: transform 0.3s; }
+.to-top svg {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
 
 /* ============ RESPONSIVE & MOBILE ACCESSIBILITY ============ */
 @media (hover: none), (pointer: coarse), (max-width: 1024px) {
@@ -712,15 +745,15 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     </nav>
     <div class="nav-right">
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-hover>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
 <div class="mobile-overlay" id="mobileOverlay">
-  <button class="close-x" id="closeX" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  <button class="close-x" id="closeX" aria-label="Close menu" data-hover>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <a href="#summary">Summary</a>
   <a href="#work">Projects</a>
@@ -948,7 +981,11 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         <p class="lead reveal-text">Interested in maritime technology, open-source software collaboration, or full-stack engineering opportunities? Reach out directly via email, GitHub, or LinkedIn. While underway at sea, responses may run on ship's time depending on current satellite connectivity.</p>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          <a href="mailto:alpha.coil966@passinbox.com" data-hover>alpha.coil966@passinbox.com</a>
+          <a href="mailto:alpha.coil966@passinbox.com" id="emailLink" data-hover>alpha.coil966@passinbox.com</a>
+          <button type="button" class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address" title="Copy email address" data-hover>
+            <svg id="copyEmailIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyEmailText">Copy</span>
+          </button>
         </div>
         <div class="contact-info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c3-.3 6-1.5 6-6.6a5.1 5.1 0 00-1.4-3.5 4.8 4.8 0 00-.1-3.5s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.6 0C6.1 1.3 5 1.6 5 1.6a4.8 4.8 0 00-.1 3.5A5.1 5.1 0 003.5 8.6c0 5.1 3 6.3 6 6.6a3.1 3.1 0 00-.9 2.4V21"/></svg>
@@ -985,8 +1022,8 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
 
 <footer>© 2026 ALFRED PANAKKAL JOSE — ENGINEERED WITH PRECISION, NAVIGATED WITH DISCIPLINE.</footer>
 
-<button class="to-top" id="toTop" aria-label="Back to top" data-hover>
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+<button class="to-top" id="toTop" aria-label="Scroll page" data-hover>
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
 <!-- ===== MODAL ===== -->
@@ -1177,8 +1214,11 @@ const toTopIcon = toTop ? toTop.querySelector('svg') : null;
 
 if (toTop) {
   toTop.addEventListener('click', () => {
-    if (lenis) lenis.scrollTo(0);
-    else window.scrollTo({ top: 0, behavior: 'smooth' });
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const isTopHalf = window.scrollY < docHeight / 2;
+    const targetY = isTopHalf ? document.documentElement.scrollHeight : 0;
+    if (lenis) lenis.scrollTo(targetY);
+    else window.scrollTo({ top: targetY, behavior: 'smooth' });
   });
 }
 
@@ -1193,11 +1233,13 @@ function handleScroll() {
     if (st > lastScrollY && st > 120) navEl.classList.add('nav-hidden');
     else navEl.classList.remove('nav-hidden');
   }
-  if (toTop) toTop.classList.toggle('show', st > 480);
   
+  const isTopHalf = st < docHeight / 2;
+  if (toTop) {
+    toTop.setAttribute('aria-label', isTopHalf ? 'Scroll to bottom' : 'Scroll to top');
+  }
   if (toTopIcon) {
-    if (st > 100 && !prefersReducedMotion) toTopIcon.style.transform = `rotate(${st}deg)`;
-    else toTopIcon.style.transform = 'rotate(0deg)';
+    toTopIcon.style.transform = isTopHalf ? 'rotate(180deg)' : 'rotate(0deg)';
   }
   
   lastScrollY = st;
@@ -1674,6 +1716,46 @@ document.getElementById('contactForm').addEventListener('submit', async e => {
     setTimeout(() => btn.textContent = original, 3000);
   }
 });
+
+/* ============ COPY EMAIL TO CLIPBOARD ============ */
+const copyEmailBtn = document.getElementById('copyEmailBtn');
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener('click', async () => {
+    const email = 'alpha.coil966@passinbox.com';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      
+      copyEmailBtn.classList.add('copied');
+      const copyIcon = document.getElementById('copyEmailIcon');
+      const copyText = document.getElementById('copyEmailText');
+      if (copyIcon) {
+        copyIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+      }
+      if (copyText) copyText.textContent = 'Copied!';
+      
+      setTimeout(() => {
+        copyEmailBtn.classList.remove('copied');
+        if (copyIcon) {
+          copyIcon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+        }
+        if (copyText) copyText.textContent = 'Copy';
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  });
+}
 
 /* ============ MOBILE MENU ============ */
 const menuBtn = document.getElementById('menuBtn'), overlay = document.getElementById('mobileOverlay'), closeX = document.getElementById('closeX');
