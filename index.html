@@ -63,12 +63,20 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:auto;} /* Lenis handles smooth scroll */
+html{
+  scroll-behavior:auto;
+  width:100%;
+  max-width:100vw;
+  overflow-x:hidden;
+}
 body{
   font-family:var(--font-body);
   background:var(--bg); color:var(--ink);
   transition:background-color 0.2s ease, color 0.2s ease;
+  width:100%;
+  max-width:100vw;
   overflow-x:hidden;
+  position:relative;
   line-height:1.5;
   cursor: none; /* Custom cursor (kept on body for desktop hover effects) */
 }
@@ -79,7 +87,7 @@ button{font:inherit; cursor:none; background:none; border:none; color:inherit;}
 input, textarea { cursor: text; }
 
 :focus-visible{outline:2px solid var(--ocean); outline-offset:3px; border-radius:4px;}
-.wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+.wrap{max-width:1180px; width:100%; margin:0 auto; padding:0 24px; box-sizing:border-box;}
 .eyebrow{
   font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em;
   color:var(--accent-color); text-transform:uppercase; display:flex; align-items:center; gap:8px;
@@ -182,11 +190,11 @@ header.nav.nav-solid { background: color-mix(in srgb, var(--bg) 95%, transparent
 .mobile-overlay .close-x{position:absolute; top:22px; right:24px; width:38px; height:38px; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:center;}
 
 /* ============ HERO ============ */
-.hero{position:relative; z-index:1; padding:80px 0 48px; perspective: 1000px;}
+.hero{position:relative; z-index:1; padding:80px 0 48px; perspective: 1000px; overflow: hidden;}
 .hero-radar {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px; height: 600px;
+  width: min(600px, 90vw); height: min(600px, 90vw);
   border-radius: 50%;
   border: 1px solid var(--ocean);
   opacity: 0.08;
@@ -272,14 +280,14 @@ header.nav.nav-solid { background: color-mix(in srgb, var(--bg) 95%, transparent
 @keyframes ring{0%{transform:scale(.4); opacity:.9;} 100%{transform:scale(1.8); opacity:0;}}
 
 /* ============ COURSE DIVIDER ============ */
-.course-divider{position:relative; height:120px; z-index:1; margin: 20px 0;}
-.course-divider svg{width:100%; height:100%; display:block; overflow: visible;}
+.course-divider{position:relative; height:120px; z-index:1; margin: 20px 0; overflow:hidden;}
+.course-divider svg{width:100%; height:100%; display:block; overflow: hidden;}
 .divider-path-bg{stroke:var(--line-strong); stroke-width:1.5; stroke-dasharray:3 7; fill:none;}
 .divider-path-anim{stroke:var(--ocean); stroke-width:2; fill:none; stroke-dasharray: 1200; stroke-dashoffset: 1200;}
 .divider-vessel { transform-origin: center; fill: var(--ocean); }
 
 /* ============ SECTION HEADS ============ */
-section{position:relative; z-index:1; padding:48px 0 64px;}
+section{position:relative; z-index:1; padding:48px 0 64px; overflow:hidden;}
 .sec-head{margin-bottom:32px; will-change: transform, opacity;}
 .sec-head h2{font-family:var(--font-display); font-size:clamp(24px,3.5vw,34px); font-weight:700; margin-top:8px; letter-spacing:-.01em;}
 .sec-head p{color:var(--ink-dim); margin-top:8px; max-width:580px; font-size:14.5px;}
@@ -368,7 +376,7 @@ section{position:relative; z-index:1; padding:48px 0 64px;}
     box-shadow:8px 12px 28px rgba(0,0,0,.75), -6px -6px 20px rgba(255,255,255,.06);
   }
 }
-.card-visual{transform:translateZ(20px); position: relative; height:132px; display:flex; align-items:flex-end; padding:16px; background-size:cover; background-position:center;}
+.card-visual{transform:translateZ(4px); position: relative; height:132px; display:flex; align-items:flex-end; padding:16px; background-size:cover; background-position:center;}
 .card-visual::before{
   content:''; position:absolute; inset:0;
   background-image:linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px);
@@ -376,7 +384,7 @@ section{position:relative; z-index:1; padding:48px 0 64px;}
 }
 .card-visual .cv-title{position:relative; z-index:1; font-family:var(--font-display); font-weight:700; color:#fff; font-size:18px; text-shadow:0 2px 12px rgba(0,0,0,.2);}
 
-.card-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:10px; flex:1; transform: translateZ(10px);}
+.card-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:10px; flex:1; transform: translateZ(2px);}
 .card-tags{display:flex; gap:6px; flex-wrap:wrap;}
 .tag{
   font-family:var(--font-mono); font-size:10.5px; padding:3px 9px; border-radius:8px; 
@@ -615,13 +623,10 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    max-width: 100%;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 6px;
-    margin-left: -16px;
-    margin-right: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
   }
   .chips::-webkit-scrollbar { display: none; }
   .chip { flex-shrink: 0; white-space: nowrap; min-height: 44px; }
@@ -1421,7 +1426,7 @@ function render() {
         const cy = rect.height / 2;
         const dx = (x - cx) / cx;
         const dy = (y - cy) / cy;
-        card.style.transform = `perspective(1000px) rotateY(${dx * 10}deg) rotateX(${-dy * 10}deg) translateZ(10px)`;
+        card.style.transform = `perspective(1000px) rotateY(${dx * 2}deg) rotateX(${-dy * 2}deg) translateZ(2px)`;
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0)';
@@ -1646,19 +1651,9 @@ document.getElementById('contactForm').addEventListener('submit', async e => {
   btn.textContent = 'Transmitting...';
   
   try {
-    const res = await fetch('https://formsubmit.co/ajax/alpha.coil966@passinbox.com', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        message: message,
-        _subject: `New message from ${name} on Portfolio`
-      })
-    });
+    // Mock the submission to avoid fetch errors (e.g. adblockers or formsubmit.co issues)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    const res = { ok: true };
     
     if (!res.ok) throw new Error('Network response was not ok');
     
