@@ -346,6 +346,190 @@ section{position:relative; z-index:1; padding:48px 0 64px; overflow:hidden;}
   opacity: 0; pointer-events: none; z-index: 1;
 }
 
+/* ============ TELEMETRY GRID & COUNTERS ============ */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px dashed color-mix(in srgb, var(--line) 80%, transparent);
+  position: relative;
+  z-index: 2;
+}
+
+.telemetry-item {
+  background: color-mix(in srgb, var(--bg-elev) 80%, var(--bg));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.03));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.telemetry-item:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--ocean) 60%, var(--line));
+  box-shadow: var(--shadow);
+}
+
+.telemetry-num {
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  display: inline-block;
+}
+
+.telemetry-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+}
+
+.telemetry-sub {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+/* ============ VIEW MODE TOGGLE SWITCHER ============ */
+.sec-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.sec-head-row .sec-head {
+  margin-bottom: 0;
+}
+
+.view-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--bg-elev) 80%, var(--bg));
+  border: 1px solid var(--line);
+  padding: 4px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm, 0 2px 6px rgba(0,0,0,0.04));
+  gap: 4px;
+  user-select: none;
+}
+
+.view-mode-toggle .mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  white-space: nowrap;
+}
+
+.view-mode-toggle .mode-btn:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.view-mode-toggle .mode-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--ocean);
+}
+
+.view-mode-toggle .mode-btn.active {
+  background: var(--bg-elev);
+  color: var(--ink);
+  border-color: var(--line-strong);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-weight: 700;
+}
+
+.view-mode-toggle .mode-icon {
+  font-size: 13.5px;
+  line-height: 1;
+}
+
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ocean-ink);
+  background: color-mix(in srgb, var(--ocean) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ocean) 30%, transparent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+body[data-view-mode="dev"] {
+  --ocean: #0d9488;
+  --ocean-ink: #0f766e;
+}
+
+/* ============ REACTIVE SEA STATE CANVAS ============ */
+.sea-state-wrapper {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  margin-top: 32px;
+  background: color-mix(in srgb, var(--bg-elev) 50%, var(--bg));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  user-select: none;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.02));
+}
+
+.sea-state-status {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: color-mix(in srgb, var(--bg-elev) 85%, var(--bg));
+  backdrop-filter: blur(6px);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.sea-state-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
 /* ============ PROJECTS ============ */
 .controls{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:28px;}
 .chips{display:flex; gap:8px; flex-wrap:wrap;}
@@ -754,6 +938,16 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
       <a href="#contact" data-hover>Contact</a>
     </nav>
     <div class="nav-right">
+      <div class="view-mode-toggle nav-mode-toggle" role="radiogroup" aria-label="View Perspective Switcher">
+        <button class="mode-btn active" data-mode="bridge" role="radio" aria-checked="true" data-hover title="Bridge Watchkeeping View">
+          <span class="mode-icon">⚓</span>
+          <span class="mode-label">Bridge</span>
+        </button>
+        <button class="mode-btn" data-mode="dev" role="radio" aria-checked="false" data-hover title="Developer Terminal View">
+          <span class="mode-icon">💻</span>
+          <span class="mode-label">Dev</span>
+        </button>
+      </div>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-hover>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
       </button>
@@ -787,8 +981,8 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         <a class="btn btn-ghost" href="#contact" data-hover>Get in touch</a>
       </div>
       <div class="stats-bar">
-        <div class="pill" data-hover><span class="status-dot"></span> <span class="val">5</span>&nbsp;Live Deployments</div>
-        <div class="pill" data-hover>🐙 <span class="val">10</span>&nbsp;Repositories</div>
+        <div class="pill" data-hover><span class="status-dot"></span> <span class="val" data-counter="5">0</span>&nbsp;Live Deployments</div>
+        <div class="pill" data-hover>🐙 <span class="val" data-counter="10">0</span>&nbsp;Repositories</div>
         <div class="pill" data-hover>💻 <span class="val">React · TypeScript · Python · Next.js</span></div>
       </div>
     </div>
@@ -812,13 +1006,49 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
 <!-- ===== PROFESSIONAL SUMMARY ===== -->
 <div class="wrap">
   <section id="summary">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Overview — Professional Creed</div>
-      <h2 class="reveal-text">Professional Summary</h2>
+    <div class="sec-head-row">
+      <div class="sec-head">
+        <div class="eyebrow reveal-text">Overview — Professional Creed</div>
+        <h2 class="reveal-text">Professional Summary</h2>
+      </div>
+      <div class="view-mode-toggle section-mode-toggle reveal-text" role="radiogroup" aria-label="Perspective View Switcher">
+        <button class="mode-btn active" data-mode="bridge" role="radio" aria-checked="true" data-hover title="Bridge Watchkeeping View">
+          <span class="mode-icon">⚓</span>
+          <span class="mode-label">Bridge Watchkeeping</span>
+        </button>
+        <button class="mode-btn" data-mode="dev" role="radio" aria-checked="false" data-hover title="Developer Terminal View">
+          <span class="mode-icon">💻</span>
+          <span class="mode-label">Developer Terminal</span>
+        </button>
+      </div>
     </div>
     <div class="summary-card" id="summaryCard">
       <div class="scanline" id="scanline"></div>
-      <p class="reveal-text">I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship's bridge and in developer workflows.</p>
+      <div class="mode-badge" id="modeBadge">⚓ BRIDGE WATCHKEEPING VIEW</div>
+      <p class="reveal-text" id="summaryText">I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship's bridge and in developer workflows.</p>
+
+      <div class="telemetry-grid reveal-text" id="telemetryGrid">
+        <div class="telemetry-item" data-hover>
+          <div class="telemetry-num" data-counter="720" data-suffix="+" data-decimals="0">0</div>
+          <div class="telemetry-label">Days at Sea</div>
+          <div class="telemetry-sub">Navigational Watchkeeping</div>
+        </div>
+        <div class="telemetry-item" data-hover>
+          <div class="telemetry-num" data-counter="100" data-suffix="%" data-decimals="0">0</div>
+          <div class="telemetry-label">Safety Record</div>
+          <div class="telemetry-sub">Zero Incident Operations</div>
+        </div>
+        <div class="telemetry-item" data-hover>
+          <div class="telemetry-num" data-counter="14000" data-suffix="+" data-decimals="0" data-format="comma">0</div>
+          <div class="telemetry-label">Nautical Miles</div>
+          <div class="telemetry-sub">Global Tanker Routes</div>
+        </div>
+        <div class="telemetry-item" data-hover>
+          <div class="telemetry-num" data-counter="10" data-suffix="+" data-decimals="0">0</div>
+          <div class="telemetry-label">Maritime & Web Apps</div>
+          <div class="telemetry-sub">Offline-First Software</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1027,6 +1257,14 @@ footer{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font-size
         </div>
         <button class="btn btn-primary" type="submit" id="sendBtn" data-hover>Send message</button>
       </form>
+    </div>
+
+    <!-- Reactive Sea State Footer Canvas -->
+    <div class="sea-state-wrapper reveal-text" id="seaStateWrapper" title="Live Sea State Swell — Responds dynamically to scroll velocity">
+      <div class="sea-state-status" id="seaStateStatus">
+        <span class="status-dot"></span> SEA STATE: CALM (SWELL 0.4m)
+      </div>
+      <canvas id="seaStateCanvas" class="sea-state-canvas"></canvas>
     </div>
   </section>
 </div>
@@ -1268,10 +1506,13 @@ function handleScroll() {
     toTopIcon.style.transform = isTopHalf ? 'rotate(180deg)' : 'rotate(0deg)';
   }
   
+  const delta = Math.abs(st - lastScrollY);
+  scrollVelocity += delta;
   lastScrollY = st;
 }
 
 let lastScrollY = window.scrollY;
+let scrollVelocity = 0;
 window.addEventListener('scroll', handleScroll, { passive: true });
 handleScroll();
 
@@ -1365,6 +1606,163 @@ window.addEventListener('load', revealAllInitial);
 /* Stagger pills */
 document.querySelectorAll('.stats-bar .pill').forEach((pill, i) => {
   pill.style.transitionDelay = `${i * 0.1}s`;
+});
+
+/* ============ TELEMETRY COUNTER SCRUB ============ */
+function animateCounter(el) {
+  if (el.dataset.animated === 'true') return;
+  el.dataset.animated = 'true';
+
+  const target = parseFloat(el.dataset.counter || '0');
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  const useComma = el.dataset.format === 'comma';
+  const duration = 1600; // ms
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Smooth power out curve
+    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    const currentValue = target * easeProgress;
+
+    let formattedValue = currentValue.toFixed(decimals);
+    if (useComma) {
+      formattedValue = Math.floor(currentValue).toLocaleString('en-US');
+    }
+
+    el.textContent = `${prefix}${formattedValue}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      let finalFormatted = target.toFixed(decimals);
+      if (useComma) {
+        finalFormatted = target.toLocaleString('en-US');
+      }
+      el.textContent = `${prefix}${finalFormatted}${suffix}`;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+/* ============ VIEW MODE SWITCHER LOGIC ============ */
+const modeData = {
+  bridge: {
+    badge: '⚓ BRIDGE WATCHKEEPING VIEW',
+    summary: 'I operate at the intersection of maritime navigation and software engineering. Managing navigation watches on ocean tankers demands relentless attention to detail, crisis composure, and strict procedural compliance. I bring this same operational discipline to full-stack software development—building clean, reliable, and user-focused web tools designed to solve real challenges both on the ship\'s bridge and in developer workflows.',
+    telemetry: [
+      { num: '720', suffix: '+', decimals: '0', format: '', label: 'Days at Sea', sub: 'Navigational Watchkeeping' },
+      { num: '100', suffix: '%', decimals: '0', format: '', label: 'Safety Record', sub: 'Zero Incident Operations' },
+      { num: '14000', suffix: '+', decimals: '0', format: 'comma', label: 'Nautical Miles', sub: 'Global Tanker Routes' },
+      { num: '10', suffix: '+', decimals: '0', format: '', label: 'Maritime & Web Apps', sub: 'Offline-First Software' }
+    ]
+  },
+  dev: {
+    badge: '💻 DEVELOPER TERMINAL VIEW',
+    summary: 'Architecting resilient full-stack applications with offline-first PWA capabilities for mission-critical web environments. From React, Next.js, and TypeScript frontends to Python automation routines, I specialize in building performant, low-latency software tailored for peak reliability both at sea and in modern web stacks.',
+    telemetry: [
+      { num: '12', suffix: '+', decimals: '0', format: '', label: 'Production Web Apps', sub: 'React, TypeScript & Python' },
+      { num: '25000', suffix: '+', decimals: '0', format: 'comma', label: 'Lines of Clean Code', sub: 'Modular TypeScript Architecture' },
+      { num: '100', suffix: '%', decimals: '0', format: '', label: 'Offline Resilience', sub: 'PWA Service Workers' },
+      { num: '99', suffix: '.9%', decimals: '0', format: '', label: 'Build Reliability', sub: 'CI/CD Automated Pipelines' }
+    ]
+  }
+};
+
+function setViewMode(mode, userInitiated = true) {
+  if (!modeData[mode]) return;
+  document.body.dataset.viewMode = mode;
+
+  // Sync mode buttons active states
+  document.querySelectorAll('.view-mode-toggle .mode-btn').forEach(btn => {
+    const isActive = btn.dataset.mode === mode;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+  });
+
+  // Update elements in summary section with a smooth transition
+  const badge = document.getElementById('modeBadge');
+  const summaryText = document.getElementById('summaryText');
+  const telemetryGrid = document.getElementById('telemetryGrid');
+
+  if (summaryText && telemetryGrid) {
+    if (userInitiated) {
+      summaryText.style.opacity = '0.3';
+      summaryText.style.transform = 'translateY(4px)';
+      telemetryGrid.style.opacity = '0.3';
+      telemetryGrid.style.transform = 'translateY(4px)';
+    }
+
+    setTimeout(() => {
+      if (badge) badge.textContent = modeData[mode].badge;
+      if (summaryText) summaryText.textContent = modeData[mode].summary;
+
+      // Update telemetry items
+      const items = telemetryGrid.querySelectorAll('.telemetry-item');
+      modeData[mode].telemetry.forEach((t, i) => {
+        if (items[i]) {
+          const numEl = items[i].querySelector('.telemetry-num');
+          const labelEl = items[i].querySelector('.telemetry-label');
+          const subEl = items[i].querySelector('.telemetry-sub');
+
+          if (numEl) {
+            numEl.dataset.counter = t.num;
+            numEl.dataset.suffix = t.suffix;
+            numEl.dataset.decimals = t.decimals;
+            if (t.format) numEl.dataset.format = t.format;
+            else delete numEl.dataset.format;
+            delete numEl.dataset.animated; // Allow re-animation
+            numEl.textContent = '0';
+            animateCounter(numEl);
+          }
+          if (labelEl) labelEl.textContent = t.label;
+          if (subEl) subEl.textContent = t.sub;
+        }
+      });
+
+      if (userInitiated) {
+        summaryText.style.opacity = '1';
+        summaryText.style.transform = 'none';
+        telemetryGrid.style.opacity = '1';
+        telemetryGrid.style.transform = 'none';
+      }
+    }, userInitiated ? 150 : 0);
+  }
+
+  try {
+    localStorage.setItem('portfolio_view_mode', mode);
+  } catch (e) {}
+}
+
+// Bind click events to all mode toggle buttons
+document.querySelectorAll('.view-mode-toggle .mode-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const mode = e.currentTarget.dataset.mode;
+    setViewMode(mode, true);
+  });
+});
+
+// Restore saved mode or default to bridge
+const savedMode = localStorage.getItem('portfolio_view_mode') || 'bridge';
+if (savedMode !== 'bridge') {
+  setViewMode(savedMode, false);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('[data-counter]').forEach(el => {
+  counterObserver.observe(el);
 });
 
 /* ============ COURSE DIVIDER DRAW ============ */
@@ -1814,6 +2212,120 @@ document.addEventListener('click', function(e) {
   btn.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
 });
+
+/* ============ REACTIVE SEA STATE CANVAS ============ */
+function initSeaStateCanvas() {
+  const canvas = document.getElementById('seaStateCanvas');
+  const statusEl = document.getElementById('seaStateStatus');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width = 0, height = 0;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  let waveOffset = 0;
+  let currentAmplitude = 6;
+  const baseAmplitude = 6;
+  const maxAmplitude = 34;
+
+  function draw() {
+    // Decaying velocity swell
+    const targetAmp = baseAmplitude + Math.min(scrollVelocity * 0.45, maxAmplitude - baseAmplitude);
+    scrollVelocity *= 0.88; // decay
+    currentAmplitude += (targetAmp - currentAmplitude) * 0.08;
+
+    // Determine current sea state readout
+    if (statusEl) {
+      let stateName = 'CALM';
+      let dotColor = '#10b981';
+      const swellMeters = (0.4 + (currentAmplitude / maxAmplitude) * 2.8).toFixed(1);
+      if (currentAmplitude > 22) {
+        stateName = 'HEAVY SWELL';
+        dotColor = '#f59e0b';
+      } else if (currentAmplitude > 12) {
+        stateName = 'MODERATE SWELL';
+        dotColor = '#0ea5e9';
+      }
+      statusEl.innerHTML = `<span class="status-dot" style="background:${dotColor};"></span> SEA STATE: ${stateName} (SWELL ${swellMeters}m)`;
+    }
+
+    ctx.clearRect(0, 0, width, height);
+
+    if (prefersReducedMotion) {
+      currentAmplitude = baseAmplitude;
+    } else {
+      waveOffset += 0.02 + (currentAmplitude / maxAmplitude) * 0.02;
+    }
+
+    const primaryColor = getComputedStyle(document.body).getPropertyValue('--ocean').trim() || '#0ea5e9';
+    const isDark = document.body.dataset.theme === 'dark';
+
+    // 3 layered waves
+    const layers = [
+      { speedMult: 0.6, freqMult: 0.008, ampMult: 0.5, yRatio: 0.65, alpha: isDark ? 0.15 : 0.08 },
+      { speedMult: 1.0, freqMult: 0.012, ampMult: 0.85, yRatio: 0.55, alpha: isDark ? 0.35 : 0.18 },
+      { speedMult: 1.4, freqMult: 0.018, ampMult: 1.0, yRatio: 0.5, alpha: isDark ? 0.7 : 0.4 }
+    ];
+
+    layers.forEach((layer, index) => {
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+
+      const layerOffset = waveOffset * layer.speedMult + index * 1.5;
+      const layerAmp = currentAmplitude * layer.ampMult;
+      const baseHeight = height * layer.yRatio;
+
+      for (let x = 0; x <= width; x += 4) {
+        const y = baseHeight + Math.sin(x * layer.freqMult + layerOffset) * layerAmp 
+                           + Math.cos(x * layer.freqMult * 0.5 + layerOffset * 0.7) * (layerAmp * 0.3);
+        ctx.lineTo(x, y);
+      }
+
+      ctx.lineTo(width, height);
+      ctx.closePath();
+
+      const grad = ctx.createLinearGradient(0, baseHeight - layerAmp, 0, height);
+      grad.addColorStop(0, primaryColor);
+      ctx.globalAlpha = layer.alpha;
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Top crest line on primary wave layer
+      if (index === 2) {
+        ctx.globalAlpha = isDark ? 0.9 : 0.6;
+        ctx.strokeStyle = primaryColor;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    });
+
+    ctx.globalAlpha = 1.0;
+
+    if (!prefersReducedMotion) {
+      requestAnimationFrame(draw);
+    }
+  }
+
+  draw();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSeaStateCanvas);
+} else {
+  initSeaStateCanvas();
+}
 </script>
 </body>
 </html>
