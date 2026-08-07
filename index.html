@@ -38,9 +38,9 @@
   --neu-out-sm:3px 3px 8px rgba(166,180,200,.38), -3px -3px 8px rgba(255,255,255,.9);
   --neu-in:inset 3px 3px 7px rgba(166,180,200,.42), inset -3px -3px 7px rgba(255,255,255,.9);
   --radius:14px;
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
+  --font-display:'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body:'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --accent-color: var(--ocean-ink);
   --btn-primary-bg: var(--ink);
   --btn-primary-fg: var(--bg);
@@ -311,8 +311,15 @@ section{position:relative; z-index:1; padding:48px 0 64px; overflow:hidden;}
 .sec-head h2{font-family:var(--font-display); font-size:clamp(24px,3.5vw,34px); font-weight:700; margin-top:8px; letter-spacing:-.01em;}
 .sec-head p{color:var(--ink-dim); margin-top:8px; max-width:580px; font-size:14.5px;}
 
-.reveal-text { opacity: 0; transform: translateY(60px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-text { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-text.in-view { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text, .pill, .info-card, .exp-card, .commit-line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 /* ============ PROFESSIONAL SUMMARY ============ */
 .summary-card{
@@ -1155,18 +1162,32 @@ const PROJECTS = [
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const supportsHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-if (typeof gsap !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, Flip);
+let lenis;
+
+function initApp() {
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, Flip);
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
+    }
+  }
+
+  if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+    lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    if (typeof ScrollTrigger !== 'undefined') {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+  }
 }
 
-let lenis;
-if (!prefersReducedMotion) {
-  lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
 }
 
 /* ============ CUSTOM CURSOR ============ */
@@ -1316,18 +1337,30 @@ if (!prefersReducedMotion) {
 }
 
 /* ============ INTERSECTION OBSERVER (Reveal Text) ============ */
+function revealAllInitial() {
+  document.querySelectorAll('.reveal-text, .pill, .info-card, .exp-card, .commit-line').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 200 || rect.bottom <= 0) {
+      el.classList.add('in-view');
+    }
+  });
+}
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
       entry.target.classList.add('in-view');
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0, rootMargin: '100px 0px 100px 0px' });
 
 document.querySelectorAll('.reveal-text, .pill, .info-card, .exp-card').forEach(el => {
   revealObserver.observe(el);
 });
+
+revealAllInitial();
+window.addEventListener('load', revealAllInitial);
 
 /* Stagger pills */
 document.querySelectorAll('.stats-bar .pill').forEach((pill, i) => {
