@@ -15,7 +15,12 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="dns-prefetch" href="https://image.thum.io">
+<link rel="dns-prefetch" href="https://formsubmit.co">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
 
 <!-- Structured Data (JSON-LD) for SEO -->
 <script type="application/ld+json">
@@ -126,6 +131,18 @@ input, textarea { cursor: text; }
 
 :focus-visible{outline:2px solid var(--ocean); outline-offset:3px; border-radius:4px;}
 .wrap{max-width:1180px; width:100%; margin:0 auto; padding:0 24px; box-sizing:border-box;}
+
+/* Performance Optimizations: Rendering & Containment */
+main section:not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+.card, .info-card, .timeline-item {
+  contain: layout style;
+}
+.card-snapshot {
+  content-visibility: auto;
+}
 .eyebrow{
   font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em;
   color:var(--accent-color); text-transform:uppercase; display:flex; align-items:center; gap:8px;
@@ -1547,12 +1564,13 @@ function initApp() {
 
   if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
     lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    if (typeof ScrollTrigger !== 'undefined') {
+    if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
     }
   }
 }
@@ -1887,7 +1905,7 @@ function cardHTML(p) {
 
   const snapshotSrc = p.snapshot || (p.live ? `https://image.thum.io/get/width/600/crop/400/noanimate/${p.live}` : null);
   const snapshotImg = snapshotSrc 
-    ? `<img class="card-snapshot" src="${snapshotSrc}" alt="${p.title} live screenshot preview" loading="lazy" onerror="this.style.display='none'">` 
+    ? `<img class="card-snapshot" src="${snapshotSrc}" alt="${p.title} live screenshot preview" loading="lazy" decoding="async" width="600" height="400" onerror="this.style.display='none'">` 
     : '';
 
   return `
