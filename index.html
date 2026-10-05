@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="Alfred Panakkal — Seafarer & Full-Stack Developer" />
+    <meta property="og:description" content="Third Officer on ocean-going tankers and full-stack developer building practical software for maritime operations, productivity, and unreliable connectivity." />
+    <title>Alfred Panakkal — Seafarer &amp; Full-Stack Developer</title>
+    <meta name="description" content="Third Officer on ocean-going tankers and full-stack developer building practical software for maritime operations, productivity, and unreliable connectivity." />
+    <meta name="theme-color" content="#f3f0e8" />
+    <meta name="author" content="Alfred Panakkal Jose" />
+    <meta name="apple-mobile-web-app-title" content="Alfred Panakkal" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFFNEY4QyIvPgogIDxwYXRoCiAgICBmaWxsPSIjRjNGMEU4IgogICAgZmlsbC1ydWxlPSJldmVub2RkIgogICAgZD0iTTE2IDMuMiAyNy42IDI4LjVIMjMuMUwyMS4yIDI0SDEwLjhMOC45IDI4LjVINC40TDE2IDMuMlptLTQuNTUgMTcuM2g5LjFMMTYgOS40WiIKICAvPgo8L3N2Zz4K"
+    />
+
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Space+Grotesk:wght@500;600&display=swap"
+    />
+
+    <!-- Early theme init script to prevent flash of wrong theme -->
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem("theme");
+          var d = t === "dark" || (t !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", d);
+          document.documentElement.style.colorScheme = d ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-dvh bg-bg text-fg antialiased">
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alfred Panakkal Jose",
+        "alternateName": "Alfred Panakkal",
+        "jobTitle": "Seafarer & Full-Stack Developer",
+        "url": "https://alfred-panakkal.vercel.app/",
+        "email": "alpha.coil966@passinbox.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Palakkad",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://github.com/alfredpanakkal",
+          "https://www.linkedin.com/in/alfredpanakkal"
+        ],
+        "knowsAbout": [
+          "Navigational Watchkeeping",
+          "STCW Operations",
+          "Full-Stack Web Development",
+          "React",
+          "TypeScript",
+          "Python",
+          "Offline-First Software"
+        ]
+      }
+    </script>
+
+    <!-- React App Root -->
+    <div id="root"></div>
+
+    <!-- Application Entry Point -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

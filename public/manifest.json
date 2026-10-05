@@ -1,0 +1,16 @@
+{
+  "name": "Alfred Panakkal Jose — Portfolio",
+  "short_name": "@alpha-mini",
+  "description": "Portfolio of Alfred Panakkal Jose — seafarer & software developer creating Helm Almanac, Helm Productivity, Helm Bond, Helm Fasting, and Mudhra Converter.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
