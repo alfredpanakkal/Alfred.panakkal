@@ -39,7 +39,7 @@ Production: https://alfred-panakkal.vercel.app
 - ✅ Vercel project linked to the repo (`alfred-panakkal.vercel.app`).
 - ✅ FormSubmit endpoint configured in the form JS.
 - ⏳ **FormSubmit activation:** the *first* real submission triggers a confirmation email to `alpha.coil966@passinbox.com`; click its link once to start receiving messages.
-- ⏳ Optional: add a custom domain in Vercel → then update `sitemap.xml`, `robots.txt`, JSON-LD `url`, and the raw-file download links to match.
+- ⏳ Optional: add a custom domain in Vercel → then update `sitemap.xml`, `robots.txt`, and JSON-LD `url` to match.
 
 ## Rollback
 
