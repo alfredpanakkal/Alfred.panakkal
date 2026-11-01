@@ -9,6 +9,7 @@
 - **Role**: Third Officer, Full-Stack Software Developer, Open Source Creator
 - **Email**: alpha.coil966@passinbox.com
 - **Core Skills**: React, TypeScript, Next.js, Node.js, Python, Tailwind CSS, Maritime Software Engineering
+- **AI Tooling**: Mistral Vibe, Google AI Studio, Antigravity, OpenCode, Z.AI — agent pair-programming with AGENTS.md conventions and human review gates.
 
 ## Featured Projects & Applications
 
