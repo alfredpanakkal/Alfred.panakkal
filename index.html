@@ -127,6 +127,39 @@
     .js .sr { opacity: 1; transform: none; transition: none; }
   }
 
+  /* 7. Slow-rotating compass rose: faint nautical line art behind the hero.
+     Colour comes from the existing --color-accent token so it follows the
+     .dark theme; 6% opacity (7% dark) keeps it texture, not decoration.
+     Wrapper div = position only; SVG = rotation only (never both on one
+     element, or the two transforms overwrite each other). */
+  .hero-content { position: relative; z-index: 1; }
+  .rose-wrap {
+    --rose-opacity: 0.06;
+    position: absolute;
+    top: 50%;
+    right: -12%;                /* partly off-screen: intentional, less busy */
+    width: min(85vw, 680px);    /* big on phones, capped on large screens */
+    aspect-ratio: 1;
+    transform: translateY(-50%); /* vertically centre in the hero */
+    color: var(--color-accent);  /* SVG uses currentColor, so this sets all lines */
+    opacity: var(--rose-opacity);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dark .rose-wrap { --rose-opacity: 0.07; }
+  .rose {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;            /* rotate around the centre */
+    animation: rose-turn 900s linear infinite; /* one turn per 15 minutes */
+    will-change: transform; /* GPU-layer hint. Remove if lines look blurry */
+  }
+  @keyframes rose-turn { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .rose { animation: none; } /* keep the image, stop the turning */
+  }
+
   </style>
 
   <!-- Early theme init script to prevent flash -->
@@ -213,7 +246,38 @@
 
     <main>
       <!-- ===== HERO COMPONENT ===== -->
-      <section class="wrap pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+      <section class="hero wrap relative overflow-hidden pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+        <!-- Decorative compass-rose background. aria-hidden so screen readers
+             skip it; pointer-events none so clicks pass through. The wrapper
+             div handles POSITION only; the SVG inside handles ROTATION only. -->
+        <div class="rose-wrap" aria-hidden="true">
+          <svg class="rose" viewBox="0 0 400 400" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer ring and inner rings -->
+            <circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" stroke-width="1"/>
+            <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="0.75"/>
+            <circle cx="200" cy="200" r="60"  fill="none" stroke="currentColor" stroke-width="0.75"/>
+            <!-- Degree ticks every 5 degrees (72 ticks): a dashed circle.
+                 stroke-width = tick LENGTH (radial); dash = tick THICKNESS.
+                 r=180 circumference ~1131; 1131/72 = 15.7 per tick: dash 1.5, gap 14.2 -->
+            <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor"
+                    stroke-width="8" stroke-dasharray="1.5 14.2"/>
+            <!-- Major ticks every 30 degrees (12 ticks).
+                 r=174 circumference ~1093; 1093/12 = 91.1 per tick: dash 3, gap 88.1 -->
+            <circle cx="200" cy="200" r="174" fill="none" stroke="currentColor"
+                    stroke-width="16" stroke-dasharray="3 88.1"
+                    transform="rotate(-1 200 200)"/>
+            <!-- Intercardinal star (NE, SE, SW, NW): shorter arms, rotated 45 degrees -->
+            <polygon fill="none" stroke="currentColor" stroke-width="0.75"
+                     transform="rotate(45 200 200)"
+                     points="200,105 205,195 295,200 205,205 200,295 195,205 105,200 195,195"/>
+            <!-- Cardinal star (N, E, S, W): long arms -->
+            <polygon fill="none" stroke="currentColor" stroke-width="1"
+                     points="200,50 207,193 350,200 207,207 200,350 193,207 50,200 193,193"/>
+            <!-- Small north marker above the outer ring -->
+            <polygon fill="currentColor" points="200,2 193,17 207,17"/>
+          </svg>
+        </div>
+        <div class="hero-content">
         <p class="typed reveal">Alfred Panakkal.</p>
         <p class="label reveal reveal-2">Third Officer &middot; Full-Stack Developer</p>
         <div class="mt-4 grid lg:mt-5 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-10">
@@ -235,6 +299,7 @@
             </a>
           </div>
         </div>
+        </div><!-- /.hero-content -->
       </section>
 
       <!-- ===== PROJECTS COMPONENT ===== -->
@@ -955,6 +1020,20 @@
         });
       }, { threshold: 0.15 });
       revealItems.forEach((el) => revealObserver.observe(el));
+    }
+
+    // 8. Compass rose: pause the rotation while the hero is off-screen.
+    // Battery/CPU optimisation only — CSS animations already throttle in
+    // hidden tabs; this stops the work entirely once the hero scrolls away.
+    const roseEl = document.querySelector('.rose');
+    const heroEl = document.querySelector('.hero');
+    if (roseEl && heroEl && 'IntersectionObserver' in window) {
+      const roseObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          roseEl.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+        });
+      });
+      roseObserver.observe(heroEl);
     }
   </script>
   <!-- Vercel Analytics: inert locally, reports page views when deployed on Vercel -->
