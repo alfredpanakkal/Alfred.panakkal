@@ -132,14 +132,14 @@
     .js .sr { opacity: 1; transform: none; transition: none; }
   }
 
-  /* 7. Slow-rotating compass rose: faint nautical line art behind the hero.
-     Colour comes from the existing --color-accent token so it follows the
-     .dark theme; 6% opacity (7% dark) keeps it texture, not decoration.
-     Wrapper div = position only; SVG = rotation only (never both on one
-     element, or the two transforms overwrite each other). */
+  /* 7. Compass rose: faint nautical line art behind the hero, now layered.
+     Layer 1 (.rose-ring): rings + ticks + north marker, turned slowly by CSS.
+     Layer 2 (.rose-needle): the two stars, turned by JavaScript.
+     Never put a CSS animation and a JS transform on the same element —
+     one overwrites the other. Wrapper div = position only. */
   .hero-content { position: relative; z-index: 1; }
   .rose-wrap {
-    --rose-opacity: 0.06;
+    --rose-opacity: 0.08;
     position: absolute;
     top: 50%;
     right: -12%;                /* partly off-screen: intentional, less busy */
@@ -148,21 +148,59 @@
     transform: translateY(-50%); /* vertically centre in the hero */
     color: var(--color-accent);  /* SVG uses currentColor, so this sets all lines */
     opacity: var(--rose-opacity);
+    transition: opacity 0.6s ease; /* smooth brighten/dim */
     pointer-events: none;
     z-index: 0;
   }
-  .dark .rose-wrap { --rose-opacity: 0.07; }
-  .rose {
-    width: 100%;
-    height: 100%;
-    display: block;
-    transform-origin: 50% 50%;            /* rotate around the centre */
-    animation: rose-turn 900s linear infinite; /* one turn per 15 minutes */
-    will-change: transform; /* GPU-layer hint. Remove if lines look blurry */
+  .dark .rose-wrap { --rose-opacity: 0.09; }
+  .rose { width: 100%; height: 100%; display: block; }
+
+  /* Cursor over the hero (desktop) or recent tap (phone): rose gets a little brighter */
+  .hero.is-hot .rose-wrap { opacity: 0.12; }
+
+  /* In SVG, these two lines make transforms rotate around the middle of the
+     drawing (the centre of the 400x400 viewBox) instead of the top-left corner */
+  .rose-ring,
+  .rose-needle {
+    transform-box: view-box;
+    transform-origin: 50% 50%;
+  }
+
+  /* Layer 1: slow constant turn. 120 seconds per revolution = 3 degrees per second */
+  .rose-ring {
+    animation: rose-turn 120s linear infinite;
   }
   @keyframes rose-turn { to { transform: rotate(360deg); } }
+
+  /* Layer 2: JS sets its transform */
+  .rose-needle {
+    will-change: transform;
+  }
+
+  /* Hero scrolled out of view: pause the ring to save battery */
+  .hero.is-offscreen .rose-ring { animation-play-state: paused; }
+
+  /* Phones: bigger, pushed mostly off the right edge, nudged up,
+     so the visible half sits beside and behind the headline instead of under every word */
+  @media (max-width: 640px) {
+    .rose-wrap {
+      --rose-opacity: 0.07;      /* a touch fainter: text is closer to the lines on a small screen */
+      width: 120vw;              /* about 450px on a 375px phone */
+      right: -45%;               /* roughly half the rose is off-screen */
+      top: 38%;                  /* sits a little above centre, away from the buttons */
+      transform: none;
+    }
+  }
+
+  /* Landscape phones: the hero is short, so shrink the rose to fit */
+  @media (max-height: 480px) and (orientation: landscape) {
+    .rose-wrap { width: min(70vh, 60vw); top: 50%; right: -8%; }
+  }
+
+  /* Reduced motion: keep the drawing, no movement at all */
   @media (prefers-reduced-motion: reduce) {
-    .rose { animation: none; } /* keep the image, stop the turning */
+    .rose-ring { animation: none; } /* keep the image, stop the turning */
+    .hero.is-hot .rose-wrap { opacity: var(--rose-opacity); }
   }
 
   </style>
@@ -256,30 +294,35 @@
              skip it; pointer-events none so clicks pass through. The wrapper
              div handles POSITION only; the SVG inside handles ROTATION only. -->
         <div class="rose-wrap" aria-hidden="true">
-          <svg class="rose" viewBox="0 0 400 400" focusable="false" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer ring and inner rings -->
-            <circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" stroke-width="1"/>
-            <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="0.75"/>
-            <circle cx="200" cy="200" r="60"  fill="none" stroke="currentColor" stroke-width="0.75"/>
-            <!-- Degree ticks every 5 degrees (72 ticks): a dashed circle.
-                 stroke-width = tick LENGTH (radial); dash = tick THICKNESS.
-                 r=180 circumference ~1131; 1131/72 = 15.7 per tick: dash 1.5, gap 14.2 -->
-            <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor"
-                    stroke-width="8" stroke-dasharray="1.5 14.2"/>
-            <!-- Major ticks every 30 degrees (12 ticks).
-                 r=174 circumference ~1093; 1093/12 = 91.1 per tick: dash 3, gap 88.1 -->
-            <circle cx="200" cy="200" r="174" fill="none" stroke="currentColor"
-                    stroke-width="16" stroke-dasharray="3 88.1"
-                    transform="rotate(-1 200 200)"/>
-            <!-- Intercardinal star (NE, SE, SW, NW): shorter arms, rotated 45 degrees -->
-            <polygon fill="none" stroke="currentColor" stroke-width="0.75"
-                     transform="rotate(45 200 200)"
-                     points="200,105 205,195 295,200 205,205 200,295 195,205 105,200 195,195"/>
-            <!-- Cardinal star (N, E, S, W): long arms -->
-            <polygon fill="none" stroke="currentColor" stroke-width="1"
-                     points="200,50 207,193 350,200 207,207 200,350 193,207 50,200 193,193"/>
-            <!-- Small north marker above the outer ring -->
-            <polygon fill="currentColor" points="200,2 193,17 207,17"/>
+          <svg class="rose" viewBox="0 0 400 400" focusable="false"
+               xmlns="http://www.w3.org/2000/svg">
+
+            <!-- GROUP 1: rings, ticks, north marker. Turned slowly by CSS -->
+            <g class="rose-ring">
+              <circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" stroke-width="1"/>
+              <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="0.75"/>
+              <circle cx="200" cy="200" r="60"  fill="none" stroke="currentColor" stroke-width="0.75"/>
+
+              <!-- 72 small ticks (every 5 degrees): dashed circle trick -->
+              <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor"
+                      stroke-width="8" stroke-dasharray="1.5 14.2"/>
+              <!-- 12 long ticks (every 30 degrees) -->
+              <circle cx="200" cy="200" r="174" fill="none" stroke="currentColor"
+                      stroke-width="16" stroke-dasharray="3 88.1"
+                      transform="rotate(-1 200 200)"/>
+
+              <!-- north marker -->
+              <polygon fill="currentColor" points="200,2 193,17 207,17"/>
+            </g>
+
+            <!-- GROUP 2: the two stars. Turned by JavaScript (pointer, tap, scroll) -->
+            <g class="rose-needle">
+              <polygon fill="none" stroke="currentColor" stroke-width="0.75"
+                       transform="rotate(45 200 200)"
+                       points="200,105 205,195 295,200 205,205 200,295 195,205 105,200 195,195"/>
+              <polygon fill="none" stroke="currentColor" stroke-width="1"
+                       points="200,50 207,193 350,200 207,207 200,350 193,207 50,200 193,193"/>
+            </g>
           </svg>
         </div>
         <div class="hero-content">
@@ -1027,19 +1070,100 @@
       revealItems.forEach((el) => revealObserver.observe(el));
     }
 
-    // 8. Compass rose: pause the rotation while the hero is off-screen.
-    // Battery/CPU optimisation only — CSS animations already throttle in
-    // hidden tabs; this stops the work entirely once the hero scrolls away.
-    const roseEl = document.querySelector('.rose');
-    const heroEl = document.querySelector('.hero');
-    if (roseEl && heroEl && 'IntersectionObserver' in window) {
-      const roseObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          roseEl.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+    // 8. Compass rose: needle follows the pointer (desktop) or scroll + tap (touch).
+    (() => {
+      const hero   = document.querySelector(".hero");
+      const wrap   = document.querySelector(".rose-wrap");
+      const needle = document.querySelector(".rose-needle");
+      if (!hero || !wrap || !needle) return;                  // elements missing: do nothing
+
+      // Respect the device setting: no motion at all
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      let target  = 0;        // angle we want the needle to reach (degrees)
+      let current = 0;        // angle it is at now
+      let running = false;    // is the animation loop active?
+      let visible = true;     // is the hero on screen?
+
+      // Shortest signed difference between two angles, so it never spins the long way round
+      const shortest = (from, to) => ((((to - from) % 360) + 540) % 360) - 180;
+
+      function frame() {
+        const diff = shortest(current, target);
+        current += diff * 0.08;                               // move 8% of the gap per frame = smooth easing
+        needle.style.transform = `rotate(${current}deg)`;
+        if (Math.abs(diff) > 0.05 && visible) {
+          requestAnimationFrame(frame);                       // keep going until it arrives
+        } else {
+          running = false;                                    // arrived: stop using the CPU
+        }
+      }
+
+      function kick() {                                       // start the loop if it is idle
+        if (!running && visible) {
+          running = true;
+          requestAnimationFrame(frame);
+        }
+      }
+
+      // Angle from the rose's centre to a point, clockwise from "up".
+      // getBoundingClientRect already includes the CSS offsets, so this also
+      // works when the rose is partly off-screen.
+      function aimAt(clientX, clientY) {
+        const r  = wrap.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top  + r.height / 2;
+        target = Math.atan2(clientX - cx, -(clientY - cy)) * 180 / Math.PI;
+        kick();
+      }
+
+      // Real mouse (not a phone, not a touch-only tablet)
+      const hasMouse = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+      if (hasMouse) {
+        hero.addEventListener("pointermove", (e) => aimAt(e.clientX, e.clientY), { passive: true });
+        hero.addEventListener("pointerenter", () => hero.classList.add("is-hot"));
+        hero.addEventListener("pointerleave", () => {
+          hero.classList.remove("is-hot");
+          target = 0;                                         // swing back to north
+          kick();
         });
-      });
-      roseObserver.observe(heroEl);
-    }
+      } else {
+        // Touch screens: scroll drives the needle, a tap swings it to your finger for a moment
+        let tapping = false;                                  // true during the 1.5 s after a tap
+        let tapTimer = 0;
+
+        function aimFromScroll() {
+          if (tapping) return;                                // a recent tap wins over scroll
+          // Cap at the hero's height: scrolling further down the page doesn't matter
+          target = Math.min(window.scrollY, hero.offsetHeight) * 0.25;
+          kick();
+        }
+
+        window.addEventListener("scroll", aimFromScroll, { passive: true });
+
+        hero.addEventListener("pointerdown", (e) => {
+          aimAt(e.clientX, e.clientY);                        // swing towards the tap
+          hero.classList.add("is-hot");                       // brief brighten
+          tapping = true;
+          clearTimeout(tapTimer);
+          tapTimer = setTimeout(() => {                       // after 1.5 s, hand control back to scroll
+            tapping = false;
+            hero.classList.remove("is-hot");
+            aimFromScroll();
+          }, 1500);
+        }, { passive: true });
+
+        aimFromScroll();                                      // set the starting angle (page may load scrolled)
+      }
+
+      // Pause everything while the hero is off-screen
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        hero.classList.toggle("is-offscreen", !visible);      // pauses the CSS ring (see the CSS)
+        if (visible) kick();
+      }).observe(hero);
+    })();
   </script>
   <!-- Vercel Analytics: inert locally, reports page views when deployed on Vercel -->
   <script defer src="https://unpkg.com/@vercel/analytics/dist/vercel.js"></script>
