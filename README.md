@@ -21,6 +21,13 @@ The deployed portfolio is a **single-file static site**: all markup, CSS, and Ja
 
 > **Note:** `src/`, `package.json`, `vite.config.ts`, and `bun.lock` are legacy scaffolding from the previous React version of the site. They are no longer used by the deployed page.
 
+## Documentation
+
+- **[AGENTS.md](AGENTS.md)** — rules for AI agents: single-file contract, do/don't list, sync checklist
+- **[DESIGN.md](DESIGN.md)** — visual system: color tokens, typography, components
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** — file map, runtime modules, decision log
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** — Vercel pipeline, post-deploy verification, rollback
+
 ## About Me
 
 - ⚓ **Maritime Operations:** Third Officer with experience in navigational watchkeeping, passage planning, bridge equipment, and onboard safety procedures.
