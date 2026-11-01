@@ -453,7 +453,8 @@
                 </div>
               </article>
             </li>
-<!-- 02: Helm Almanac -->
+
+<!-- 02: Helm.Ports -->
             <li class="border-t border-line py-8 sr md:py-10">
               <article class="grid gap-5 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
@@ -461,21 +462,75 @@
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-3 md:block">Maritime</span>
                 </div>
                 <div class="md:col-span-9">
-                  <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm Almanac</h3>
+                  <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm.Ports — World Maritime Ports Explorer</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A fast, self-contained explorer for 5,410 world ports and anchorages — channel depths, tidal ranges, and entrance restrictions screened in milliseconds, with no database and no map tiles.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
                     <div>
-                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Problem</dt>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">The world's port data exists — the NGA World Port Index — but it lives in static PDFs and heavyweight GIS portals. The questions that actually matter on passage (can this vessel enter? how deep is the channel? is the entrance tide-restricted?) shouldn't require accounts, tile servers, or bandwidth.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A full-stack explorer over the complete 5,410-record NGA Publication 150 dataset (2019 edition). Search, faceted filters — country, port size, vessel size, minimum channel depth, tidal-range window, entrance restrictions — and sorting all run against the dataset held in memory: queries answer in 1–3.5 ms, with no database at all.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The map</dt>
+                      <dd class="mt-1 text-muted">A custom SVG world map with level-of-detail: roughly 160 major hubs visible at 1&times; zoom, all 5,410 points at 8&times; and above, with viewport culling on every pan and zoom. Coastlines come from Natural Earth data served locally — zero tile services, zero API keys, fully offline-capable cartography.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Data honesty</dt>
+                      <dd class="mt-1 text-muted">Soundings are single recorded observations from the 2019 edition, and the app says so — it presents itself as a planning and reference tool, never as a real-time navigation source.</dd>
+                    </div>
+                  </dl>
+                  </details>
+                  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">Maritime &middot; Geospatial &middot; React &middot; TypeScript &middot; Express &middot; Tailwind CSS</p>
+                    <div class="flex flex-wrap items-center gap-x-5">
+                      <a href="https://helmports.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/Helm.Ports" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+<!-- 03: Helm Almanac -->
+            <li class="border-t border-line py-8 sr md:py-10">
+              <article class="grid gap-5 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">03</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-3 md:block">Maritime</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm Almanac</h3>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
                       <dd class="mt-1 text-muted">Vessel schedules, nautical events, and astronomical references live in separate books and PDFs — little use when the satellite link drops.</dd>
                     </div>
                     <div>
-                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Built</dt>
-                      <dd class="mt-1 text-muted">A maritime almanac that unifies vessel schedules, nautical events, and navigational reference data in an offline-ready interface.</dd>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A maritime almanac that unifies vessel schedules, nautical events, and navigational reference data in an offline-ready interface — everything a watchkeeper needs in one place.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Accuracy</dt>
+                      <dd class="mt-1 text-muted">Astronomical numbers only matter if they are right, so the app ships with an admin-gated accuracy benchmark that validates computed values — protected by a rate-limited login.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
                       <dd class="mt-1 text-muted">Keeps operational reference material available during watch, including under constrained bandwidth at sea.</dd>
                     </div>
                   </dl>
+                  </details>
                   <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <p class="text-sm text-faint">TypeScript &middot; React &middot; Next.js &middot; Tailwind CSS</p>
                     <div class="flex flex-wrap items-center gap-x-5">
@@ -493,16 +548,33 @@
               </article>
             </li>
 
-            <!-- 03: Helm Productivity -->
+            <!-- 04: Helm Productivity -->
             <li class="border-t border-line py-8 sr md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
-                  <span class="font-display text-sm tabular-nums text-faint">03</span>
+                  <span class="font-display text-sm tabular-nums text-faint">04</span>
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Helm Productivity</h3>
                   <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A productivity suite for watchkeeping, tasks, and routines — structured around shipboard time, not a 9-to-5 week.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">Watchkeeping runs on four-hour watches, rest-hour rules, and rotating routines — but mainstream productivity apps assume a 9-to-5 week, a live connection, and one desk in one office.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A Pomodoro timer, habit tracker, and Kanban board structured around shipboard time, with procedural focus soundscapes generated in the app — no audio streaming over a satellite link.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">Routines and focus survive time zones, watch changes, and dead zones, because everything runs in the browser.</dd>
+                    </div>
+                  </dl>
+                  </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <p class="text-sm text-faint">TypeScript &middot; React &middot; Tailwind CSS</p>
                     <div class="flex flex-wrap gap-x-5">
@@ -520,18 +592,35 @@
               </article>
             </li>
 
-            <!-- 04: Bond Vault -->
+            <!-- 05: Bond Vault -->
             <li class="border-t border-line py-8 sr md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
-                  <span class="font-display text-sm tabular-nums text-faint">04</span>
+                  <span class="font-display text-sm tabular-nums text-faint">05</span>
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Operations</span>
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Bond Vault</h3>
                   <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">An inventory system for tracking, auditing, and managing bond stock — designed around the logs officers already keep.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">The slop chest — a vessel's bond store — traditionally runs on paper: crew tabs, stock counts, and audits are reconciled by hand, and discrepancies surface late.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A purpose-built ledger that tracks opening stock, received, and issued provisions, computes theoretical remaining-on-board per item, logs physical counts as discrepancy audits, and keeps a running tab per crew member — with print-ready statements and signature lines for sign-off.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Offline &amp; audit</dt>
+                      <dd class="mt-1 text-muted">Offline-first by design: data persists to IndexedDB through automatic save cycles, exports to CSV, and mirrors to a human-readable JSON state file that can restore the whole app. Multi-currency support and a low-light dark theme sized for night bridges.</dd>
+                    </div>
+                  </dl>
+                  </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; Next.js &middot; PostgreSQL</p>
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; IndexedDB</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://helmbond.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
@@ -547,16 +636,33 @@
               </article>
             </li>
 
-            <!-- 05: Seatime & NRI Calculator -->
+            <!-- 06: Seatime & NRI Calculator -->
             <li class="border-t border-line py-8 sr md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
-                  <span class="font-display text-sm tabular-nums text-faint">05</span>
+                  <span class="font-display text-sm tabular-nums text-faint">06</span>
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Seatime &amp; NRI Calculator</h3>
                   <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A calculator for sea-time days, NRI tax exemption status, and contract records, stored locally in the browser.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">Indian NRI tax residency turns on day counts — days at sea, days ashore, across contracts and sign-on/sign-off dates. Rebuilding that history at tax time from stamps and logbooks is slow and error-prone.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A calculator that tallies sea-time days and contract records, evaluates NRI tax exemption status, and keeps everything stored locally in the browser — no accounts, no cloud.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">Seafarers can answer the day-count question with a record instead of a guess.</dd>
+                    </div>
+                  </dl>
+                  </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <p class="text-sm text-faint">TypeScript &middot; React &middot; LocalStorage</p>
                     <div class="flex flex-wrap gap-x-5">
@@ -564,7 +670,7 @@
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/seafarer-calculator-nri-seatime-calc" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                      <a href="https://github.com/alfredpanakkal/HELM-Seafarer" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
                         Source
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
@@ -574,18 +680,35 @@
               </article>
             </li>
 
-            <!-- 06: Mudhra Converter -->
+            <!-- 07: Mudhra Converter -->
             <li class="border-t border-line py-8 sr md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
-                  <span class="font-display text-sm tabular-nums text-faint">06</span>
+                  <span class="font-display text-sm tabular-nums text-faint">07</span>
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Mudhra Converter</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A fast converter for currency and measurements, kept deliberately thin for port calls and daily work.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A converter between modern Malayalam Unicode and the legacy ML-TT ASCII typefaces still used in print — chillu normalization, longest-match conjunct sequencing, and pre-base vowel reordering.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">Malayalam for the web is written in Unicode, logically mapped — you type how it sounds. The legacy ML-TT typefaces still used across print and DTP are visually mapped ASCII, where you type how it looks. Between the two sit hundreds of conjunct characters, pre-base vowels, and invisible joiners.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A converter built as a small parsing engine: it strips zero-width joiners, normalizes chillu characters, matches the longest possible conjunct sequences first, reorders pre-base vowel signs to their visual position, and splits two-part vowels around the base consonant.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">One paste turns a Unicode document into copy for the print shop — and all conversion runs client-side: nothing is uploaded or stored.</dd>
+                    </div>
+                  </dl>
+                  </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Tailwind CSS</p>
+                    <p class="text-sm text-faint">JavaScript &middot; Vite &middot; Client-side</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://mudhra-converter.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
@@ -600,16 +723,33 @@
                 </div>
               </article>
             </li>
-<!-- 07: Helm Fasting -->
+<!-- 08: Helm Fasting -->
             <li class="border-t border-line py-8 sr last:border-b md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
-                  <span class="font-display text-sm tabular-nums text-faint">07</span>
+                  <span class="font-display text-sm tabular-nums text-faint">08</span>
                   <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Health</span>
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Helm Fasting</h3>
                   <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A progressive web app for intermittent fasting and health logging that works offline through long voyages.</p>
+                  <details class="case-study mt-5">
+                    <summary>Read the case study</summary>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
+                      <dd class="mt-1 text-muted">Health routines are the first casualty of a long voyage: most fasting and health apps assume a live connection, push notifications, and a stable timezone — none of which describe mid-ocean.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
+                      <dd class="mt-1 text-muted">A progressive web app fasting timer with health logging: it installs to the home screen, runs offline, and keeps its state locally on the device.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">The habit keeps working when the connection isn't.</dd>
+                    </div>
+                  </dl>
+                  </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <p class="text-sm text-faint">TypeScript &middot; React &middot; PWA</p>
                     <div class="flex flex-wrap gap-x-5">
