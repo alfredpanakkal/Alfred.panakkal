@@ -27,7 +27,7 @@
     "@type": "Person",
     "name": "Alfred Panakkal Jose",
     "jobTitle": "Third Officer & Full-Stack Developer",
-    "url": "https://alfredpanakkal.github.io",
+    "url": "https://alfred-panakkal.vercel.app",
     "email": "alpha.coil966@passinbox.com",
     "sameAs": [
       "https://github.com/alfredpanakkal",
@@ -740,10 +740,17 @@
         submitBtnText.textContent = 'Sending...';
 
         try {
-          const res = await fetch('/api/contact', {
+          const res = await fetch('https://formsubmit.co/ajax/alpha.coil966@passinbox.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ name, email, message, _honeypot: honeypot })
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              message: message,
+              _honeypot: honeypot,
+              _captcha: "false",
+              _subject: 'Portfolio Transmission from ' + name
+            })
           });
 
           if (!res.ok) {
