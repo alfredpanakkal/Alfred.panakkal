@@ -33,7 +33,6 @@ Production: https://alfred-panakkal.vercel.app
 3. Open the mobile menu at narrow width; links navigate; Escape closes.
 4. Submit the contact form once (test data) — expect the FormSubmit success status, not the mailto fallback.
 5. Visit `/robots.txt` and `/sitemap.xml` — both serve updated content.
-6. Click "Download HTML" — the file downloads and opens standalone from disk.
 
 ## One-time setup status
 
