@@ -1,2342 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alfred Panakkal Jose — Third Officer & Full-Stack Developer</title>
-<meta name="description" content="Alfred Panakkal Jose — Third Officer on ocean tankers & full-stack software developer building practical, offline-first maritime tools and modern web platforms.">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="google-site-verification" content="4s1bay3OXeqPzy-WaYKfv2LY-w2k6R0A1wUMsyEvb-8">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta property="og:title" content="Alfred Panakkal Jose — Third Officer & Full-Stack Developer">
-<meta property="og:description" content="Third Officer on ocean tankers & full-stack software developer building practical, offline-first maritime software and modern web applications.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
-<link rel="dns-prefetch" href="https://image.thum.io">
-<link rel="dns-prefetch" href="https://formsubmit.co">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfred Panakkal Jose — Third Officer &amp; Full-Stack Developer</title>
+  <meta name="description" content="Alfred Panakkal Jose — Third Officer on ocean tankers &amp; full-stack software developer building practical, offline-first maritime tools and modern web platforms." />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="google-site-verification" content="4s1bay3OXeqPzy-WaYKfv2LY-w2k6R0A1wUMsyEvb-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#f3f0e8" />
+  <meta name="author" content="Alfred Panakkal Jose" />
+  <meta property="og:title" content="Alfred Panakkal Jose — Third Officer &amp; Full-Stack Developer" />
+  <meta property="og:description" content="Third Officer on ocean tankers &amp; full-stack software developer building practical, offline-first maritime software and modern web applications." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<!-- Structured Data (JSON-LD) for SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Alfred Panakkal Jose",
-  "jobTitle": "Third Officer & Full-Stack Developer",
-  "url": "https://alfredpanakkal.github.io",
-  "email": "alpha.coil966@passinbox.com",
-  "sameAs": [
-    "https://github.com/alfredpanakkal",
-    "https://www.linkedin.com/in/alfredpanakkal"
-  ],
-  "knowsAbout": [
-    "Navigational Watchkeeping",
-    "STCW Operations",
-    "Full-Stack Web Development",
-    "React",
-    "TypeScript",
-    "Python",
-    "Offline-First Software Architecture"
-  ]
-}
-</script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFFNEY4QyIvPgogIDxwYXRoCiAgICBmaWxsPSIjRjNGMEU4IgogICAgZmlsbC1ydWxlPSJldmVub2RkIgogICAgZD0iTTE2IDMuMiAyNy42IDI4LjVIMjMuMUwyMS4yIDI0SDEwLjhMOC45IDI4LjVINC40TDE2IDMuMlptLTQuNTUgMTcuM2g5LjFMMTYgOS40WiIKICAvPgo8L3N2Zz4K" />
 
-<!-- CDNs for GSAP, ScrollTrigger, Flip, and Lenis -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
-
-<style>
-/* Skip link for keyboard accessibility */
-.skip-link {
-  position: absolute; top: -100px; left: 16px;
-  background: var(--app-primary); color: #ffffff; padding: 10px 18px;
-  border-radius: 8px; z-index: 9999; font-weight: 600; font-size: 13px;
-  transition: top 0.2s ease;
-}
-.skip-link:focus { top: 16px; outline: 2px solid #ffffff; }
-/* ============ TOKENS & RESET ============ */
-:root {
-  color-scheme: light dark;
-
-  /* Spec Design Tokens (Light Theme) */
-  --app-bg: #F7F9F8;
-  --app-surface: #FFFFFF;
-  --app-recessed: #F3F6F4;
-  --app-border: #E7ECE9;
-  --app-text: #172033;
-  --app-muted: #667085;
-  --app-faint: #98A2B3;
-  --app-primary: #238B45;
-  --app-primary-hover: #1E783B;
-  --app-light-accent: #EAF7EE;
-  --app-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06);
-
-  --radius: 20px;
-  --font-display: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --accent-color: var(--app-primary);
-  --btn-primary-bg: var(--app-primary);
-  --btn-primary-fg: #ffffff;
-  --status-color: var(--app-primary);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --app-bg: #0F172A;
-    --app-surface: #131C31;
-    --app-recessed: #182236;
-    --app-border: rgba(255, 255, 255, 0.08);
-    --app-text: #F1F5F9;
-    --app-muted: #94A3B8;
-    --app-faint: #64748B;
-    --app-primary: #22C55E;
-    --app-primary-hover: #16A34A;
-    --app-light-accent: rgba(34, 197, 94, 0.12);
-    --app-shadow: 0 2px 10px rgba(0, 0, 0, 0.20);
-    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
-
-    --btn-primary-bg: var(--app-primary);
-    --btn-primary-fg: #0B1120;
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alfred Panakkal Jose",
+    "jobTitle": "Third Officer & Full-Stack Developer",
+    "url": "https://alfredpanakkal.github.io",
+    "email": "alpha.coil966@passinbox.com",
+    "sameAs": [
+      "https://github.com/alfredpanakkal",
+      "https://www.linkedin.com/in/alfredpanakkal"
+    ],
+    "knowsAbout": [
+      "Navigational Watchkeeping",
+      "STCW Operations",
+      "Full-Stack Web Development",
+      "React",
+      "TypeScript",
+      "Python",
+      "Offline-First Software Architecture"
+    ]
   }
-}
-
-[data-theme="dark"] {
-  --app-bg: #0F172A;
-  --app-surface: #131C31;
-  --app-recessed: #182236;
-  --app-border: rgba(255, 255, 255, 0.08);
-  --app-text: #F1F5F9;
-  --app-muted: #94A3B8;
-  --app-faint: #64748B;
-  --app-primary: #22C55E;
-  --app-primary-hover: #16A34A;
-  --app-light-accent: rgba(34, 197, 94, 0.12);
-  --app-shadow: 0 2px 10px rgba(0, 0, 0, 0.20);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
-
-  --btn-primary-bg: var(--app-primary);
-  --btn-primary-fg: #0B1120;
-}
-
-[data-theme="light"] {
-  --app-bg: #F7F9F8;
-  --app-surface: #FFFFFF;
-  --app-recessed: #F3F6F4;
-  --app-border: #E7ECE9;
-  --app-text: #172033;
-  --app-muted: #667085;
-  --app-faint: #98A2B3;
-  --app-primary: #238B45;
-  --app-primary-hover: #1E783B;
-  --app-light-accent: #EAF7EE;
-  --app-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06);
-
-  --btn-primary-bg: var(--app-primary);
-  --btn-primary-fg: #ffffff;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{
-  scroll-behavior:auto;
-  width:100%;
-  max-width:100vw;
-  overflow-x:hidden;
-}
-body{
-  font-family:var(--font-body);
-  background:var(--app-bg); color:var(--app-text);
-  transition:background-color 0.2s ease, color 0.2s ease;
-  width:100%;
-  max-width:100vw;
-  overflow-x:hidden;
-  position:relative;
-  line-height:1.5;
-  cursor: default;
-}
-a{color:inherit; text-decoration:none;}
-button{font:inherit; cursor:pointer; background:none; border:none; color:inherit;}
-
-input, textarea { cursor: text; }
-
-:focus-visible{outline:2px solid var(--app-primary); outline-offset:3px; border-radius:4px;}
-.wrap{max-width:1200px; width:100%; margin:0 auto; padding:0 24px; box-sizing:border-box;}
-
-/* Performance Optimizations: Rendering & Containment */
-main section:not(.hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
-}
-.card, .info-card, .timeline-item {
-  contain: layout style;
-}
-.card-snapshot {
-  content-visibility: auto;
-}
-.eyebrow{
-  font-family:var(--font-mono); font-size:11px; letter-spacing:.08em;
-  color:var(--app-primary); text-transform:uppercase; display:flex; align-items:center; gap:8px;
-}
-.eyebrow::before{content:'';width:12px;height:1.5px;background:var(--app-primary);}
-
-/* ============ ACCESSIBILITY: REDUCED MOTION ============ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ============ SCROLL PROGRESS ============ */
-.scroll-progress {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: transparent;
-  z-index: 101;
-}
-.scroll-progress::before {
-  content: '';
-  display: block;
-  height: 100%;
-  width: var(--scroll, 0%);
-  background: var(--app-primary);
-}
-
-/* ============ NAV ============ */
-header.nav{
-  position:sticky; top:0; z-index:100;
-  backdrop-filter:blur(12px) saturate(160%);
-  background:color-mix(in srgb, var(--app-bg) 85%, transparent);
-  border-bottom:1px solid var(--app-border);
-  transform:translateY(0);
-  transition:transform .28s cubic-bezier(.4,0,.2,1), background .3s;
-  will-change: transform;
-}
-header.nav.nav-hidden{transform:translateY(-100%);}
-header.nav.nav-solid { background: color-mix(in srgb, var(--app-bg) 95%, transparent); box-shadow: var(--app-shadow); }
-.nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px;}
-.brand{font-family:var(--font-display); font-weight:700; font-size:18px; display:flex; align-items:center; gap:9px; color:var(--app-text);}
-.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--app-primary);}
-.nav-links{display:flex; gap:24px; font-size:14px; font-weight:500; color:var(--app-muted);}
-.nav-links a{position:relative; padding:4px 0; transition:color .2s;}
-.nav-links a:hover{color:var(--app-text);}
-.nav-links a::after{content:'';position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--app-primary); transition:width .2s;}
-.nav-links a:hover::after{width:100%;}
-.nav-right{display:flex; align-items:center; gap:10px;}
-
-.theme-toggle-btn {
-  width: 44px; height: 44px; min-width: 44px; min-height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 12px; border: 1px solid var(--app-border);
-  background: var(--app-surface); color: var(--app-text);
-  box-shadow: var(--app-shadow); cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
-}
-.theme-toggle-btn:hover { background: var(--app-recessed); transform: translateY(-1px); }
-.theme-toggle-btn:active { transform: scale(0.96); }
-
-.sun-icon { display: none; }
-.moon-icon { display: block; }
-[data-theme="dark"] .sun-icon { display: block; }
-[data-theme="dark"] .moon-icon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .sun-icon { display: block; }
-  :root:not([data-theme="light"]) .moon-icon { display: none; }
-}
-
-.menu-btn, .mobile-overlay .close-x {
-  width: 44px; height: 44px; min-height: 44px; min-width: 44px;
-  align-items: center; justify-content: center;
-  border: 1px solid var(--app-border); border-radius: 12px;
-  background: var(--app-surface); box-shadow: var(--app-shadow);
-  color: var(--app-text);
-  transition: background .18s, transform .18s;
-  cursor: pointer;
-}
-.menu-btn { display: none; }
-.menu-btn:hover { background: var(--app-recessed); }
-
-.mobile-overlay {
-  position: fixed; inset: 0; z-index: 200; background: color-mix(in srgb, var(--app-bg) 96%, transparent);
-  backdrop-filter: blur(10px);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
-  opacity: 0; pointer-events: none; transition: opacity .3s ease;
-}
-.mobile-overlay.open { opacity: 1; pointer-events: auto; }
-.mobile-overlay a { font-family: var(--font-display); font-size: 22px; font-weight: 600; }
-.mobile-overlay .close-x {
-  position: absolute; top: 11px; right: 16px;
-  display: flex;
-}
-@media (min-width: 641px) {
-  .mobile-overlay .close-x { top: 11px; right: 24px; }
-}
-
-/* ============ HERO ============ */
-.hero{position:relative; z-index:1; padding:64px 0 40px;}
-.hero-content { will-change: transform, opacity; }
-.hero-coord{font-family:var(--font-mono); font-size:11px; color:var(--app-faint); margin-bottom:16px; display:inline-flex; align-items:center; min-height:18px; text-transform: uppercase; letter-spacing: 0.05em;}
-.coord-cursor{display:inline-block; width:2px; height:12px; background:var(--app-primary); margin-left:3px; animation:coord-blink 0.8s step-end infinite;}
-@keyframes coord-blink{50%{opacity:0;}}
-
-.hero h1{
-  font-family:var(--font-display); font-weight:700;
-  font-size:clamp(32px, 5vw, 44px); line-height:1.15; letter-spacing:-.02em;
-  max-width:820px; color: var(--app-text);
-}
-
-.hero p.sub{margin-top:16px; font-size:16px; color:var(--app-muted); max-width:620px; line-height:1.55;}
-.hero-cta{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;}
-.btn{
-  min-height: 48px; padding: 0 20px; border-radius: 12px; font-weight: 600; font-size: 14px;
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-  border: none; cursor: pointer;
-}
-.btn-primary { background: var(--app-primary); color: #ffffff; }
-.btn-primary:hover { background: var(--app-primary-hover); transform: translateY(-1px); }
-.btn-primary:active { transform: scale(0.98); }
-
-.btn-ghost {
-  background: var(--app-surface); border: 1px solid var(--app-border);
-  color: var(--app-text); box-shadow: var(--app-shadow);
-}
-.btn-ghost:hover { background: var(--app-recessed); border-color: var(--app-border); transform: translateY(-1px); }
-.btn-ghost:active { transform: scale(0.98); }
-
-/* Stats Pills */
-.stats-bar{ margin-top:36px; display:flex; flex-wrap:wrap; gap:10px; }
-.pill{
-  display:flex; align-items:center; gap:8px;
-  border:1px solid var(--app-border); background:var(--app-recessed);
-  padding:8px 16px; border-radius:9999px; font-size:13px; font-weight:500; color: var(--app-muted);
-  box-shadow:var(--app-shadow);
-  transition: transform .2s ease, border-color .2s;
-  opacity: 0; transform: translateY(16px);
-}
-.pill.in-view { opacity: 1; transform: translateY(0); }
-.pill:hover{ transform: translateY(-1px); border-color: var(--app-border); color: var(--app-text); }
-.pill .val{font-family:var(--font-mono); font-weight:600; color:var(--app-text);}
-.status-dot{width:7px; height:7px; border-radius:50%; background:var(--app-primary); position:relative; flex-shrink:0;}
-.status-dot::after{
-  content:''; position:absolute; inset:-5px; border-radius:50%;
-  border:1.5px solid #10b981; animation:ring 1.8s ease-out infinite;
-}
-@keyframes ring{0%{transform:scale(.4); opacity:.9;} 100%{transform:scale(1.8); opacity:0;}}
-
-/* ============ COURSE DIVIDER ============ */
-.course-divider{position:relative; height:120px; z-index:1; margin: 20px 0; overflow:hidden;}
-.course-divider svg{width:100%; height:100%; display:block; overflow: hidden;}
-.divider-path-bg{stroke:var(--app-border); stroke-width:1.5; stroke-dasharray:3 7; fill:none;}
-.divider-path-anim{stroke:var(--app-primary); stroke-width:2; fill:none; stroke-dasharray: 1200; stroke-dashoffset: 1200;}
-.divider-vessel { transform-origin: center; fill: var(--app-primary); }
-
-/* ============ SECTION HEADS ============ */
-section{position:relative; z-index:1; padding:48px 0 64px; overflow:hidden;}
-.sec-head{margin-bottom:32px; will-change: transform, opacity;}
-.sec-head h2{font-family:var(--font-display); font-size:clamp(24px,3.5vw,34px); font-weight:700; margin-top:8px; letter-spacing:-.01em;}
-.sec-head p{color:var(--app-muted); margin-top:8px; max-width:580px; font-size:14.5px;}
-
-.reveal-text { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal-text.in-view { opacity: 1; transform: translateY(0); }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal-text, .pill, .info-card, .exp-card, .commit-line {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* ============ PROFESSIONAL SUMMARY ============ */
-.summary-card{
-  border: 1px solid var(--app-border);
-  background: var(--app-surface);
-  border-radius: 20px;
-  padding: 28px 32px;
-  box-shadow: var(--app-shadow);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.summary-card::before{
-  content:''; position:absolute; top:0; left:0; width:4px; height:100%; background: var(--app-primary);
-}
-.summary-card p{font-size:15px; color:var(--app-muted); line-height:1.7; position: relative; z-index: 2;}
-
-/* ============ TELEMETRY GRID & COUNTERS ============ */
-.telemetry-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-  padding-top: 22px;
-  border-top: 1px solid var(--app-border);
-  position: relative;
-  z-index: 2;
-}
-
-.telemetry-item {
-  background: var(--app-recessed);
-  border: 1px solid var(--app-border);
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: var(--app-shadow);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.telemetry-item:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--app-primary) 40%, var(--app-border));
-  box-shadow: var(--shadow-lg);
-}
-
-.telemetry-num {
-  font-family: var(--font-mono);
-  font-size: clamp(22px, 2.6vw, 28px);
-  font-weight: 700;
-  color: var(--app-text);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  display: inline-block;
-}
-
-.telemetry-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--app-text);
-  margin-top: 6px;
-  letter-spacing: -0.01em;
-}
-
-.telemetry-sub {
-  font-size: 11.5px;
-  color: var(--app-faint);
-  margin-top: 2px;
-}
-
-/* ============ VIEW MODE TOGGLE SWITCHER ============ */
-.sec-head-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-.sec-head-row .sec-head {
-  margin-bottom: 0;
-}
-
-.view-mode-toggle {
-  display: inline-flex;
-  align-items: center;
-  background: var(--app-recessed);
-  border: 1px solid var(--app-border);
-  padding: 4px;
-  border-radius: 9999px;
-  box-shadow: var(--app-shadow);
-  gap: 4px;
-  user-select: none;
-}
-
-.view-mode-toggle .mode-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--app-muted);
-  font-family: var(--font-body);
-  font-size: 12.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  outline: none;
-  white-space: nowrap;
-}
-
-.view-mode-toggle .mode-btn:hover {
-  color: var(--app-text);
-  background: var(--app-surface);
-}
-
-.view-mode-toggle .mode-btn:focus-visible {
-  box-shadow: 0 0 0 2px var(--app-primary);
-}
-
-.view-mode-toggle .mode-btn.active {
-  background: var(--app-surface);
-  color: var(--app-text);
-  border-color: var(--app-border);
-  box-shadow: var(--app-shadow);
-  font-weight: 700;
-}
-
-.view-mode-toggle .mode-icon {
-  font-size: 13.5px;
-  line-height: 1;
-}
-
-.mode-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--app-primary);
-  background: var(--app-light-accent);
-  border: 1px solid color-mix(in srgb, var(--app-primary) 25%, transparent);
-  padding: 4px 10px;
-  border-radius: 9999px;
-  margin-bottom: 12px;
-  transition: all 0.3s ease;
-}
-
-/* ============ PROJECTS ============ */
-.controls{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:28px;}
-.chips{display:flex; gap:8px; flex-wrap:wrap;}
-.chip{
-  padding:8px 16px; border-radius:9999px; font-size:13px; font-weight:500;
-  border:1px solid var(--app-border); background:var(--app-recessed); color:var(--app-muted);
-  box-shadow:var(--app-shadow); transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-  outline: none; cursor: pointer;
-}
-.chip:hover{color:var(--app-text); transform:translateY(-1px); border-color: var(--app-border);}
-.chip.active{background:var(--app-primary); color:#ffffff; border-color:var(--app-primary); font-weight:600;}
-
-.search-layout{display:flex; gap:10px; align-items:center;}
-.search-box{
-  display:flex; align-items:center; gap:8px; border:1px solid var(--app-border); background:var(--app-recessed);
-  border-radius:12px; padding:10px 15px; min-width:220px; box-shadow:var(--app-shadow);
-  transition: border-color .2s ease, background .2s ease;
-}
-.search-box:focus-within { border-color: var(--app-primary); background: var(--app-surface); }
-.search-box svg{width:15px;height:15px; color:var(--app-faint); flex-shrink:0;}
-.search-box input{background:none; border:none; color:var(--app-text); font-size:13.5px; width:100%; outline: none;}
-.search-box input::placeholder{color:var(--app-faint); opacity: 0.85;}
-.layout-toggle{display:flex; gap:4px; border:1px solid var(--app-border); padding:3px; border-radius:12px; background:var(--app-recessed);}
-.layout-toggle button{padding:6px 12px; display:flex; align-items:center; background:transparent; border-radius:8px; transition:background .18s ease, color .18s ease; color:var(--app-muted); border:none; outline:none; cursor: pointer;}
-.layout-toggle button:hover{color:var(--app-text);}
-.layout-toggle button.active{background:var(--app-surface); color:var(--app-primary); box-shadow:var(--app-shadow); font-weight:600;}
-.layout-toggle svg{width:15px; height:15px;}
-
-.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-.grid.list-view{grid-template-columns:1fr;}
-@media(max-width:760px){.grid{grid-template-columns:1fr;}}
-
-/* ============ CARDS & ELEMENTS ============ */
-.card{
-  border: 1px solid var(--app-border); 
-  background: var(--app-surface); 
-  border-radius: 20px;
-  overflow: hidden; 
-  box-shadow: var(--app-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  display: flex; flex-direction: column;
-  position: relative;
-}
-.card:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: color-mix(in srgb, var(--app-primary) 30%, var(--app-border));
-}
-
-.card-visual{position: relative; height:140px; display:flex; align-items:flex-end; padding:16px; background-size:cover; background-position:center; overflow:hidden;}
-.card-snapshot{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; opacity:0.85; transition:opacity 0.2s ease, transform 0.2s ease; z-index:0;}
-.card:hover .card-snapshot{opacity:0.98; transform:scale(1.02);}
-.card-visual-overlay{position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.2) 60%, transparent 100%); z-index:1; pointer-events:none;}
-.card-visual .cv-title{position:relative; z-index:3; font-family:var(--font-display); font-weight:700; color:#fff; font-size:18px;}
-
-.card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1;}
-.card-tags{display:flex; gap:6px; flex-wrap:wrap;}
-.tag{
-  font-family:var(--font-mono); font-size:11px; padding:3px 10px; border-radius:9999px; 
-  background:var(--app-recessed); color:var(--app-muted); 
-  border:1px solid var(--app-border);
-  transition: color 0.15s ease;
-}
-.card-body h3{font-family:var(--font-display); font-size:17px; font-weight:600; color: var(--app-text);}
-.card-body .desc{font-size:13.5px; color:var(--app-muted); flex:1; line-height: 1.55;}
-.card-meta{font-family:var(--font-mono); font-size:11px; color:var(--app-faint); display:flex; justify-content:space-between; align-items:center; margin-top:4px;}
-.sparkline { width: 60px; height: 16px; }
-.card-actions{display:flex; gap:8px; margin-top:8px;}
-.card-actions .btn{padding:0 14px; min-height: 38px; height: 38px; font-size:13px;}
-
-/* Modal */
-.modal-backdrop{
-  position:fixed; inset:0; z-index:300; background:rgba(15, 23, 42, 0.6);
-  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center; padding:20px;
-  opacity:0; pointer-events:none; transition:opacity .25s ease;
-}
-.modal-backdrop.open{opacity:1; pointer-events:auto;}
-.modal{
-  background:var(--app-surface); 
-  border:1px solid var(--app-border); 
-  border-radius:20px;
-  max-width:640px; width:100%; max-height:min(86dvh, 86vh); overflow-y:auto;
-  box-shadow:var(--shadow-lg); overscroll-behavior:contain; -webkit-overflow-scrolling:touch;
-  transform:translateY(16px) scale(.98); opacity:0;
-  transition:transform .25s ease, opacity .25s ease;
-}
-.modal-backdrop.open .modal{transform:translateY(0) scale(1); opacity:1;}
-.modal-hero{min-height:140px; position:relative; display:flex; align-items:flex-end; padding:20px 26px;}
-.modal-hero h3{position:relative; z-index:1; font-family:var(--font-display); font-size:clamp(20px,4.5vw,26px); font-weight:700; color:#fff; line-height:1.2;}
-.modal-close{
-  position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:10px; 
-  background:rgba(0,0,0,.35); color:#fff; display:flex; align-items:center; justify-content:center; 
-  z-index:2; border:1px solid rgba(255,255,255,0.2); cursor:pointer;
-  transition: transform 0.18s ease, background 0.18s ease;
-}
-.modal-close:hover { transform: scale(1.05); background: rgba(0,0,0,.5); }
-.modal-close:active { transform: scale(0.95); }
-.modal-body{padding:24px 26px;}
-.status-badge{display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border-radius:9999px; background:var(--app-light-accent); color:var(--app-primary); border:1px solid color-mix(in srgb, var(--app-primary) 30%, transparent); margin-bottom:18px;}
-.modal-body .full-desc{font-size:14.5px; color:var(--app-muted); line-height:1.65; margin-bottom:20px;}
-.modal-section-label{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--app-faint); margin-bottom:10px;}
-.modal-tags{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:22px;}
-.commit-line{display:flex; gap:12px; font-size:13px; padding:9px 0; border-bottom:1px solid var(--app-border); opacity: 0; transform: translateX(-10px);}
-.commit-line.in-view{opacity: 1; transform: translateX(0); transition: all 0.3s ease;}
-.commit-line:last-child{border-bottom:none;}
-.commit-line .dot{width:6px;height:6px;border-radius:50%;background:var(--app-primary); margin-top:6px; flex-shrink:0;}
-.commit-line .cmsg{color:var(--app-text);}
-.commit-line .cdate{color:var(--app-faint); font-family:var(--font-mono); font-size:11px; white-space:nowrap; margin-left:auto;}
-.modal-links{display:flex; gap:10px; margin-top:24px;}
-
-@media(max-width:600px){
-  .modal-backdrop{padding:12px; align-items:flex-end;}
-  .modal{max-height:min(88dvh, 88vh); border-radius:20px 20px 0 0;}
-  .modal-hero{min-height:110px; padding:18px; padding-right:50px;}
-  .modal-body{padding:18px;}
-  .modal-links{flex-direction:column; gap:10px;}
-  .modal-links .btn{width:100%; justify-content:center; text-align:center;}
-}
-
-/* ============ ABOUT ============ */
-.about-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px;}
-@media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
-.about-grid p{color:var(--app-muted); font-size:14.5px; margin-bottom:14px; max-width:540px; line-height:1.7;}
-.role-badges{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
-.role-badges span{
-  font-family:var(--font-mono); font-size:12px; padding:7px 14px; border-radius:9999px; 
-  background:var(--app-recessed); border:1px solid var(--app-border); color: var(--app-text);
-  box-shadow:var(--app-shadow); transition: transform 0.2s ease;
-}
-.role-badges span:hover { transform: translateY(-1px); }
-
-.skill-cols{display:grid; gap:16px;}
-.skill-row{
-  display:flex; justify-content:space-between; align-items:center; padding:12px 18px; 
-  border:1px solid var(--app-border); 
-  border-radius:12px; background:var(--app-recessed); box-shadow:var(--app-shadow); 
-  position: relative; transition: transform 0.2s ease;
-}
-.skill-row:hover { transform: translateY(-1px); }
-.skill-row .name{font-weight:600; font-size:13.5px; color: var(--app-text);}
-.skill-row .bar{
-  width:120px; height:8px; background:var(--app-surface); 
-  border: 1px solid var(--app-border); border-radius:9999px; overflow:hidden; position: relative;
-}
-.skill-row .bar i{
-  display:block; height:100%; 
-  background:var(--app-primary); 
-  border-radius:9999px; width:0; transition:width 1.2s cubic-bezier(.22,1,.36,1); position: relative;
-}
-
-/* ============ EXPERIENCE TIMELINE ============ */
-.experience-list{display:flex; flex-direction:column; gap:20px; position: relative;}
-.experience-list::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1.5px; background: var(--app-border); transform: translateX(-50%); }
-.exp-card{
-  border:1px solid var(--app-border); 
-  background:var(--app-surface); border-radius:20px;
-  padding:24px 28px; box-shadow:var(--app-shadow); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  width: 45%; position: relative; z-index: 2;
-  opacity: 0;
-}
-.exp-card:nth-child(odd) { align-self: flex-start; transform: translateX(-20px); }
-.exp-card:nth-child(even) { align-self: flex-end; transform: translateX(20px); }
-.exp-card.in-view { opacity: 1; transform: translateX(0) !important; transition: opacity 0.6s ease, transform 0.6s ease; }
-.exp-card:hover{
-  transform: translateY(-2px) !important; 
-  box-shadow: var(--shadow-lg);
-  border-color: color-mix(in srgb, var(--app-primary) 30%, var(--app-border));
-}
-
-.exp-header{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:10px;}
-.exp-role{font-family:var(--font-display); font-size:18px; font-weight:700; color: var(--app-text);}
-.exp-company{color:var(--app-primary); font-weight:600; font-size:14px;}
-.exp-date{
-  font-family:var(--font-mono); font-size:12px; color:var(--app-faint); padding:4px 12px; border-radius:9999px; 
-  background:var(--app-recessed); border:1px solid var(--app-border); 
-}
-.exp-desc{font-size:14px; color:var(--app-muted); line-height:1.6; margin-bottom:12px;}
-.exp-bullets{list-style:none; display:flex; flex-direction:column; gap:6px; font-size:13.5px; color:var(--app-muted);}
-.exp-bullets li{position:relative; padding-left:18px;}
-.exp-bullets li::before{content:'•'; position:absolute; left:4px; color:var(--app-primary);}
-
-/* ============ CERTIFICATIONS ============ */
-.grid-2col{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-@media(max-width:760px){.grid-2col{grid-template-columns:1fr;}}
-.info-card{
-  border:1px solid var(--app-border); 
-  background:var(--app-surface); border-radius:20px;
-  padding:22px 24px; box-shadow:var(--app-shadow); display:flex; flex-direction:column; gap:8px;
-  position: relative;
-  opacity: 0; transform: translateY(12px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.info-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.info-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease; }
-.info-card h3{font-family:var(--font-display); font-size:16px; font-weight:700; color: var(--app-text);}
-.info-card .sub-title{font-size:13.5px; font-weight:600; color:var(--app-primary);}
-.info-card .meta{font-family:var(--font-mono); font-size:11.5px; color:var(--app-faint);}
-.info-card p{font-size:13.5px; color:var(--app-muted); line-height:1.5;}
-
-/* ============ CONTACT ============ */
-.contact-panel{
-  border:1px solid var(--app-border); 
-  background:var(--app-surface); border-radius:20px; padding:40px;
-  box-shadow:var(--app-shadow); display:grid; grid-template-columns:.9fr 1.1fr; gap:40px;
-}
-@media(max-width:760px){.contact-panel{grid-template-columns:1fr; padding:24px;}}
-.contact-panel h2{font-family:var(--font-display); font-size:28px; font-weight:700; margin-bottom:12px; color: var(--app-text);}
-.contact-panel .lead{color:var(--app-muted); font-size:14.5px; margin-bottom:20px; line-height:1.6;}
-.contact-info-row{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--app-muted); margin-bottom:12px; flex-wrap:wrap;}
-.contact-info-row a{color:var(--app-muted); text-decoration:none; transition:color .2s;}
-.contact-info-row a:hover{color:var(--app-primary); text-decoration:underline;}
-.contact-info-row svg{width:16px;height:16px; flex-shrink:0; color:var(--app-primary);}
-.copy-email-btn{
-  display:inline-flex; align-items:center; gap:5px; padding:4px 10px;
-  font-size:11.5px; font-family:var(--font-mono); font-weight:500;
-  color:var(--app-muted); background:var(--app-recessed); border:1px solid var(--app-border);
-  border-radius:8px; cursor:pointer;
-  transition:all .2s ease; margin-left:2px;
-}
-.copy-email-btn:hover{color:var(--app-text); border-color:var(--app-primary);}
-.copy-email-btn.copied{
-  color:var(--app-primary); border-color:var(--app-primary);
-  background:var(--app-light-accent);
-}
-.copy-email-btn svg{width:12px; height:12px; flex-shrink:0; color:inherit;}
-
-form{display:flex; flex-direction:column; gap:14px;}
-.field{display:flex; flex-direction:column; gap:6px; position: relative;}
-.field label{font-size:12px; font-weight:600; color:var(--app-muted); font-family: var(--font-mono); display: inline-block;}
-.field label.dimmed{ opacity: 0.5; }
-.field input, .field textarea{
-  border:1px solid var(--app-border); background:var(--app-recessed); border-radius:12px; padding:12px 15px;
-  color:var(--app-text); font-size:14px; font-family:var(--font-body); resize:vertical;
-  transition:border-color .2s, background .2s;
-}
-.field input:focus, .field textarea:focus{border-color:var(--app-primary); background: var(--app-surface); outline:none; box-shadow: 0 0 0 2px color-mix(in srgb, var(--app-primary) 20%, transparent);}
-.field textarea{min-height:110px;}
-.char-counter{align-self:flex-end; font-family:var(--font-mono); font-size:11px; color:var(--app-faint); transition:color .2s;}
-.char-counter.state-active{color:var(--app-primary);}
-.char-counter.state-warn{color:#f59e0b;}
-.char-counter.state-over{color:#ef4444; font-weight:600;}
-form .btn{align-self:flex-start; margin-top:4px;}
-form .btn:disabled{opacity:.45; pointer-events:none; transform:none !important;}
-
-/* ============ FOOTER & BACK TO TOP ============ */
-footer{padding:36px 0 60px; text-align:center; color:var(--app-faint); font-size:12.5px; font-family:var(--font-mono);}
-
-.to-top{
-  position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:12px;
-  background:var(--app-surface); border:1px solid var(--app-border); color:var(--app-primary); display:flex; align-items:center; justify-content:center;
-  box-shadow:var(--app-shadow); z-index:90;
-  opacity:1; pointer-events:auto; transform:translateY(0);
-  transition:background .2s, transform .2s;
-  cursor: pointer;
-}
-.to-top:hover{background:var(--app-recessed); transform:translateY(-2px);}
-.to-top svg {
-  transition: transform 0.3s ease;
-  will-change: transform;
-}
-
-/* ============ RESPONSIVE & MOBILE ACCESSIBILITY ============ */
-@media (max-width: 640px) {
-  .wrap { padding: 0 16px; }
-  input, textarea, select { font-size: 16px !important; } /* Prevents iOS/Android input focus zoom */
-}
-@media (max-width: 360px) {
-  .wrap { padding: 0 12px; }
-}
-
-@media (max-width: 820px) {
-  .nav-links { display: none; }
-  .menu-btn { display: flex; width: 44px; height: 44px; min-height: 44px; }
-  .controls { flex-direction: column; align-items: stretch; gap: 12px; }
-  .search-layout { flex-direction: column; width: 100%; align-items: stretch; }
-  .search-box { width: 100%; min-width: 0; min-height: 44px; }
-  .layout-toggle { width: 100%; justify-content: flex-end; }
-  .layout-toggle button { min-height: 40px; min-width: 40px; justify-content: center; }
-}
-
-/* Category Chips Horizontal Scroll on Small Screens */
-@media (max-width: 600px) {
-  .chips {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    max-width: 100%;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 6px;
-  }
-  .chips::-webkit-scrollbar { display: none; }
-  .chip { flex-shrink: 0; white-space: nowrap; min-height: 44px; }
-}
-
-/* Hero & CTA Small Screens */
-@media (max-width: 480px) {
-  .hero { padding: 44px 0 28px; }
-  .hero h1 { font-size: clamp(26px, 7.5vw, 38px); }
-  .hero p.sub { font-size: 14.5px; margin-top: 14px; }
-  .hero-cta { flex-direction: column; width: 100%; gap: 10px; }
-  .hero-cta .btn { width: 100%; justify-content: center; text-align: center; min-height: 46px; }
-  .stats-bar { margin-top: 24px; gap: 8px; }
-  .pill { width: 100%; justify-content: flex-start; font-size: 12px; padding: 9px 14px; }
-}
-
-/* Timeline / Experience on Mobile & Small Android Devices */
-@media (max-width: 680px) {
-  .experience-list::before { left: 14px; }
-  .exp-card, .exp-card:nth-child(odd), .exp-card:nth-child(even) {
-    width: calc(100% - 28px) !important;
-    margin-left: 28px !important;
-    padding: 16px 14px !important;
-    transform: none !important;
-    align-self: stretch !important;
-  }
-  .exp-header { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .exp-role { font-size: 16px; }
-  .exp-company { font-size: 13px; }
-  .exp-date { font-size: 11px; padding: 2px 8px; transform: none !important; }
-  .exp-desc { font-size: 13px; }
-}
-
-/* Skills Layout on Small Screens */
-@media (max-width: 480px) {
-  .skill-row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 12px; }
-  .skill-row .bar { width: 100%; height: 6px; }
-}
-
-/* Modal Bottom-Sheet on Mobile */
-@media (max-width: 640px) {
-  .modal-backdrop { padding: 0; align-items: flex-end; }
-  .modal {
-    max-height: 90dvh;
-    border-radius: 20px 20px 0 0;
-    border-bottom: none;
-  }
-  .modal-hero { min-height: 110px; padding: 16px; padding-right: 48px; }
-  .modal-body { padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); }
-  .modal-close { top: 12px; right: 12px; width: 44px; height: 44px; min-height: 44px; }
-  .modal-links { flex-direction: column; gap: 10px; }
-  .modal-links .btn { width: 100%; justify-content: center; text-align: center; min-height: 44px; }
-}
-
-/* Toast Notification System */
-.toast-container {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  pointer-events: none;
-  max-width: calc(100vw - 32px);
-  width: 380px;
-}
-.toast {
-  pointer-events: auto;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: var(--app-surface);
-  color: var(--app-text);
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.4;
-  border: 1px solid var(--app-border);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(12px) scale(0.96);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-.toast.toast-show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.toast-icon {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.toast-success .toast-icon { color: #10b981; }
-.toast-error .toast-icon { color: #ef4444; }
-.toast-warn .toast-icon { color: #f59e0b; }
-.toast-info .toast-icon { color: var(--app-primary); }
-</style>
+  </script>
+
+  <!-- Google Fonts: Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Space+Grotesk:wght@500;600&display=swap" />
+
+  <!-- Inline All Styling for 100% Standalone Offline Portability -->
+  <style>
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-space-y-reverse:0;--tw-divide-y-reverse:0;--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-ordinal:initial;--tw-slashed-zero:initial;--tw-numeric-figure:initial;--tw-numeric-spacing:initial;--tw-numeric-fraction:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial;--tw-backdrop-blur:initial;--tw-backdrop-brightness:initial;--tw-backdrop-contrast:initial;--tw-backdrop-grayscale:initial;--tw-backdrop-hue-rotate:initial;--tw-backdrop-invert:initial;--tw-backdrop-opacity:initial;--tw-backdrop-saturate:initial;--tw-backdrop-sepia:initial;--tw-duration:initial;--tw-ease:initial;--tw-content:"";--tw-outline-style:solid}}}@layer theme{:root,:host{--font-sans:"Inter", ui-sans-serif, system-ui, sans-serif;--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--color-red-500:oklch(63.7% .237 25.331);--spacing:.25rem;--container-md:28rem;--container-xl:36rem;--container-2xl:42rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-base:1rem;--text-base--line-height: 1.5 ;--text-lg:1.125rem;--text-lg--line-height:calc(1.75 / 1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75 / 1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2 / 1.5);--font-weight-medium:500;--tracking-tight:-.025em;--leading-relaxed:1.625;--radius-sm:.375rem;--radius-md:.625rem;--radius-2xl:1rem;--ease-out:cubic-bezier(.22, 1, .36, 1);--animate-spin:spin 1s linear infinite;--blur-sm:8px;--blur-md:12px;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1);--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono);--font-display:"Space Grotesk", ui-sans-serif, system-ui, sans-serif;--color-bg:#f3f0e8;--color-elev:#faf8f3;--color-fg:#171614;--color-muted:#5c5a53;--color-faint:#8a877c;--color-line:#ddd8cc;--color-accent:#1e4f8c;--color-accent-hover:#173e70;--color-solid:#171614;--color-solid-fg:#f3f0e8;--text-display:clamp(2.75rem, 1.5rem + 5.2vw, 5rem);--text-display--line-height:.96;--text-display--letter-spacing:-.04em;--text-title:clamp(1.5rem, 1.15rem + 1.4vw, 2rem);--text-title--line-height:1.15;--text-title--letter-spacing:-.028em;--text-label:.6875rem;--radius-lg:.875rem;--radius-xl:.75rem}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;line-height:1.5;font-family:var(--default-font-family,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab,red,red)){::placeholder{color:color-mix(in oklab,currentcolor 50%,transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){-webkit-appearance:button;-moz-appearance:button;appearance:button}::file-selector-button{-webkit-appearance:button;-moz-appearance:button;appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.visible{visibility:visible}.sr-only{clip-path:inset(50%);white-space:nowrap;border-width:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.static{position:static}.sticky{position:sticky}.inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.top-1\/2{top:50%}.left-1\/2{left:50%}.z-50{z-index:50}.container{width:100%}@media(min-width:40rem){.container{max-width:40rem}}@media(min-width:48rem){.container{max-width:48rem}}@media(min-width:64rem){.container{max-width:64rem}}@media(min-width:80rem){.container{max-width:80rem}}@media(min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.my-6{margin-block:calc(var(--spacing) * 6)}.mt-1{margin-top:var(--spacing)}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mt-4{margin-top:calc(var(--spacing) * 4)}.mt-5{margin-top:calc(var(--spacing) * 5)}.mt-6{margin-top:calc(var(--spacing) * 6)}.mt-8{margin-top:calc(var(--spacing) * 8)}.mt-10{margin-top:calc(var(--spacing) * 10)}.mt-12{margin-top:calc(var(--spacing) * 12)}.mb-2{margin-bottom:calc(var(--spacing) * 2)}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-flex{display:inline-flex}.size-3\.5{width:calc(var(--spacing) * 3.5);height:calc(var(--spacing) * 3.5)}.size-4{width:calc(var(--spacing) * 4);height:calc(var(--spacing) * 4)}.size-5{width:calc(var(--spacing) * 5);height:calc(var(--spacing) * 5)}.size-11{width:calc(var(--spacing) * 11);height:calc(var(--spacing) * 11)}.h-16{height:calc(var(--spacing) * 16)}.min-h-10{min-height:calc(var(--spacing) * 10)}.min-h-11{min-height:calc(var(--spacing) * 11)}.min-h-12{min-height:calc(var(--spacing) * 12)}.min-h-36{min-height:calc(var(--spacing) * 36)}.min-h-dvh{min-height:100dvh}.max-w-2xl{max-width:var(--container-2xl)}.max-w-md{max-width:var(--container-md)}.max-w-xl{max-width:var(--container-xl)}.transform-gpu{transform:translateZ(0) var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.animate-spin{animation:var(--animate-spin)}.resize{resize:both}.resize-y{resize:vertical}.scroll-mt-20{scroll-margin-top:calc(var(--spacing) * 20)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-baseline{align-items:baseline}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-1{gap:var(--spacing)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-6{gap:calc(var(--spacing) * 6)}.gap-8{gap:calc(var(--spacing) * 8)}.gap-10{gap:calc(var(--spacing) * 10)}:where(.space-y-3>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-4>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-5>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)))}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-x-5{column-gap:calc(var(--spacing) * 5)}.gap-y-1{row-gap:var(--spacing)}:where(.divide-y>:not(:last-child)){--tw-divide-y-reverse:0;border-bottom-style:var(--tw-border-style);border-top-style:var(--tw-border-style);border-top-width:calc(1px * var(--tw-divide-y-reverse));border-bottom-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:var(--radius-2xl)}.rounded-md{border-radius:var(--radius-md)}.rounded-sm{border-radius:var(--radius-sm)}.border{border-style:var(--tw-border-style);border-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-\[var\(--border\)\]{border-color:var(--border)}.border-transparent{border-color:#0000}.bg-\[var\(--bg-card\)\]{background-color:var(--bg-card)}.bg-transparent{background-color:#0000}.px-1{padding-inline:var(--spacing)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-5{padding-inline:calc(var(--spacing) * 5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-4{padding-block:calc(var(--spacing) * 4)}.py-8{padding-block:calc(var(--spacing) * 8)}.py-16{padding-block:calc(var(--spacing) * 16)}.pt-8{padding-top:calc(var(--spacing) * 8)}.pt-10{padding-top:calc(var(--spacing) * 10)}.pt-12{padding-top:calc(var(--spacing) * 12)}.pb-16{padding-bottom:calc(var(--spacing) * 16)}.pl-4{padding-left:calc(var(--spacing) * 4)}.text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading,var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.leading-7{--tw-leading:calc(var(--spacing) * 7);line-height:calc(var(--spacing) * 7)}.leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.tracking-\[0\.12em\]{--tw-tracking:.12em;letter-spacing:.12em}.tracking-tight{--tw-tracking:var(--tracking-tight);letter-spacing:var(--tracking-tight)}.text-red-500{color:var(--color-red-500)}.uppercase{text-transform:uppercase}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,)}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-25{opacity:.25}.opacity-75{opacity:.75}.shadow-xl{--tw-shadow:0 20px 25px -5px var(--tw-shadow-color,#0000001a), 0 8px 10px -6px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.blur{--tw-blur:blur(8px);filter:var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,)}.backdrop-blur-md{--tw-backdrop-blur:blur(var(--blur-md));-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.backdrop-blur-sm{--tw-backdrop-blur:blur(var(--blur-sm));-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.transition-\[background-color\,border-color\,backdrop-filter\]{transition-property:background-color,border-color,-webkit-backdrop-filter,backdrop-filter;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-\[background-color\,color\,border-color\,transform\,opacity\]{transition-property:background-color,color,border-color,transform,opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-colors{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.duration-150{--tw-duration:.15s;transition-duration:.15s}.duration-200{--tw-duration:.2s;transition-duration:.2s}.ease-out{--tw-ease:var(--ease-out);transition-timing-function:var(--ease-out)}.\[will-change\:transform\]{will-change:transform}.select-none{-webkit-user-select:none;user-select:none}.\[backface-visibility\:hidden\]{backface-visibility:hidden}.\[transform-style\:preserve-3d\]{transform-style:preserve-3d}.perspective-\[1200px\]{perspective:1200px}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-\[0\.55em\]:before{content:var(--tw-content);top:.55em}.before\:left-0:before{content:var(--tw-content);left:0}.before\:h-1:before{content:var(--tw-content);height:var(--spacing)}.before\:w-1:before{content:var(--tw-content);width:var(--spacing)}.before\:rounded-full:before{content:var(--tw-content);border-radius:3.40282e38px}.last\:border-b:last-child{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.last\:border-b-0:last-child{border-bottom-style:var(--tw-border-style);border-bottom-width:0}@media(hover:hover){.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-90:hover{opacity:.9}}.focus\:not-sr-only:focus{clip-path:none;white-space:normal;width:auto;height:auto;margin:0;padding:0;position:static;overflow:visible}.focus\:fixed:focus{position:fixed}.focus\:top-4:focus{top:calc(var(--spacing) * 4)}.focus\:left-4:focus{left:calc(var(--spacing) * 4)}.focus\:z-\[100\]:focus{z-index:100}.focus\:rounded-md:focus{border-radius:var(--radius-md)}.focus\:px-4:focus{padding-inline:calc(var(--spacing) * 4)}.focus\:py-2\.5:focus{padding-block:calc(var(--spacing) * 2.5)}.focus\:text-sm:focus{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.focus\:font-medium:focus{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.focus-visible\:outline-2:focus-visible{outline-style:var(--tw-outline-style);outline-width:2px}.focus-visible\:outline-offset-3:focus-visible{outline-offset:3px}.active\:not-disabled\:scale-\[0\.98\]:active:not(:disabled){scale:.98}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-50:disabled{opacity:.5}@media(min-width:40rem){.sm\:mt-8{margin-top:calc(var(--spacing) * 8)}.sm\:mt-12{margin-top:calc(var(--spacing) * 12)}.sm\:mt-14{margin-top:calc(var(--spacing) * 14)}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:grid-cols-\[minmax\(10rem\,14rem\)_1fr\]{grid-template-columns:minmax(10rem,14rem) 1fr}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-8{gap:calc(var(--spacing) * 8)}.sm\:gap-10{gap:calc(var(--spacing) * 10)}.sm\:py-5{padding-block:calc(var(--spacing) * 5)}.sm\:py-24{padding-block:calc(var(--spacing) * 24)}.sm\:pt-20{padding-top:calc(var(--spacing) * 20)}.sm\:pb-24{padding-bottom:calc(var(--spacing) * 24)}.sm\:text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading,var(--text-2xl--line-height))}.sm\:text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.sm\:text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.sm\:leading-relaxed{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}}@media(min-width:48rem){.md\:col-span-3{grid-column:span 3/span 3}.md\:col-span-4{grid-column:span 4/span 4}.md\:col-span-8{grid-column:span 8/span 8}.md\:col-span-9{grid-column:span 9/span 9}.md\:mt-3{margin-top:calc(var(--spacing) * 3)}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:inline{display:inline}.md\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.md\:items-baseline{align-items:baseline}.md\:gap-8{gap:calc(var(--spacing) * 8)}.md\:gap-10{gap:calc(var(--spacing) * 10)}.md\:py-10{padding-block:calc(var(--spacing) * 10)}.md\:py-12{padding-block:calc(var(--spacing) * 12)}.md\:text-xl{font-size:var(--text-xl);line-height:var(--tw-leading,var(--text-xl--line-height))}}@media(min-width:64rem){.lg\:col-span-4{grid-column:span 4/span 4}.lg\:col-span-5{grid-column:span 5/span 5}.lg\:col-span-7{grid-column:span 7/span 7}.lg\:col-span-8{grid-column:span 8/span 8}.lg\:mt-0{margin-top:0}.lg\:mt-2{margin-top:calc(var(--spacing) * 2)}.lg\:mt-5{margin-top:calc(var(--spacing) * 5)}.lg\:mt-16{margin-top:calc(var(--spacing) * 16)}.lg\:max-w-none{max-width:none}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.lg\:gap-8{gap:calc(var(--spacing) * 8)}.lg\:gap-16{gap:calc(var(--spacing) * 16)}.lg\:gap-x-12{column-gap:calc(var(--spacing) * 12)}.lg\:gap-y-10{row-gap:calc(var(--spacing) * 10)}.lg\:py-28{padding-block:calc(var(--spacing) * 28)}.lg\:pt-12{padding-top:calc(var(--spacing) * 12)}.lg\:pt-24{padding-top:calc(var(--spacing) * 24)}.lg\:pb-28{padding-bottom:calc(var(--spacing) * 28)}}@media(prefers-color-scheme:dark){.dark\:block{display:block}.dark\:hidden{display:none}}}.dark{--color-bg:#0c0d10;--color-elev:#14161b;--color-fg:#edebe4;--color-muted:#a09d94;--color-faint:#6f6d66;--color-line:#26282e;--color-accent:#7ba4d4;--color-accent-hover:#9bbbe0;--color-solid:#edebe4;--color-solid-fg:#0c0d10}html{background-color:var(--color-bg);color:var(--color-fg);color-scheme:light;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}html.dark{color-scheme:dark}body{background-color:var(--color-bg);color:var(--color-fg);font-family:var(--font-sans);font-feature-settings:"ss01" on,"cv11" on}button:not(:disabled),[role=button]:not(:disabled){cursor:pointer}::selection{background:var(--color-accent)}@supports (color:color-mix(in lab,red,red)){::selection{background:color-mix(in oklab,var(--color-accent) 28%,transparent)}}::selection{color:var(--color-fg)}:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}h1,h2,h3{text-wrap:balance;font-family:var(--font-display)}p{text-wrap:pretty}.wrap{width:100%;max-width:68rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2rem)}.label{font-size:var(--text-label);letter-spacing:.14em;text-transform:uppercase;color:var(--color-faint);font-weight:500;line-height:1.4}.text-display{font-size:var(--text-display);line-height:var(--text-display--line-height);letter-spacing:var(--text-display--letter-spacing)}.text-title{font-size:var(--text-title);line-height:var(--text-title--line-height);letter-spacing:var(--text-title--letter-spacing)}.bg-bg,.bg-bg\/70{background-color:var(--color-bg)}@supports (color:color-mix(in lab,red,red)){.bg-bg\/70{background-color:color-mix(in oklab,var(--color-bg) 70%,transparent)}}.bg-bg\/85{background-color:var(--color-bg)}@supports (color:color-mix(in lab,red,red)){.bg-bg\/85{background-color:color-mix(in oklab,var(--color-bg) 85%,transparent)}}.bg-elev{background-color:var(--color-elev)}.bg-solid{background-color:var(--color-solid)}.text-fg,.text-fg\/80{color:var(--color-fg)}@supports (color:color-mix(in lab,red,red)){.text-fg\/80{color:color-mix(in oklab,var(--color-fg) 80%,transparent)}}.text-muted{color:var(--color-muted)}.text-faint{color:var(--color-faint)}.text-accent{color:var(--color-accent)}.text-accent-hover{color:var(--color-accent-hover)}.text-solid-fg{color:var(--color-solid-fg)}.border-line,.border-line\/70{border-color:var(--color-line)}@supports (color:color-mix(in lab,red,red)){.border-line\/70{border-color:color-mix(in oklab,var(--color-line) 70%,transparent)}}.field-input{border-radius:var(--radius-md);border:1px solid var(--color-line);background:var(--color-elev);width:100%;min-height:2.75rem;color:var(--color-fg);transition:border-color .15s var(--ease-out),box-shadow .15s var(--ease-out);outline:none;padding:.7rem .9rem;font-size:1rem;line-height:1.5}.field-input::placeholder{color:var(--color-faint)}.field-input:hover{border-color:var(--color-fg)}@supports (color:color-mix(in lab,red,red)){.field-input:hover{border-color:color-mix(in oklab,var(--color-fg) 22%,transparent)}}.field-input:focus{border-color:var(--color-accent);box-shadow:0 0 0 3px var(--color-accent)}@supports (color:color-mix(in lab,red,red)){.field-input:focus{box-shadow:0 0 0 3px color-mix(in oklab,var(--color-accent) 18%,transparent)}}.reveal{animation:rise .7s var(--ease-out) both}.reveal-2{animation-delay:90ms}.reveal-3{animation-delay:.17s}.reveal-4{animation-delay:.25s}@keyframes rise{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,:before,:after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}.reveal,.reveal-2,.reveal-3,.reveal-4{animation:none}}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-divide-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-tracking{syntax:"*";inherits:false}@property --tw-ordinal{syntax:"*";inherits:false}@property --tw-slashed-zero{syntax:"*";inherits:false}@property --tw-numeric-figure{syntax:"*";inherits:false}@property --tw-numeric-spacing{syntax:"*";inherits:false}@property --tw-numeric-fraction{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-drop-shadow-color{syntax:"*";inherits:false}@property --tw-drop-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-drop-shadow-size{syntax:"*";inherits:false}@property --tw-backdrop-blur{syntax:"*";inherits:false}@property --tw-backdrop-brightness{syntax:"*";inherits:false}@property --tw-backdrop-contrast{syntax:"*";inherits:false}@property --tw-backdrop-grayscale{syntax:"*";inherits:false}@property --tw-backdrop-hue-rotate{syntax:"*";inherits:false}@property --tw-backdrop-invert{syntax:"*";inherits:false}@property --tw-backdrop-opacity{syntax:"*";inherits:false}@property --tw-backdrop-saturate{syntax:"*";inherits:false}@property --tw-backdrop-sepia{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@keyframes spin{to{transform:rotate(360deg)}}
+
+  </style>
+
+  <!-- Early theme init script to prevent flash -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem("theme");
+        var d = t === "dark" || (t !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", d);
+        document.documentElement.style.colorScheme = d ? "dark" : "light";
+      } catch (e) {}
+    })();
+  </script>
 </head>
-<body>
+<body class="min-h-dvh bg-bg text-fg antialiased">
+  <div id="top">
+    <!-- Skip to content link -->
+    <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-solid focus:px-4 focus:py-2.5 focus:text-sm focus:font-medium focus:text-solid-fg">
+      Skip to content
+    </a>
 
-<!-- Toast Notification Container -->
-<div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
+    <!-- ===== HEADER COMPONENT ===== -->
+    <header id="main-header" class="sticky top-0 z-50 border-b border-transparent bg-bg/70 backdrop-blur-sm transition-[background-color,border-color,backdrop-filter] duration-200">
+      <div class="wrap flex h-16 items-center justify-between gap-4">
+        <a href="#top" class="font-display text-sm font-medium tracking-tight text-fg">
+          Alfred
+        </a>
 
-<!-- Skip link for keyboard accessibility -->
-<a href="#summary" class="skip-link">Skip to main content</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden items-center gap-8 text-sm text-muted md:flex" aria-label="Primary">
+          <a href="#about" class="relative py-2 transition-colors duration-150 hover:text-fg">About</a>
+          <a href="#experience" class="relative py-2 transition-colors duration-150 hover:text-fg">Experience</a>
+          <a href="#projects" class="relative py-2 transition-colors duration-150 hover:text-fg">Projects</a>
+          <a href="#skills" class="relative py-2 transition-colors duration-150 hover:text-fg">Skills</a>
+          <a href="#contact" class="relative py-2 transition-colors duration-150 hover:text-fg">Contact</a>
+        </nav>
 
-<!-- Scroll Progress -->
-<div class="scroll-progress" id="scrollProgress"></div>
+        <div class="flex items-center gap-2">
+          <!-- Download Single HTML Button -->
+          <a href="https://raw.githubusercontent.com/alfredpanakkal/Alfred.panakkal/main/index.html" download="alfred-panakkal-portfolio.html" id="download-btn" class="inline-flex items-center gap-1.5 rounded-md border border-line px-2.5 py-1.5 text-xs text-muted transition-colors duration-150 hover:border-fg/25 hover:text-fg" title="Download this single HTML file to your computer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="font-medium">Download HTML</span>
+          </a>
 
-<!-- Parallax Background Glows -->
-<div class="glow" id="glowLayer">
-  <span class="g1"></span>
-  <span class="g2"></span>
-  <span class="g3"></span>
-</div>
+          <!-- Color Theme Toggle Button -->
+          <button type="button" id="theme-toggle" class="relative inline-flex size-11 items-center justify-center rounded-md text-muted transition-colors duration-150 hover:bg-elev hover:text-fg" aria-label="Toggle color theme">
+            <!-- Sun icon in dark mode -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden size-4 dark:block" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <!-- Moon icon in light mode -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon block size-4 dark:hidden" aria-hidden="true">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+          </button>
 
-<!-- ===== NAV ===== -->
-<header class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <div class="brand"><span class="brand-dot"></span>@alfredpanakkal</div>
-    <nav class="nav-links">
-      <a href="#summary">Summary</a>
-      <a href="#work">Projects</a>
-      <a href="#maritime">Maritime Ops</a>
-      <a href="#developer">Developer Stack</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#certifications">Credentials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-right">
-      <a class="btn btn-primary" href="#contact" style="padding: 6px 14px; font-size: 12px; font-weight: 600;">Contact</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-      </button>
-    </div>
+          <!-- Mobile Nav Toggle -->
+          <button type="button" id="mobile-menu-btn" class="inline-flex size-11 items-center justify-center rounded-md text-fg md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu size-5" aria-hidden="true">
+              <path d="M4 12h16"></path>
+              <path d="M4 18h16"></path>
+              <path d="M4 6h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-nav" class="hidden border-t border-line md:hidden">
+        <nav class="wrap flex flex-col py-2" aria-label="Mobile">
+          <a href="#about" class="mobile-link flex min-h-12 items-center border-b border-line/70 text-base last:border-b-0">About</a>
+          <a href="#experience" class="mobile-link flex min-h-12 items-center border-b border-line/70 text-base last:border-b-0">Experience</a>
+          <a href="#projects" class="mobile-link flex min-h-12 items-center border-b border-line/70 text-base last:border-b-0">Projects</a>
+          <a href="#skills" class="mobile-link flex min-h-12 items-center border-b border-line/70 text-base last:border-b-0">Skills</a>
+          <a href="#contact" class="mobile-link flex min-h-12 items-center border-b border-line/70 text-base last:border-b-0">Contact</a>
+          <a href="https://raw.githubusercontent.com/alfredpanakkal/Alfred.panakkal/main/index.html" download="alfred-panakkal-portfolio.html" class="mobile-link flex min-h-12 items-center text-sm font-medium text-accent">Download HTML File &darr;</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== HERO COMPONENT ===== -->
+      <section class="wrap pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+        <p class="label reveal">Seafarer &amp; Full-Stack Developer</p>
+        <div class="mt-4 grid lg:mt-5 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-10">
+          <h1 class="reveal reveal-2 font-display text-display font-medium text-fg lg:col-span-7">
+            Alfred Panakkal
+          </h1>
+          <p class="reveal reveal-3 mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg sm:leading-relaxed lg:col-span-5 lg:mt-2 lg:max-w-none">
+            Third Officer on ocean-going oil tankers. I write software for the same world — navigation, operations, and the gaps that show up when connectivity is thin and the work cannot wait.
+          </p>
+          <div class="reveal reveal-4 mt-8 flex flex-wrap items-center gap-3 lg:col-span-7 lg:mt-0">
+            <a href="#projects" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[background-color,color,border-color,transform,opacity] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.98] bg-solid text-solid-fg hover:opacity-90 min-h-11 px-5 py-2.5">
+              View projects
+            </a>
+            <a href="#about" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[background-color,color,border-color,transform,opacity] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.98] border border-line bg-transparent text-fg hover:border-fg/30 hover:bg-elev min-h-11 px-5 py-2.5">
+              About me
+            </a>
+            <a href="https://www.linkedin.com/in/alfredpanakkal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-sm font-medium transition-[background-color,color,border-color,transform,opacity] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.98] rounded-sm text-accent hover:text-accent-hover underline-offset-4 hover:underline py-2.5 min-h-11 px-1">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT COMPONENT ===== -->
+      <section id="about" class="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-28">
+        <div class="wrap">
+          <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <header class="lg:col-span-4">
+              <p class="label">About</p>
+              <h2 class="mt-3 font-display text-title font-medium">
+                Two crafts, one standard of attention
+              </h2>
+            </header>
+
+            <div class="max-w-2xl space-y-5 text-base leading-relaxed text-muted lg:col-span-8">
+              <p>As a Third Officer on ocean-going tankers, the work is watchkeeping, passage planning, bridge equipment, and safety management. Months at sea under constrained satellite connectivity made it obvious how much operational work still depends on paper logs, fragmented schedules, and tools that assume a stable network.</p>
+              <p>I learned full-stack development the same way I learned the bridge: by needing it. Every application I publish starts from a real bottleneck — turning repetitive manual records into software that still works when the link drops.</p>
+              <p>The through-line is not “maritime themed apps.” It is procedural care. A watch and a codebase both fail the same way: quietly, then all at once, if the details are treated as optional.</p>
+            </div>
+          </div>
+
+          <!-- Metadata Stats -->
+          <dl class="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-8">
+            <div>
+              <dt class="label">Role</dt>
+              <dd class="mt-2 font-display text-base tracking-tight text-fg">Third Officer</dd>
+            </div>
+            <div>
+              <dt class="label">Work</dt>
+              <dd class="mt-2 font-display text-base tracking-tight text-fg">Tanker fleet</dd>
+            </div>
+            <div>
+              <dt class="label">Based</dt>
+              <dd class="mt-2 font-display text-base tracking-tight text-fg">Palakkad, Kerala, India</dd>
+            </div>
+            <div>
+              <dt class="label">Code</dt>
+              <dd class="mt-2 font-display text-base tracking-tight text-fg">@alfredpanakkal</dd>
+            </div>
+          </dl>
+
+          <!-- Credentials List -->
+          <div class="mt-12 border-t border-line pt-10 lg:mt-16 lg:pt-12">
+            <p class="label">Credentials</p>
+            <ul class="mt-6 divide-y divide-line sm:mt-8">
+              <li class="grid gap-1 py-4 sm:grid-cols-[minmax(10rem,14rem)_1fr] sm:gap-8 sm:py-5">
+                <span class="text-sm font-medium text-fg">Certificate of Competency</span>
+                <span class="text-sm leading-relaxed text-muted">STCW II/1 — Officer in Charge of a Navigational Watch (unlimited vessels), DGS approved</span>
+              </li>
+              <li class="grid gap-1 py-4 sm:grid-cols-[minmax(10rem,14rem)_1fr] sm:gap-8 sm:py-5">
+                <span class="text-sm font-medium text-fg">GMDSS</span>
+                <span class="text-sm leading-relaxed text-muted">General Operator's Certificate for global radio distress monitoring</span>
+              </li>
+              <li class="grid gap-1 py-4 sm:grid-cols-[minmax(10rem,14rem)_1fr] sm:gap-8 sm:py-5">
+                <span class="text-sm font-medium text-fg">Bridge systems</span>
+                <span class="text-sm leading-relaxed text-muted">ECDIS, Radar / ARPA simulator certification (Transas, JRC, Furuno)</span>
+              </li>
+              <li class="grid gap-1 py-4 sm:grid-cols-[minmax(10rem,14rem)_1fr] sm:gap-8 sm:py-5">
+                <span class="text-sm font-medium text-fg">Safety</span>
+                <span class="text-sm leading-relaxed text-muted">Advanced Fire Fighting (STCW A-VI/3), Medical First Aid, PSCRB</span>
+              </li>
+              <li class="grid gap-1 py-4 sm:grid-cols-[minmax(10rem,14rem)_1fr] sm:gap-8 sm:py-5">
+                <span class="text-sm font-medium text-fg">Education</span>
+                <span class="text-sm leading-relaxed text-muted">B.Sc. Nautical Science / pre-sea maritime training — celestial & terrestrial navigation, ship stability, cargo, maritime law, BRM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE COMPONENT ===== -->
+      <section id="experience" class="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-28">
+        <div class="wrap">
+          <header class="max-w-2xl">
+            <p class="label">Experience</p>
+            <h2 class="mt-3 font-display text-title font-medium">Watchkeeping, then software</h2>
+            <p class="mt-4 max-w-xl leading-relaxed text-muted">
+              The same discipline shows up in both jobs: procedures, systems, and decisions that have to hold under pressure.
+            </p>
+          </header>
+
+          <ol class="mt-10 sm:mt-14">
+            <li class="grid gap-5 border-t border-line py-8 md:grid-cols-12 md:gap-10 md:py-12">
+              <div class="md:col-span-4">
+                <h3 class="font-display text-lg font-medium tracking-tight text-fg md:text-xl">Third Officer / Navigational Watchkeeping Officer</h3>
+                <p class="mt-2 text-sm text-muted">Ocean-going tanker fleet</p>
+                <p class="mt-1 text-sm text-faint">Active duty</p>
+              </div>
+              <div class="md:col-span-8">
+                <p class="leading-relaxed text-muted">Responsible for navigational watches, passage-plan compliance, bridge equipment, and onboard safety during international tanker voyages.</p>
+                <ul class="mt-5 space-y-3">
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Keep safe navigational watches using ECDIS, radar, ARPA, and satellite navigation in open ocean and high-density traffic.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Execute passage plans, chart corrections, and Notices to Mariners; check compass error by celestial and terrestrial bearings.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Operate and test bridge systems: dual ECDIS, S-band and X-band radar with ARPA, and GMDSS (Inmarsat-C, MF/HF DSC, VHF).</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Support tanker cargo and ballast work — IGS oxygen monitoring, BWMS and stability checks, COW safety, and LSA maintenance.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Coordinate passage logs, voyage reporting, and bond-store inventory under tight timeframes.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="grid gap-5 border-t border-line py-8 md:grid-cols-12 md:gap-10 md:py-12">
+              <div class="md:col-span-4">
+                <h3 class="font-display text-lg font-medium tracking-tight text-fg md:text-xl">Full-stack developer &amp; open-source creator</h3>
+                <p class="mt-2 text-sm text-muted">@alfredpanakkal</p>
+                <p class="mt-1 text-sm text-faint">Ongoing</p>
+              </div>
+              <div class="md:col-span-8">
+                <p class="leading-relaxed text-muted">Design, ship, and maintain open-source web applications for maritime productivity and offline use.</p>
+                <ul class="mt-5 space-y-3">
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Build production apps in React, Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Engineer offline-first caching and local storage for users on constrained satellite bandwidth.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Keep interfaces restrained, documented, and usable on a phone as well as a desktop.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS COMPONENT ===== -->
+      <section id="projects" class="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-28">
+        <div class="wrap">
+          <header class="max-w-2xl">
+            <p class="label">Projects</p>
+            <h2 class="mt-3 font-display text-title font-medium">Software from operational friction</h2>
+            <p class="mt-4 max-w-xl leading-relaxed text-muted">
+              Tools I built because the work needed them — navigational safety, shipboard admin, and small utilities that stay usable offline.
+            </p>
+          </header>
+
+          <ol class="mt-10 sm:mt-14">
+            <!-- 01: Navarea Warning Plotter -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-5 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">01</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-3 md:block">Maritime</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Navarea Warning Plotter</h3>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Problem</dt>
+                      <dd class="mt-1 text-muted">NAVAREA warnings still arrive as radio text. Plotting hazard zones onto a voyage is slow, manual, and easy to miss on watch.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Built</dt>
+                      <dd class="mt-1 text-muted">A geospatial tool for plotting NAVAREA warnings, danger areas, and hazard zones onto a chart-like view.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">Gives watchkeepers a spatial picture of active hazards along a planned track instead of reconstructing them from text.</dd>
+                    </div>
+                  </dl>
+                  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Geospatial &middot; Tailwind CSS</p>
+                    <div class="flex flex-wrap items-center gap-x-5">
+                      <span class="text-xs font-medium text-faint">In development</span>
+                      <a href="https://github.com/alfredpanakkal/Navarea-warning---plotter" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 02: Helm Almanac -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-5 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">02</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-3 md:block">Maritime</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm Almanac</h3>
+                  <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Problem</dt>
+                      <dd class="mt-1 text-muted">Vessel schedules, nautical events, and astronomical references live in separate books and PDFs — little use when the satellite link drops.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Built</dt>
+                      <dd class="mt-1 text-muted">A maritime almanac that unifies vessel schedules, nautical events, and navigational reference data in an offline-ready interface.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
+                      <dd class="mt-1 text-muted">Keeps operational reference material available during watch, including under constrained bandwidth at sea.</dd>
+                    </div>
+                  </dl>
+                  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Next.js &middot; Tailwind CSS</p>
+                    <div class="flex flex-wrap items-center gap-x-5">
+                      <a href="https://helmalmanac.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/Helm-Almanac" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 03: Bond Vault -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-4 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">03</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Operations</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Bond Vault</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">An inventory system for tracking, auditing, and managing bond stock — designed around the logs officers already keep.</p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; Next.js &middot; PostgreSQL</p>
+                    <div class="flex flex-wrap gap-x-5">
+                      <a href="https://helmbond.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/BOND-VAULT" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 04: Seatime & NRI Calculator -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-4 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">04</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Seatime &amp; NRI Calculator</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A calculator for sea-time days, NRI tax exemption status, and contract records, stored locally in the browser.</p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; LocalStorage</p>
+                    <div class="flex flex-wrap gap-x-5">
+                      <a href="https://helm-nri.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/seafarer-calculator-nri-seatime-calc" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 05: Helm Productivity -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-4 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">05</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Helm Productivity</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A productivity suite for watchkeeping, tasks, and routines — structured around shipboard time, not a 9-to-5 week.</p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Tailwind CSS</p>
+                    <div class="flex flex-wrap gap-x-5">
+                      <a href="https://helmproductivity.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/The-Helm---Productivity-app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 06: Helm Fasting -->
+            <li class="border-t border-line py-8 md:py-10">
+              <article class="grid gap-4 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">06</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Health</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Helm Fasting</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A progressive web app for intermittent fasting and health logging that works offline through long voyages.</p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; PWA</p>
+                    <div class="flex flex-wrap gap-x-5">
+                      <a href="https://helmfasting.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/The-Helm-Fasting" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- 07: Mudhra Converter -->
+            <li class="border-t border-line py-8 last:border-b md:py-10">
+              <article class="grid gap-4 md:grid-cols-12 md:gap-8">
+                <div class="flex items-baseline justify-between md:col-span-3 md:block">
+                  <span class="font-display text-sm tabular-nums text-faint">07</span>
+                  <span class="text-xs uppercase tracking-[0.12em] text-faint md:mt-2 md:block">Tools</span>
+                </div>
+                <div class="md:col-span-9">
+                  <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Mudhra Converter</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A fast converter for currency and measurements, kept deliberately thin for port calls and daily work.</p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Tailwind CSS</p>
+                    <div class="flex flex-wrap gap-x-5">
+                      <a href="https://mudhra-converter.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
+                        Live
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                      <a href="https://github.com/alfredpanakkal/MUDHRA.CONVERTER" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
+                        Source
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS COMPONENT ===== -->
+      <section id="skills" class="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-28">
+        <div class="wrap">
+          <header class="max-w-2xl">
+            <p class="label">Skills</p>
+            <h2 class="mt-3 font-display text-title font-medium">A short stack, used in production</h2>
+            <p class="mt-4 max-w-xl leading-relaxed text-muted">The work above is the evidence. This is only the inventory.</p>
+          </header>
+
+          <div class="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-3 sm:gap-10">
+            <div>
+              <h3 class="text-sm font-medium text-fg">Development</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">TypeScript &middot; JavaScript &middot; React &middot; Next.js &middot; Node.js &middot; Python</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-fg">Tools</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">Git &middot; GitHub &middot; Tailwind CSS &middot; PostgreSQL &middot; SQLite &middot; Vercel</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-fg">Maritime</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">Navigational watchkeeping &middot; COLREGs &middot; ECDIS &middot; Radar / ARPA &middot; GMDSS &middot; Tanker cargo &amp; safety</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT COMPONENT ===== -->
+      <section id="contact" class="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-28">
+        <div class="wrap">
+          <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <!-- Contact info -->
+            <div class="lg:col-span-5">
+              <p class="label">Contact</p>
+              <h2 class="mt-3 font-display text-title font-medium">Write when you have something specific</h2>
+              <p class="mt-4 max-w-md leading-relaxed text-muted">
+                Maritime technology, open-source collaboration, or engineering work. If I am underway, replies follow ship's time and the satellite window.
+              </p>
+
+              <ul class="mt-8 space-y-4 text-sm">
+                <li class="flex flex-wrap items-center gap-3">
+                  <a href="mailto:alpha.coil966@passinbox.com" class="font-medium text-fg underline-offset-4 hover:underline">alpha.coil966@passinbox.com</a>
+                  <button type="button" id="copy-email-btn" class="inline-flex min-h-10 items-center gap-1.5 rounded-md border border-line px-3 text-xs text-muted transition-colors duration-150 hover:border-fg/25 hover:text-fg" aria-label="Copy email address">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy size-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                    <span id="copy-email-text">Copy</span>
+                  </button>
+                </li>
+                <li>
+                  <a href="https://github.com/alfredpanakkal" target="_blank" rel="noopener noreferrer" class="text-muted underline-offset-4 hover:text-fg hover:underline">github.com/alfredpanakkal</a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/alfredpanakkal" target="_blank" rel="noopener noreferrer" class="text-muted underline-offset-4 hover:text-fg hover:underline">linkedin.com/in/alfredpanakkal</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Form with Validation, Loading, Honeypot & Feedback -->
+            <form id="contact-form" class="flex flex-col gap-5 lg:col-span-7" novalidate>
+              <!-- Hidden Honeypot Field -->
+              <div class="sr-only" aria-hidden="true">
+                <label for="hp_field">Leave empty</label>
+                <input id="hp_field" type="text" name="_honeypot" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <label for="cname" class="block">
+                  <span class="mb-2 block text-sm font-medium text-fg">Name</span>
+                  <input id="cname" type="text" name="name" autocomplete="name" required minlength="2" class="field-input" placeholder="Your name" />
+                </label>
+                <label for="cemail" class="block">
+                  <span class="mb-2 block text-sm font-medium text-fg">Email</span>
+                  <input id="cemail" type="email" name="email" autocomplete="email" required class="field-input" placeholder="you@example.com" />
+                </label>
+              </div>
+
+              <label for="cmsg" class="block">
+                <span class="mb-2 block text-sm font-medium text-fg">Message</span>
+                <textarea id="cmsg" name="message" required minlength="12" rows="6" class="field-input min-h-36 resize-y" placeholder="What you want to talk about"></textarea>
+              </label>
+
+              <div class="flex flex-wrap items-center gap-4">
+                <button type="submit" id="contact-submit-btn" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[background-color,color,border-color,transform,opacity] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.98] bg-solid text-solid-fg hover:opacity-90 min-h-11 px-5 py-2.5">
+                  <svg id="submit-spinner" class="hidden size-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span id="submit-btn-text">Send message</span>
+                </button>
+                <div id="form-status" role="status" class="text-sm text-muted"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER COMPONENT ===== -->
+    <footer class="border-t border-line">
+      <div class="wrap flex flex-col gap-3 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; 2026 Alfred Panakkal Jose</p>
+        <div class="flex items-center gap-4">
+          <a href="https://raw.githubusercontent.com/alfredpanakkal/Alfred.panakkal/main/index.html" download="alfred-panakkal-portfolio.html" id="footer-download-btn" class="text-xs text-faint hover:text-fg underline underline-offset-4">Download this single-file HTML</a>
+          <p class="text-faint">Palakkad, Kerala, India</p>
+        </div>
+      </div>
+    </footer>
   </div>
-</header>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <button class="close-x" id="closeX" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="#summary">Summary</a>
-  <a href="#work">Projects</a>
-  <a href="#maritime">Maritime Ops</a>
-  <a href="#developer">Developer Stack</a>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#certifications">Credentials</a>
-  <a href="#contact">Contact</a>
-  <a href="#contact" style="color: var(--app-primary); font-weight: 700;">Contact →</a>
-</div>
-
-<main id="mainContent">
-<!-- ===== HERO ===== -->
-<div class="wrap">
-  <section class="hero">
-    <div class="hero-radar"><div class="hero-radar-sweep"></div></div>
-    <div class="hero-content" id="heroContent">
-      <div class="hero-coord"><span id="heroCoord"></span><span class="coord-cursor">&nbsp;</span></div>
-      <h1 class="reveal-text">Alfred Panakkal Jose</h1>
-      <p class="sub reveal-text">Full-Stack Developer and Third Officer building practical, high-performance software for maritime operations, productivity, and modern web platforms.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#contact">Contact</a>
-        <a class="btn btn-ghost" href="#work">Explore Projects</a>
-      </div>
-      <div class="stats-bar">
-        <div class="pill"><span class="status-dot"></span> <span class="val" data-counter="5">0</span>&nbsp;Live Deployments</div>
-        <div class="pill">🐙 <span class="val" data-counter="10">0</span>&nbsp;Repositories</div>
-        <div class="pill">⚓ <span class="val" data-counter="720" data-suffix="+">0</span>&nbsp;Days Sea Time</div>
-        <div class="pill">💻 <span class="val">React · TypeScript · Python · Next.js</span></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Course Divider -->
-<div class="course-divider wrap">
-  <svg preserveAspectRatio="none" viewBox="0 0 1200 64">
-    <path id="dividerPath" class="divider-path-bg" d="M0 32 Q 300 4, 600 32 T 1200 32"/>
-    <path id="dividerPathAnim" class="divider-path-anim" d="M0 32 Q 300 4, 600 32 T 1200 32"/>
-    <circle id="wp1" cx="80" cy="27" r="3.5" fill="var(--app-primary)"/>
-    <circle id="wp2" cx="600" cy="32" r="3.5" fill="var(--app-primary)"/>
-    <circle id="wp3" cx="1120" cy="30" r="3.5" fill="var(--app-primary)"/>
-    <g id="vesselIcon" class="divider-vessel">
-      <path d="M -5 0 L 5 0 L 3 4 L -3 4 Z" />
-    </g>
-  </svg>
-</div>
-
-<!-- ===== PROFESSIONAL SUMMARY ===== -->
-<div class="wrap">
-  <section id="summary">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Overview — Professional Creed</div>
-      <h2 class="reveal-text">Professional Summary</h2>
-    </div>
-    <div class="summary-card" id="summaryCard">
-      <p class="reveal-text" id="summaryText">Full-Stack Developer and Third Officer on ocean-going oil tankers building practical software for maritime operations, productivity, and modern web platforms. Managing navigational watches demands relentless attention to detail and procedural compliance, which I bring directly to full-stack software development.</p>
-
-      <div class="telemetry-grid reveal-text" id="telemetryGrid">
-        <div class="telemetry-item">
-          <div class="telemetry-num" data-counter="720" data-suffix="+" data-decimals="0">0</div>
-          <div class="telemetry-label">Days at Sea</div>
-          <div class="telemetry-sub">Navigational Watchkeeping</div>
-        </div>
-        <div class="telemetry-item">
-          <div class="telemetry-num" data-counter="100" data-suffix="%" data-decimals="0">0</div>
-          <div class="telemetry-label">STCW II/1 Compliant</div>
-          <div class="telemetry-sub">Officer of the Watch Certified</div>
-        </div>
-        <div class="telemetry-item">
-          <div class="telemetry-num" data-counter="14000" data-suffix="+" data-decimals="0" data-format="comma">0</div>
-          <div class="telemetry-label">Nautical Miles</div>
-          <div class="telemetry-sub">Global Tanker Routes</div>
-        </div>
-        <div class="telemetry-item">
-          <div class="telemetry-num" data-counter="10" data-suffix="+" data-decimals="0">0</div>
-          <div class="telemetry-label">Maritime & Web Apps</div>
-          <div class="telemetry-sub">Offline-First Software</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section id="work">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 01 — Voyage Record</div>
-      <h2 class="reveal-text">Selected Projects</h2>
-      <p class="reveal-text">Maritime utility platforms, web applications, and productivity tools engineered with an offline-first mindset.</p>
-    </div>
-
-    <div class="controls">
-      <div class="chips" id="chipRow">
-        <button class="chip active" data-cat="All">All Projects</button>
-        <button class="chip" data-cat="Web">Web</button>
-        <button class="chip" data-cat="Maritime">Maritime</button>
-        <button class="chip" data-cat="Tools">Tools</button>
-      </div>
-      <div class="search-layout">
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <input type="text" id="searchInput" placeholder="Search projects, tech, keywords…">
-        </div>
-        <div class="layout-toggle">
-          <button class="active" id="gridBtn" aria-label="Grid view">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          </button>
-          <button id="listBtn" aria-label="List view">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid" id="projectGrid"></div>
-  </section>
-
-  <!-- ===== MARITIME OPERATIONS SECTION ===== -->
-  <section id="maritime">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 02 — Maritime Operations</div>
-      <h2 class="reveal-text">Navigational & Watchkeeping Profile</h2>
-      <p class="reveal-text">STCW-certified Third Officer on ocean-going oil tankers with 720+ days at sea managing navigational watches, bridge equipment, and cargo safety.</p>
-    </div>
-
-    <div class="grid-2col" style="margin-bottom: 24px;">
-      <div class="info-card">
-        <div class="meta">OFFICER CREDENTIALS & CERTIFICATIONS (STCW)</div>
-        <h3>STCW II/1 Navigational Watchkeeping CoC</h3>
-        <div class="sub-title">Officer in Charge of Navigational Watch (Unlimited Vessels)</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li>STCW II/1 Officer CoC (Directorate General of Shipping Approved)</li>
-          <li>GMDSS General Operator's Certificate (GOC) for global radio distress monitoring</li>
-          <li>ECDIS Radar / ARPA Simulator Certification (Transas, JRC, Furuno)</li>
-          <li>Advanced Fire Fighting (STCW A-VI/3) & Medical First Aid</li>
-          <li>Proficiency in Survival Craft and Rescue Boats (PSCRB)</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">NAVIGATIONAL WATCH & BRIDGE DUTIES</div>
-        <h3>0800–1200 & 2000–0000 Watchkeeping</h3>
-        <div class="sub-title">COLREGs Compliance & Passage Execution</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Safe navigational watches in congested international straits & open oceans</li>
-          <li>COLREGs collision avoidance maneuvers & look-out supervision</li>
-          <li>Passage plan execution, chart corrections & Notice to Mariners updates</li>
-          <li>Compass error checks via celestial bearings & terrestrial landmarks</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">BRIDGE EQUIPMENT & NAVIGATION SYSTEMS</div>
-        <h3>ECDIS, RADAR / ARPA & GMDSS Operations</h3>
-        <div class="sub-title">Precision Navigation Hardware & Software</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Dual ECDIS monitoring, route safety checking & depth contour alerts</li>
-          <li>S-Band & X-Band RADAR tracking with ARPA target trial maneuvers</li>
-          <li>GMDSS station testing (Inmarsat-C, MF/HF DSC, VHF Radio)</li>
-          <li>Magnetic & Gyro Compass deviation logging</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">TANKER CARGO & SAFETY OPERATIONS</div>
-        <h3>Oil Tanker Cargo & Ballast Systems</h3>
-        <div class="sub-title">IGS, Ballast Management & Safety Equipment</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Inert Gas System (IGS) O2 concentration monitoring during cargo discharge</li>
-          <li>Ballast Water Management System (BWMS) & ship stability monitoring</li>
-          <li>Crude Oil Washing (COW) safety monitoring</li>
-          <li>Bridge Safety Officer & Life-Saving Appliances (LSA) maintenance</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== DEVELOPER STACK SECTION ===== -->
-  <section id="developer">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 03 — Software Engineering</div>
-      <h2 class="reveal-text">Developer Stack & Open Source</h2>
-      <p class="reveal-text">Building full-stack web applications, offline-first PWA tools, and developer utilities with modern TypeScript, React, and Python.</p>
-    </div>
-
-    <div class="grid-2col" style="margin-bottom: 24px;">
-      <div class="info-card">
-        <div class="meta">GITHUB PROFILE & DEPLOYMENTS</div>
-        <h3>@alfredpanakkal | Open Source Portfolio</h3>
-        <div class="sub-title">10 Open-Source Repositories · 5 Production Web Apps</div>
-        <p style="margin-top: 8px; font-size: 13.5px; color: var(--app-muted);">Full public activity and source code available at <a href="https://github.com/alfredpanakkal" target="_blank" rel="noopener" style="color: var(--app-primary); font-weight: 600;">github.com/alfredpanakkal</a>. Every repository features clean git commit histories, comprehensive documentation, and modular TypeScript architecture.</p>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">OFFLINE-FIRST PWA ARCHITECTURE</div>
-        <h3>Low-Bandwidth Satellite Reliability</h3>
-        <div class="sub-title">PWA Service Workers & LocalStorage Persistence</div>
-        <p style="margin-top: 8px; font-size: 13.5px; color: var(--app-muted);">Designed specifically for seafarers and users in remote environments without stable internet connectivity. Applications feature offline caching, instantaneous cold starts, zero-dependency local math routines, and seamless client data synchronization.</p>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">FULL-STACK TECH STACK</div>
-        <h3>React 19, TypeScript, Python & Next.js</h3>
-        <div class="sub-title">Modern Web Stack & Automated Scripting</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li><strong>Frontend:</strong> React 19, Next.js App Router, TypeScript, Tailwind CSS</li>
-          <li><strong>Backend & Automation:</strong> Python (FastAPI, Pandas), Node.js, Express</li>
-          <li><strong>Storage & Database:</strong> PostgreSQL, SQLite, IndexedDB, LocalStorage</li>
-          <li><strong>UI & UX Design:</strong> WCAG AA Compliance, Responsive Layouts, Neumorphic Systems</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">AUTOMATED CI/CD & EDGE DEPLOYMENT</div>
-        <h3>GitHub Actions & Vercel Edge Infrastructure</h3>
-        <div class="sub-title">Continuous Integration & Automated Testing</div>
-        <ul style="margin-top: 12px; font-size: 13.5px; color: var(--app-muted); padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Automated build validation via GitHub Actions workflows</li>
-          <li>Edge network deployment on Vercel for sub-100ms global latency</li>
-          <li>ESLint & TypeScript strict type checking across all codebase repos</li>
-          <li>Semantic versioning and clean changelog tracking</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 02 — Ship's Particulars</div>
-      <h2 class="reveal-text">About Alfred</h2>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p class="reveal-text">As a Third Officer on ocean-going tankers routing across international waters, my duties revolve around navigational watchkeeping, passage planning compliance, bridge equipment maintenance, and safety management. Months at sea under constrained satellite connectivity made me realize how essential intuitive, offline-ready software is for operational safety and crew well-being.</p>
-        <p class="reveal-text">Driven by curiosity and a commitment to continuous learning, I mastered modern full-stack development. Every tool I build stems from a real operational bottleneck—turning repetitive manual logs and fragmented schedules into streamlined, responsive software accessible to everyone.</p>
-        <div class="role-badges">
-          <span>Third Officer, Tanker Fleet</span>
-          <span>Full-Stack Software Developer</span>
-          <span>Open-Source Creator (@alfredpanakkal)</span>
-          <span>Palakkad, Kerala, IN</span>
-        </div>
-      </div>
-      <div class="skill-cols" id="skillCols">
-        <!-- FIX #2: Inline width style replaced with data-width attribute so the IntersectionObserver can drive the animation -->
-        <div class="skill-row">
-          <span class="name">React / Next.js / TypeScript</span>
-          <div class="bar"><i data-width="90%"></i></div>
-          <div class="skill-tooltip">90% — Built 5 production apps</div>
-        </div>
-        <div class="skill-row">
-          <span class="name">Python / Node.js</span>
-          <div class="bar"><i data-width="82%"></i></div>
-          <div class="skill-tooltip">82% — Backend API & Scripting</div>
-        </div>
-        <div class="skill-row">
-          <span class="name">Offline-First PWA & Storage</span>
-          <div class="bar"><i data-width="88%"></i></div>
-          <div class="skill-tooltip">88% — Designed for sea deployment</div>
-        </div>
-        <div class="skill-row">
-          <span class="name">Maritime Navigation & Safety Ops</span>
-          <div class="bar"><i data-width="95%"></i></div>
-          <div class="skill-tooltip">95% — Active watchkeeping officer</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EXPERIENCE ===== -->
-  <section id="experience">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 03 — Career History</div>
-      <h2 class="reveal-text">Professional Experience</h2>
-      <p class="reveal-text">Combining rigorous maritime watchkeeping responsibilities with continuous open-source software engineering.</p>
-    </div>
-    <div class="experience-list" id="experienceList">
-      <div class="exp-card">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Third Officer / Navigational Watchkeeping Officer</div>
-            <div class="exp-company">Ocean-Going Tanker Fleet</div>
-          </div>
-          <span class="exp-date" data-speed="0.5">Active Duty — Maritime Operations</span>
-        </div>
-        <p class="exp-desc">Directly responsible for safe bridge navigation watches, passage plan compliance, bridge equipment maintenance, and onboard safety management during long-haul international tanker voyages.</p>
-        <ul class="exp-bullets">
-          <li>Executed safe navigational watches using ECDIS, Radar, ARPA, and satellite navigation systems in high-density traffic areas.</li>
-          <li>Managed bridge safety inspections, life-saving appliance maintenance, and regulatory compliance under SOLAS/MARPOL guidelines.</li>
-          <li>Coordinated passage logs, voyage reporting, and bond store inventory reconciliation with high accuracy under strict timeframes.</li>
-          <li>Developed sharp operational discipline, crisis decision-making, and procedural compliance under high-pressure conditions.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Full-Stack Developer & Open Source Creator</div>
-            <div class="exp-company">Captain Alfred Projects (@alfredpanakkal)</div>
-          </div>
-          <span class="exp-date" data-speed="0.5">Continuous Engineering</span>
-        </div>
-        <p class="exp-desc">Architected, deployed, and maintained open-source web applications and developer tools focused on maritime productivity and offline utility.</p>
-        <ul class="exp-bullets">
-          <li>Built 5+ production applications using React, Next.js, TypeScript, and Tailwind CSS deployed on Vercel Edge Infrastructure.</li>
-          <li>Engineered offline-first PWA caching and LocalStorage strategies tailored for users in satellite bandwidth-limited environments.</li>
-          <li>Maintained high code quality standards, clean design token systems, and responsive user interfaces.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CERTIFICATIONS ===== -->
-  <section id="certifications">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 04 — Credentials & Qualifications</div>
-      <h2 class="reveal-text">Education, Certifications & Honors</h2>
-    </div>
-
-    <div class="grid-2col" id="certGrid">
-      <div class="info-card">
-        <div class="meta">EDUCATION</div>
-        <h3>B.Sc. Nautical Science / Pre-Sea Maritime Training</h3>
-        <div class="sub-title">Directorate General of Shipping Approved Academy</div>
-        <p>Comprehensive training covering Celestial & Terrestrial Navigation, Ship Stability, Cargo Operations, Maritime Law, and Bridge Resource Management.</p>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">CERTIFICATION</div>
-        <h3>Certificate of Competency (CoC) — Officer in Charge</h3>
-        <div class="sub-title">Navigational Watch (Third Officer)</div>
-        <p>Officially licensed to manage navigational watchkeeping operations on ocean-going vessels worldwide.</p>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">STCW ADVANCED SAFETY</div>
-        <h3>Advanced Maritime Safety & Radar Certification</h3>
-        <div class="sub-title">STCW Compliant Safety Training</div>
-        <p>Certifications in ECDIS, Radar/ARPA Simulation, Advanced Fire Fighting, Medical First Aid, and Survival Craft & Rescue Boats (PSCRB).</p>
-      </div>
-
-      <div class="info-card">
-        <div class="meta">HONORS & ACHIEVEMENTS</div>
-        <h3>Pristine Safety Record & Production Deployments</h3>
-        <div class="sub-title">Maritime & Software Excellence</div>
-        <p>Maintained a zero-incident watchkeeping record at sea while publishing and deploying 5+ production-grade web applications for seafarers.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
-    <div class="sec-head">
-      <div class="eyebrow reveal-text">Log 05 — Hailing Frequency</div>
-      <h2 class="reveal-text">Get In Touch</h2>
-    </div>
-    <div class="contact-panel">
-      <div>
-        <h3 class="reveal-text">Let's Connect</h3>
-        <p class="lead reveal-text">Interested in maritime technology, open-source software collaboration, or full-stack engineering opportunities? Reach out directly via email, GitHub, or LinkedIn. While underway at sea, responses may run on ship's time depending on current satellite connectivity.</p>
-        <div class="contact-info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-          <a href="mailto:alpha.coil966@passinbox.com" id="emailLink">alpha.coil966@passinbox.com</a>
-          <button type="button" class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address" title="Copy email address">
-            <svg id="copyEmailIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            <span id="copyEmailText">Copy</span>
-          </button>
-        </div>
-        <div class="contact-info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.1 3.1 0 00-.9-2.4c3-.3 6-1.5 6-6.6a5.1 5.1 0 00-1.4-3.5 4.8 4.8 0 00-.1-3.5s-1.1-.3-3.6 1.3a12.3 12.3 0 00-6.6 0C6.1 1.3 5 1.6 5 1.6a4.8 4.8 0 00-.1 3.5A5.1 5.1 0 003.5 8.6c0 5.1 3 6.3 6 6.6a3.1 3.1 0 00-.9 2.4V21"/></svg>
-          <a href="https://github.com/alfredpanakkal" target="_blank" rel="noopener noreferrer">github.com/alfredpanakkal</a>
-        </div>
-        <div class="contact-info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          <a href="https://www.linkedin.com/in/alfredpanakkal" target="_blank" rel="noopener noreferrer">linkedin.com/in/alfredpanakkal</a>
-        </div>
-        <div class="contact-info-row" id="locationPin">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-9-10a5.5 5.5 0 0111-1 5.5 5.5 0 0111 1c-2 4-9 10-9 10z"/></svg>
-          Palakkad, Kerala, India / Currently Underway
-        </div>
-      </div>
-      <form id="contactForm" novalidate autocomplete="on">
-        <!-- Anti-spam Honeypot Field (Invisible to human users, traps automated bots) -->
-        <div style="position: absolute; opacity: 0; pointer-events: none; height: 0; width: 0; overflow: hidden; z-index: -1;" aria-hidden="true">
-          <label for="_honeypot">Leave this blank</label>
-          <input type="text" id="_honeypot" name="_honeypot" tabindex="-1" autocomplete="off">
-        </div>
-        <div class="field">
-          <label for="cname" id="lbl-cname" class="dimmed">Visitor.name</label>
-          <input id="cname" type="text" placeholder="Your name (2–60 chars)" required minlength="2" maxlength="60" autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="cemail" id="lbl-cemail" class="dimmed">Visitor.email</label>
-          <input id="cemail" type="email" placeholder="your.email@example.com" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="cmsg" id="lbl-cmsg" class="dimmed">Transmission.message</label>
-          <textarea id="cmsg" required minlength="20" maxlength="2000" placeholder="Share details about your inquiry or project idea (min 20 chars)..."></textarea>
-          <span class="char-counter" id="charCounter">0 / 2000</span>
-        </div>
-        <button class="btn btn-primary" type="submit" id="sendBtn">Send message</button>
-      </form>
-    </div>
-  </section>
-</div>
-</main>
-
-<footer>© 2026 ALFRED PANAKKAL JOSE — ENGINEERED WITH PRECISION, NAVIGATED WITH DISCIPLINE.</footer>
-
-<button class="to-top" id="toTop" aria-label="Scroll page">
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
-
-<!-- ===== MODAL ===== -->
-<div class="modal-backdrop" id="modalBackdrop">
-  <div class="modal" id="modalBody" role="dialog" aria-modal="true" aria-label="Project Details Modal"></div>
-</div>
-
-<script>
-/* ============ DATA ============ */
-const PROJECTS = [
-  {
-    id: 'helm-almanac', title: 'Helm Almanac', category: 'Maritime',
-    grad: 'linear-gradient(135deg,#0ea5e9,#0369a1)',
-    desc: 'Comprehensive maritime almanac application for tracking vessel schedules, nautical events, and reference data.',
-    fullDesc: 'Helm Almanac is a dedicated nautical almanac engineered for watchkeepers and maritime officers. It unifies vessel schedules, astronomical nautical references, and route planning data into a clean, responsive interface. Designed with offline resilience in mind, it ensures critical data remains accessible even when operating under satellite bandwidth constraints at sea.',
-    tech: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
-    repo: 'https://github.com/alfredpanakkal/Helm-Almanac',
-    live: 'https://helmalmanac.vercel.app',
-    lastCommit: 'Q3 2026 navigational data update',
-    sparkline: [3, 5, 4, 6, 5, 7, 8, 6],
-    commits: [
-      { msg: 'Update Q3 2026 nautical schedule references', date: 'Recent' },
-      { msg: 'Optimize offline caching for astronomical data', date: '2w ago' },
-      { msg: 'Initial production build release', date: '1mo ago' }
-    ]
-  },
-  {
-    id: 'helm-productivity', title: 'Helm Productivity', category: 'Tools',
-    grad: 'linear-gradient(135deg,#22c55e,#0ea5e9)',
-    desc: 'Minimalist productivity suite engineered for seafarers to manage watchkeeping, tasks, and routines.',
-    fullDesc: 'Helm Productivity is a focused task and routine management suite tailored for bridge officers and software developers. It accommodates rigorous watch cycles (e.g., 4-on / 8-off), daily administrative tasks, and personal goals, helping crew members maintain high focus and operational readiness during long voyages.',
-    tech: ['TypeScript', 'React', 'Tailwind CSS', 'Vercel'],
-    repo: 'https://github.com/alfredpanakkal/The-Helm---Productivity-app',
-    live: 'https://helmproductivity.vercel.app',
-    lastCommit: 'Implement feedback & task view',
-    sparkline: [2, 4, 3, 5, 6, 5, 7, 8],
-    commits: [
-      { msg: 'Implement user feedback dashboard and task filters', date: 'Recent' },
-      { msg: 'Refine theme token switching and responsiveness', date: '1w ago' },
-      { msg: 'Core watchkeeping timer integration', date: '3w ago' }
-    ]
-  },
-  {
-    id: 'helm-bond', title: 'Helm Bond (Bond Vault)', category: 'Web',
-    grad: 'linear-gradient(135deg,#f59e0b,#ea580c)',
-    desc: 'Specialized networking platform & vault connecting maritime professionals and managing bond store logs.',
-    fullDesc: 'Helm Bond (BOND-VAULT) is a community and store logging application built to streamline communication between maritime officers, vessel agencies, and maritime professionals. It simplifies bond store log tracking and facilitates peer support across maritime fleets.',
-    tech: ['TypeScript', 'Next.js', 'Socket.io', 'PostgreSQL'],
-    repo: 'https://github.com/alfredpanakkal/BOND-VAULT',
-    live: 'https://helmbond.vercel.app',
-    lastCommit: 'Real-time WebSocket protocol & schema setup',
-    sparkline: [5, 4, 6, 7, 5, 8, 7, 9],
-    commits: [
-      { msg: 'Implement WebSocket communication protocol', date: 'Recent' },
-      { msg: 'Design bond store log schema in PostgreSQL', date: '2w ago' },
-      { msg: 'Initial project setup and route structure', date: '1mo ago' }
-    ]
-  },
-  {
-    id: 'helm-fasting', title: 'Helm Fasting', category: 'Tools',
-    grad: 'linear-gradient(135deg,#8b5cf6,#ec4899)',
-    desc: 'Health and intermittent fasting companion designed for fitness goals during long ocean voyages.',
-    fullDesc: 'Helm Fasting is a progressive web app (PWA) built specifically for seafarers facing irregular shift schedules at sea. It enables crew members to log health metrics, track intermittent fasting cycles, and monitor progress offline without requiring active internet connectivity.',
-    tech: ['TypeScript', 'React', 'PWA', 'Chart.js'],
-    repo: 'https://github.com/alfredpanakkal/The-Helm-Fasting',
-    live: 'https://helmfasting.vercel.app',
-    lastCommit: 'Add Vercel Web Analytics',
-    sparkline: [4, 5, 6, 4, 7, 6, 8, 7],
-    commits: [
-      { msg: 'Integrate performance analytics and offline cache', date: 'Recent' },
-      { msg: 'Enhance Chart.js fasting history visualization', date: '2w ago' },
-      { msg: 'Configure PWA manifest and service worker', date: '1mo ago' }
-    ]
-  },
-  {
-    id: 'mudhra-converter', title: 'Mudhra Converter', category: 'Web',
-    grad: 'linear-gradient(135deg,#10b981,#0ea5e9)',
-    desc: 'Fast currency and unit conversion application built for intuitive everyday utility.',
-    fullDesc: 'Mudhra Converter provides instant currency and measurement conversions in a clean, zero-bloat interface. Built with HTML, CSS, React, and TypeScript, it allows swift rate calculations and unit translations essential during foreign port calls and daily calculations.',
-    tech: ['HTML', 'TypeScript', 'React', 'Tailwind CSS'],
-    repo: 'https://github.com/alfredpanakkal/MUDHRA.CONVERTER',
-    live: 'https://mudhra-converter.vercel.app',
-    lastCommit: 'Release Mudhra Converter v1.0',
-    sparkline: [2, 3, 2, 4, 5, 4, 6, 5],
-    commits: [
-      { msg: 'Release Mudhra Converter v1.0 production build', date: 'Recent' },
-      { msg: 'Add real-time rate refresh and offline fallback', date: '1w ago' },
-      { msg: 'Initial component layout and unit converters', date: '3w ago' }
-    ]
-  },
-  {
-    id: 'navarea-warning-plotter', title: 'Navarea Warning Plotter', category: 'Maritime',
-    grad: 'linear-gradient(135deg,#06b6d4,#3b82f6)',
-    desc: 'Maritime navigational safety tool for plotting NAVAREA warnings, danger areas, and hazard zones.',
-    fullDesc: 'Navarea Warning Plotter allows bridge watchkeepers to visualize and plot NAVAREA radio navigational warnings directly on geospatial maps. Helps officers identify active hazard zones along planned voyage tracks.',
-    tech: ['TypeScript', 'React', 'Geospatial', 'Tailwind CSS'],
-    repo: 'https://github.com/alfredpanakkal/Navarea-warning---plotter',
-    live: '',
-    lastCommit: 'Initial release of NAVAREA plotter layout',
-    sparkline: [1, 2, 1, 3, 2, 4, 3, 5],
-    commits: [
-      { msg: 'Initial release of NAVAREA plotter layout', date: 'Recent' },
-      { msg: 'Geospatial coordinate parsing algorithms', date: '1w ago' }
-    ]
-  },
-  {
-    id: 'seafarer-calc', title: 'Seafarer Seatime & NRI Calc', category: 'Tools',
-    grad: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
-    desc: 'Specialized calculator tracking sea time days, NRI tax exemption status, and contract records.',
-    fullDesc: 'Seafarer Seatime Calculator helps maritime officers calculate precise qualifying sea days for Certificate of Competency (CoC) revalidation and NRI tax exemption compliance (184+ days requirement).',
-    tech: ['TypeScript', 'React', 'LocalStorage'],
-    repo: 'https://github.com/alfredpanakkal/seafarer-calculator-nri-seatime-calc',
-    live: 'https://helm-nri.vercel.app',
-    lastCommit: 'Sea time calculation logic and UI',
-    sparkline: [3, 2, 4, 3, 5, 4, 6, 5],
-    commits: [
-      { msg: 'Sea time calculation logic and tax status indicator', date: 'Recent' },
-      { msg: 'Contract entry and local storage saving', date: '1w ago' }
-    ]
-  }
-];
-
-/* ============ GLOBAL SETUP ============ */
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const supportsHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-let lenis;
-
-function initApp() {
-  if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, Flip);
-    if (typeof ScrollTrigger !== 'undefined') {
-      ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
+  <!-- Embedded Vanilla JS (Zero external scripts needed) -->
+  <script>
+    // 1. Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', isDark ? '#0c0d10' : '#f3f0e8');
     }
-  }
-
-  if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
-    lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-    if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        applyTheme(!isDark);
+      });
     }
-  }
-}
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
-} else {
-  initApp();
-}
+    // 2. Mobile Nav
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    function setMobileNav(open) {
+      if (!mobileNav || !mobileBtn) return;
+      if (open) {
+        mobileNav.classList.remove('hidden');
+        mobileNav.classList.add('block');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        mobileBtn.setAttribute('aria-label', 'Close menu');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileNav.classList.add('hidden');
+        mobileNav.classList.remove('block');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.setAttribute('aria-label', 'Open menu');
+        document.body.style.overflow = '';
+      }
+    }
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = !mobileNav.classList.contains('hidden');
+        setMobileNav(!isOpen);
+      });
+    }
+    mobileLinks.forEach(l => l.addEventListener('click', () => setMobileNav(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMobileNav(false);
+    });
 
-/* ============ HAPTIC FEEDBACK ============ */
-function triggerHaptic(duration = 8) {
-  if ('vibrate' in navigator) {
-    try { navigator.vibrate(duration); } catch(e) {}
-  }
-}
-document.addEventListener('pointerdown', e => {
-  const target = e.target.closest('button, .btn, a, .card, .chip, .filter-btn, .modal-close, .menu-btn, .theme-toggle');
-  if (target) {
-    triggerHaptic(8);
-  }
-}, { passive: true });
+    // 3. Header scroll blur
+    const headerEl = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (!headerEl) return;
+      if (window.scrollY > 8) {
+        headerEl.classList.remove('border-transparent', 'bg-bg/70', 'backdrop-blur-sm');
+        headerEl.classList.add('border-line', 'bg-bg/85', 'backdrop-blur-md');
+      } else {
+        headerEl.classList.add('border-transparent', 'bg-bg/70', 'backdrop-blur-sm');
+        headerEl.classList.remove('border-line', 'bg-bg/85', 'backdrop-blur-md');
+      }
+    }, { passive: true });
 
-/* ============ SCROLL PROGRESS & NAV ============ */
-const navEl = document.getElementById('nav');
-const scrollProgress = document.getElementById('scrollProgress');
-const toTop = document.getElementById('toTop');
-const toTopIcon = toTop ? toTop.querySelector('svg') : null;
+    // 4. Copy email
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-email-text');
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('alpha.coil966@passinbox.com');
+          copyText.textContent = 'Copied';
+          setTimeout(() => { copyText.textContent = 'Copy'; }, 1800);
+        } catch(e) {
+          copyText.textContent = 'Copied';
+          setTimeout(() => { copyText.textContent = 'Copy'; }, 1800);
+        }
+      });
+    }
 
-if (toTop) {
-  toTop.addEventListener('click', () => {
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const isTopHalf = window.scrollY < docHeight / 2;
-    const targetY = isTopHalf ? document.documentElement.scrollHeight : 0;
-    if (lenis) lenis.scrollTo(targetY);
-    else window.scrollTo({ top: targetY, behavior: 'smooth' });
-  });
-}
+    // 5. Contact form with validation & honeypot
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const submitBtnText = document.getElementById('submit-btn-text');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const formStatus = document.getElementById('form-status');
 
-function handleScroll() {
-  const st = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (st / docHeight) * 100 : 0;
-  if (scrollProgress) scrollProgress.style.setProperty('--scroll', progress + '%');
-  
-  if (navEl) {
-    navEl.classList.toggle('nav-solid', st > 100);
-    if (st > lastScrollY && st > 120) navEl.classList.add('nav-hidden');
-    else navEl.classList.remove('nav-hidden');
-  }
-  
-  const isTopHalf = st < docHeight / 2;
-  if (toTop) {
-    toTop.setAttribute('aria-label', isTopHalf ? 'Scroll to bottom' : 'Scroll to top');
-  }
-  if (toTopIcon) {
-    toTopIcon.style.transform = isTopHalf ? 'rotate(180deg)' : 'rotate(0deg)';
-  }
-  
-  lastScrollY = st;
-}
-
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', handleScroll, { passive: true });
-handleScroll();
-
-/* Smooth Anchor Scrolling with Lenis */
-document.addEventListener('click', e => {
-  const anchor = e.target.closest('a[href^="#"]');
-  if (anchor) {
-    const targetId = anchor.getAttribute('href');
-    if (targetId && targetId !== '#') {
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const overlay = document.getElementById('mobileOverlay');
-        if (overlay) overlay.classList.remove('open');
-        if (lenis) {
-          lenis.start();
-          lenis.scrollTo(targetEl, { offset: -70 });
-        } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
+        formStatus.textContent = '';
+        formStatus.className = 'text-sm';
+
+        const name = (document.getElementById('cname')?.value || '').trim();
+        const email = (document.getElementById('cemail')?.value || '').trim();
+        const message = (document.getElementById('cmsg')?.value || '').trim();
+        const honeypot = (document.getElementById('hp_field')?.value || '').trim();
+
+        if (name.length < 2) {
+          formStatus.textContent = 'Please enter your name (at least 2 characters).';
+          formStatus.className = 'text-sm text-red-500 font-medium';
+          return;
         }
-      }
-    }
-  }
-});
 
-/* ============ HERO COORD TYPEWRITER ============ */
-const heroCoord = document.getElementById('heroCoord');
-if (heroCoord) {
-  const coordStr = "10.7687462°N, 76.6059893°E";
-  heroCoord.textContent = "";
-  let cIdx = 0;
-  function coordTick() {
-    cIdx++;
-    heroCoord.textContent = coordStr.slice(0, cIdx);
-    if (cIdx < coordStr.length) {
-      setTimeout(coordTick, 50);
-    }
-  }
-  coordTick();
-}
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          formStatus.textContent = 'Please provide a valid email address.';
+          formStatus.className = 'text-sm text-red-500 font-medium';
+          return;
+        }
 
-const heroContent = document.getElementById('heroContent');
-const g1 = document.querySelector('.glow .g1');
-const g2 = document.querySelector('.glow .g2');
-const g3 = document.querySelector('.glow .g3');
+        if (message.length < 12) {
+          formStatus.textContent = 'Please enter a message with at least 12 characters.';
+          formStatus.className = 'text-sm text-red-500 font-medium';
+          return;
+        }
 
-if (!prefersReducedMotion) {
-  window.addEventListener('scroll', () => {
-    const st = window.scrollY;
-    
-    // Parallax on hero text content only when hero is visible
-    if (heroContent) {
-      if (st < window.innerHeight) {
-        heroContent.style.transform = `translateY(${st * 0.25}px) scale(${Math.max(0.85, 1 - st / 1800)})`;
-        heroContent.style.filter = `blur(${Math.min(6, st / 80)}px)`;
-        heroContent.style.opacity = `${Math.max(0, 1 - st / 600)}`;
-      } else if (heroContent.style.opacity !== '0') {
-        heroContent.style.opacity = '0';
-      }
-    }
-    
-    // Smooth subtle ambient glow movement without moving fixed container boundary
-    if (g1) g1.style.transform = `translateY(${st * 0.12}px) translateX(${st * 0.05}px)`;
-    if (g2) g2.style.transform = `translateY(${-st * 0.08}px)`;
-    if (g3) g3.style.transform = `translateY(${st * 0.06}px)`;
-  }, { passive: true });
-}
+        submitBtn.disabled = true;
+        submitSpinner.classList.remove('hidden');
+        submitBtnText.textContent = 'Sending...';
 
-/* ============ INTERSECTION OBSERVER (Reveal Text) ============ */
-function revealAllInitial() {
-  document.querySelectorAll('.reveal-text, .pill, .info-card, .exp-card, .commit-line').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight + 200 || rect.bottom <= 0) {
-      el.classList.add('in-view');
-    }
-  });
-}
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ name, email, message, _honeypot: honeypot })
+          });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0, rootMargin: '100px 0px 100px 0px' });
+          if (!res.ok) {
+            const data = await res.json().catch(() => ({}));
+            throw new Error(data.error || 'Failed to deliver message.');
+          }
 
-document.querySelectorAll('.reveal-text, .pill, .info-card, .exp-card').forEach(el => {
-  revealObserver.observe(el);
-});
-
-revealAllInitial();
-window.addEventListener('load', revealAllInitial);
-
-/* Stagger pills */
-document.querySelectorAll('.stats-bar .pill').forEach((pill, i) => {
-  pill.style.transitionDelay = `${i * 0.1}s`;
-});
-
-/* ============ TELEMETRY COUNTER SCRUB ============ */
-function animateCounter(el) {
-  if (el.dataset.animated === 'true') return;
-  el.dataset.animated = 'true';
-
-  const target = parseFloat(el.dataset.counter || '0');
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const decimals = parseInt(el.dataset.decimals || '0', 10);
-  const useComma = el.dataset.format === 'comma';
-  const duration = 1600; // ms
-  const startTime = performance.now();
-
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    // Smooth power out curve
-    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-    const currentValue = target * easeProgress;
-
-    let formattedValue = currentValue.toFixed(decimals);
-    if (useComma) {
-      formattedValue = Math.floor(currentValue).toLocaleString('en-US');
-    }
-
-    el.textContent = `${prefix}${formattedValue}${suffix}`;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    } else {
-      let finalFormatted = target.toFixed(decimals);
-      if (useComma) {
-        finalFormatted = target.toLocaleString('en-US');
-      }
-      el.textContent = `${prefix}${finalFormatted}${suffix}`;
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('[data-counter]').forEach(el => {
-  counterObserver.observe(el);
-});
-
-/* ============ COURSE DIVIDER DRAW ============ */
-if (!prefersReducedMotion && typeof gsap !== 'undefined') {
-  const path = document.getElementById('dividerPathAnim');
-  const pathLength = path.getTotalLength();
-  path.style.strokeDasharray = pathLength;
-  path.style.strokeDashoffset = pathLength;
-
-  const vessel = document.getElementById('vesselIcon');
-  const waypoints = [
-    { el: document.getElementById('wp1'), pos: 0.1 },
-    { el: document.getElementById('wp2'), pos: 0.5 },
-    { el: document.getElementById('wp3'), pos: 0.9 }
-  ];
-
-  gsap.to(path, {
-    strokeDashoffset: 0,
-    scrollTrigger: {
-      trigger: '.course-divider',
-      start: 'top 80%',
-      end: 'bottom 50%',
-      scrub: 1
-    },
-    onUpdate: function() {
-      const progress = this.progress();
-      const point = path.getPointAtLength(pathLength * progress);
-      vessel.setAttribute('transform', `translate(${point.x}, ${point.y}) rotate(${progress * 360})`);
-      
-      waypoints.forEach(wp => {
-        if (progress > wp.pos && !wp.el.classList.contains('passed')) {
-          wp.el.classList.add('passed');
-          gsap.fromTo(wp.el, { r: 3.5 }, { r: 10, opacity: 0, duration: 1, ease: 'power2.out' });
+          const data = await res.json();
+          formStatus.textContent = data.message || 'Thank you! Your message has been sent successfully.';
+          formStatus.className = 'text-sm text-accent font-medium';
+          contactForm.reset();
+        } catch (err) {
+          console.warn('Backend endpoint unreachable, falling back to email client:', err);
+          const mailtoLink = 'mailto:alpha.coil966@passinbox.com?subject=' + encodeURIComponent('Message from ' + name) + '&body=' + encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')');
+          formStatus.innerHTML = 'Backend unavailable. <a href="' + mailtoLink + '" class="underline font-medium text-accent">Click here to send via email app</a>.';
+          formStatus.className = 'text-sm text-muted font-medium';
+        } finally {
+          submitBtn.disabled = false;
+          submitSpinner.classList.add('hidden');
+          submitBtnText.textContent = 'Send message';
         }
       });
     }
-  });
-}
-
-/* ============ SUMMARY CARD 3D TILT ============ */
-const summaryCard = document.getElementById('summaryCard');
-
-if (supportsHover && !prefersReducedMotion) {
-  summaryCard.addEventListener('mousemove', (e) => {
-    const rect = summaryCard.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const dx = (x - cx) / cx;
-    const dy = (y - cy) / cy;
-    summaryCard.style.transform = `perspective(1000px) rotateY(${dx * 5}deg) rotateX(${-dy * 5}deg)`;
-  });
-  summaryCard.addEventListener('mouseleave', () => {
-    summaryCard.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
-  });
-}
-
-const summaryObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      summaryObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-summaryObserver.observe(summaryCard);
-
-/* ============ PROJECTS LOGIC ============ */
-const grid = document.getElementById('projectGrid');
-let activeCat = 'All', activeQuery = '';
-
-function generateSparkline(data) {
-  const max = Math.max(...data);
-  const points = data.map((d, i) => `${(i / (data.length - 1)) * 60},${16 - (d / max) * 14}`).join(' ');
-  return `<svg class="sparkline" viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="${points}" fill="none" stroke="var(--app-primary)" stroke-width="1.5"/></svg>`;
-}
-
-function cardHTML(p) {
-  const liveBtn = p.live 
-    ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener">Open App</a>` 
-    : `<span class="btn btn-ghost" style="opacity:.5;pointer-events:none;">In Development</span>`;
-
-  const snapshotSrc = p.snapshot || (p.live ? `https://image.thum.io/get/width/600/crop/400/noanimate/${p.live}` : null);
-  const snapshotImg = snapshotSrc 
-    ? `<img class="card-snapshot" src="${snapshotSrc}" alt="${p.title} live screenshot preview" loading="lazy" decoding="async" width="600" height="400" onerror="this.style.display='none'">` 
-    : '';
-
-  return `
-  <article class="card" data-id="${p.id}">
-    <div class="card-visual" style="background-image:linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), ${p.grad}">
-      ${snapshotImg}
-      <div class="card-visual-overlay"></div>
-      <span class="cv-title">${p.title}</span>
-    </div>
-    <div class="card-body">
-      <div class="card-tags"><span class="tag">${p.category}</span>${p.tech.slice(0,2).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      <h3>${p.title}</h3>
-      <p class="desc">${p.desc}</p>
-      <div class="card-meta">
-        <span>Last commit: ${p.lastCommit}</span>
-        ${generateSparkline(p.sparkline)}
-      </div>
-      <div class="card-actions">
-        ${liveBtn}
-        <button class="btn btn-ghost details-btn" data-id="${p.id}">Details</button>
-      </div>
-    </div>
-  </article>`;
-}
-
-function render() {
-  const q = activeQuery.toLowerCase();
-  const filtered = PROJECTS.filter(p => {
-    const catOk = activeCat === 'All' || p.category === activeCat;
-    const hay = (p.title + ' ' + p.desc + ' ' + p.tech.join(' ')).toLowerCase();
-    const qOk = !q || hay.includes(q);
-    return catOk && qOk;
-  });
-  
-  if (typeof Flip !== 'undefined' && !prefersReducedMotion) {
-    const state = Flip.getState(grid.children);
-    grid.innerHTML = filtered.length ? filtered.map(cardHTML).join('') : `<p style="color:var(--app-faint); grid-column:1/-1; padding:40px 0; text-align:center;">No projects match — try a different filter or search term.</p>`;
-    Flip.from(state, { duration: 0.5, ease: 'power1.inOut', absolute: true, stagger: 0.05 });
-  } else {
-    grid.innerHTML = filtered.length ? filtered.map(cardHTML).join('') : `<p style="color:var(--app-faint); grid-column:1/-1; padding:40px 0; text-align:center;">No projects match — try a different filter or search term.</p>`;
-  }
-
-  // Attach Card Tilt & Listeners
-  grid.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('btn') && !e.target.closest('.btn')) openModal(card.dataset.id);
-    });
-    
-    if (supportsHover && !prefersReducedMotion) {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const dx = (x - cx) / cx;
-        const dy = (y - cy) / cy;
-        card.style.transform = `perspective(1000px) rotateY(${dx * 2}deg) rotateX(${-dy * 2}deg) translateZ(2px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0)';
-      });
-    }
-  });
-}
-
-document.getElementById('chipRow').addEventListener('click', e => {
-  const chip = e.target.closest('.chip');
-  if (!chip) return;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-  activeCat = chip.dataset.cat;
-  render();
-});
-
-document.getElementById('searchInput').addEventListener('input', e => { activeQuery = e.target.value; render(); });
-document.getElementById('gridBtn').addEventListener('click', () => {
-  grid.classList.remove('list-view');
-  document.getElementById('gridBtn').classList.add('active');
-  document.getElementById('listBtn').classList.remove('active');
-});
-document.getElementById('listBtn').addEventListener('click', () => {
-  grid.classList.add('list-view');
-  document.getElementById('listBtn').classList.add('active');
-  document.getElementById('gridBtn').classList.remove('active');
-});
-
-/* ============ MODAL (FLIP) ============ */
-const backdrop = document.getElementById('modalBackdrop');
-const modalBody = document.getElementById('modalBody');
-
-function openModal(id) {
-  const p = PROJECTS.find(x => x.id === id);
-  if (!p) return;
-  
-  const liveBtn = p.live ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener">Open live app</a>` : '';
-  
-  modalBody.innerHTML = `
-    <div class="modal-hero" style="background-image:${p.grad}">
-      <button class="modal-close" id="modalClose" aria-label="Close modal dialog">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <h3>${p.title}</h3>
-    </div>
-    <div class="modal-body">
-      <div class="status-badge"><span class="status-dot" style="position:static;"></span> ${p.live ? 'Live on Vercel Edge Infrastructure' : 'Active Open Source Repository'}</div>
-      <p class="full-desc">${p.fullDesc}</p>
-      <div class="modal-section-label">Tech stack</div>
-      <div class="modal-tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      <div class="modal-section-label">Recent commits</div>
-      <div class="commit-list">
-        ${p.commits.map((c, i) => `<div class="commit-line" style="transition-delay:${i*0.05}s"><span class="dot"></span><span class="cmsg">${c.msg}</span><span class="cdate">${c.date}</span></div>`).join('')}
-      </div>
-      <div class="modal-links">
-        ${liveBtn}
-        <a class="btn btn-ghost" href="${p.repo}" target="_blank" rel="noopener">View on GitHub</a>
-      </div>
-    </div>`;
-  
-  backdrop.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (lenis) lenis.stop();
-  
-  // Trigger commit reveal animations
-  setTimeout(() => {
-    modalBody.querySelectorAll('.commit-line').forEach(el => el.classList.add('in-view'));
-  }, 300);
-  
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-}
-
-function closeModal() {
-  backdrop.classList.remove('open');
-  document.body.style.overflow = '';
-  if (lenis) lenis.start();
-}
-
-backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-render();
-
-/* ============ ABOUT: MAGNETIC BADGES & SKILL BARS ============ */
-const roleBadges = document.querySelectorAll('.role-badges span');
-const aboutSection = document.getElementById('about');
-
-if (supportsHover && !prefersReducedMotion && aboutSection) {
-  aboutSection.addEventListener('mousemove', e => {
-    roleBadges.forEach(badge => {
-      const rect = badge.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-      if (dist < 50) {
-        const force = (50 - dist) / 50;
-        const angle = Math.atan2(e.clientY - cy, e.clientX - cx);
-        const tx = Math.cos(angle) * force * 10;
-        const ty = Math.sin(angle) * force * 10;
-        badge.style.transform = `translate(${tx}px, ${ty}px)`;
-      } else {
-        badge.style.transform = 'translate(0, 0)';
-      }
-    });
-  });
-
-  aboutSection.addEventListener('mouseleave', () => {
-    roleBadges.forEach(badge => { badge.style.transform = 'translate(0, 0)'; });
-  });
-}
-
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const bar = entry.target.querySelector('.bar i');
-      if (bar) {
-        const targetWidth = bar.getAttribute('data-width');
-        if (targetWidth) {
-          bar.style.width = '0%';
-          // eslint-disable-next-line no-unused-expressions
-          bar.offsetWidth;
-          bar.style.width = targetWidth;
-        }
-      }
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('.skill-row').forEach(r => skillObserver.observe(r));
-
-/* ============ CERTS: DIAGONAL REVEAL ============ */
-const certObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const cards = entry.target.querySelectorAll('.info-card');
-      cards.forEach((card, idx) => {
-        setTimeout(() => card.classList.add('in-view'), idx * 150);
-      });
-      certObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-certObserver.observe(document.getElementById('certGrid'));
-
-/* ============ CONTACT: TERMINAL AESTHETIC ============ */
-const labels = {
-  cname: "Visitor.name",
-  cemail: "Visitor.email",
-  cmsg: "Transmission.message"
-};
-
-document.querySelectorAll('.field input, .field textarea').forEach(input => {
-  const label = document.getElementById('lbl-' + input.id);
-  if (!label) return;
-  
-  input.addEventListener('focus', () => {
-    label.classList.remove('dimmed');
-    if (label.dataset.typed === 'true') return;
-    label.dataset.typed = 'true';
-    if (prefersReducedMotion) { label.textContent = labels[input.id]; return; }
-    const text = labels[input.id];
-    let i = 0;
-    label.textContent = '';
-    const typeInterval = setInterval(() => {
-      if (i < text.length) { label.textContent += text[i]; i++; }
-      else clearInterval(typeInterval);
-    }, 50);
-  });
-  
-  input.addEventListener('blur', () => {
-    label.classList.add('dimmed');
-  });
-});
-
-/* ============ ANTI-SPAM & CONTACT FORM SUITE ============ */
-const formLoadTime = Date.now();
-
-function showToast(message, type = 'info', duration = 4000) {
-  let container = document.getElementById('toastContainer');
-  if (!container) {
-    container = document.createElement('div');
-    container.id = 'toastContainer';
-    container.className = 'toast-container';
-    container.setAttribute('role', 'status');
-    container.setAttribute('aria-live', 'polite');
-    document.body.appendChild(container);
-  }
-
-  const toast = document.createElement('div');
-  toast.className = `toast toast-${type}`;
-  
-  let iconSvg = '';
-  if (type === 'success') {
-    iconSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>`;
-  } else if (type === 'error') {
-    iconSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>`;
-  } else if (type === 'warn') {
-    iconSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>`;
-  } else {
-    iconSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`;
-  }
-
-  toast.innerHTML = `<span class="toast-icon">${iconSvg}</span><span>${message}</span>`;
-  container.appendChild(toast);
-
-  requestAnimationFrame(() => toast.classList.add('toast-show'));
-
-  setTimeout(() => {
-    toast.classList.remove('toast-show');
-    setTimeout(() => toast.remove(), 300);
-  }, duration);
-}
-
-const charCounter = document.getElementById('charCounter');
-const sendBtn = document.getElementById('sendBtn');
-const msgField = document.getElementById('cmsg');
-const MIN_MSG_LEN = 20, MAX_MSG_LEN = 2000;
-
-if (msgField) {
-  msgField.addEventListener('input', () => {
-    const len = msgField.value.trim().length;
-    charCounter.classList.remove('state-active', 'state-warn', 'state-over');
-    
-    if (len < MIN_MSG_LEN && len > 0) {
-      charCounter.classList.add('state-warn');
-      charCounter.textContent = `${len} / ${MAX_MSG_LEN} (min ${MIN_MSG_LEN} chars)`;
-    } else if (len >= MIN_MSG_LEN && len <= 1800) {
-      charCounter.classList.add('state-active');
-      charCounter.textContent = `${len} / ${MAX_MSG_LEN}`;
-    } else if (len > 1800) {
-      charCounter.classList.add('state-over');
-      charCounter.textContent = `${len} / ${MAX_MSG_LEN}`;
-    } else {
-      charCounter.textContent = `0 / ${MAX_MSG_LEN}`;
-    }
-  });
-}
-
-const SPAM_PATTERNS = [
-  /\b(crypto|bitcoin|ethereum|forex|binary options|passive income|guaranteed return|make \$|earn \$|casino|poker|slot machine)\b/i,
-  /\b(seo ranking|rank #1|first page of google|increase traffic|domain authority|backlinks|guest post)\b/i,
-  /\b(telegram bot|whatsapp group|dm me on telegram|t\.me\/|wa\.me\/|discord\.gg\/)\b/i,
-  /\b(viagra|cialis|pharmacy|enhancement|pills|loan|mortgage|credit score)\b/i
-];
-
-function isSpamText(text) {
-  if (!text) return false;
-  
-  // 1. Check for URL spam (> 2 URLs)
-  const urlMatches = text.match(/(https?:\/\/|www\.)/gi);
-  if (urlMatches && urlMatches.length > 2) return true;
-
-  // 2. Check for suspicious shorteners
-  if (/(bit\.ly|tinyurl\.com|cutt\.ly|t\.co|shorturl\.at|goo\.gl|\.xyz\/|\.top\/|\.click\/)/i.test(text)) return true;
-
-  // 3. Keyword patterns
-  for (const pattern of SPAM_PATTERNS) {
-    if (pattern.test(text)) return true;
-  }
-
-  // 4. Repeated character sequence (e.g. "aaaaaaa", "!!!!!!!")
-  if (/(.)\1{6,}/i.test(text)) return true;
-
-  // 5. Excessive uppercase ratio
-  const cleanLen = text.replace(/\s/g, '').length;
-  if (cleanLen > 20) {
-    const capsCount = (text.match(/[A-Z]/g) || []).length;
-    if (capsCount / cleanLen > 0.65) return true;
-  }
-
-  return false;
-}
-
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('button[type="submit"]');
-    const nameInput = document.getElementById('cname');
-    const emailInput = document.getElementById('cemail');
-    const msgInput = document.getElementById('cmsg');
-    
-    const name = nameInput ? nameInput.value.trim() : '';
-    const email = emailInput ? emailInput.value.trim() : '';
-    const message = msgInput ? msgInput.value.trim() : '';
-    const honeypotVal = document.getElementById('_honeypot') ? document.getElementById('_honeypot').value : '';
-
-    // Validation 1: Input constraints
-    if (name.length < 2 || name.length > 60) {
-      showToast('Please enter a valid name (2 to 60 characters).', 'error');
-      if (nameInput) nameInput.focus();
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      showToast('Please enter a valid email address.', 'error');
-      if (emailInput) emailInput.focus();
-      return;
-    }
-
-    if (message.length < MIN_MSG_LEN) {
-      showToast(`Message must be at least ${MIN_MSG_LEN} characters.`, 'error');
-      if (msgInput) msgInput.focus();
-      return;
-    }
-
-    if (message.length > MAX_MSG_LEN) {
-      showToast(`Message is too long (max ${MAX_MSG_LEN} characters).`, 'error');
-      if (msgInput) msgInput.focus();
-      return;
-    }
-
-    // ANTI-SPAM 1: Honeypot trap (silently fake success so bot abandons)
-    if (honeypotVal && honeypotVal.trim() !== '') {
-      console.warn('[Anti-Spam] Honeypot triggered.');
-      const spamCount = parseInt(localStorage.getItem('spam_blocked_count') || '0', 10) + 1;
-      localStorage.setItem('spam_blocked_count', spamCount.toString());
-      btn.textContent = 'Message Sent';
-      showToast('Your message has been sent successfully!', 'success');
-      form.reset();
-      setTimeout(() => btn.textContent = 'Send message', 3000);
-      return;
-    }
-
-    // ANTI-SPAM 2: Human Interaction Timer (< 2.5s since page load)
-    if (Date.now() - formLoadTime < 2500) {
-      console.warn('[Anti-Spam] Rapid automated submission detected.');
-      const spamCount = parseInt(localStorage.getItem('spam_blocked_count') || '0', 10) + 1;
-      localStorage.setItem('spam_blocked_count', spamCount.toString());
-      btn.textContent = 'Message Sent';
-      showToast('Your message has been sent successfully!', 'success');
-      form.reset();
-      setTimeout(() => btn.textContent = 'Send message', 3000);
-      return;
-    }
-
-    // ANTI-SPAM 3: Rate Limiting Cooldown (30s)
-    const lastSubmit = localStorage.getItem('last_contact_submit_time');
-    const now = Date.now();
-    if (lastSubmit && (now - parseInt(lastSubmit, 10)) < 30000) {
-      const remainingSecs = Math.ceil((30000 - (now - parseInt(lastSubmit, 10))) / 1000);
-      showToast(`Please wait ${remainingSecs}s before sending another message.`, 'warn');
-      return;
-    }
-
-    // ANTI-SPAM 4: Content & Pattern Analysis
-    if (isSpamText(name) || isSpamText(message)) {
-      console.warn('[Anti-Spam] Spam pattern detected.');
-      const spamCount = parseInt(localStorage.getItem('spam_blocked_count') || '0', 10) + 1;
-      localStorage.setItem('spam_blocked_count', spamCount.toString());
-      btn.textContent = 'Message Sent';
-      showToast('Your message has been sent successfully!', 'success');
-      form.reset();
-      setTimeout(() => btn.textContent = 'Send message', 3000);
-      return;
-    }
-
-    // Prevent duplicate clicks & set loading state
-    const originalText = 'Send message';
-    btn.disabled = true;
-    btn.setAttribute('aria-busy', 'true');
-    btn.textContent = 'Transmitting...';
-
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/alpha.coil966@passinbox.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message,
-          _honeypot: "",
-          _captcha: "false",
-          _subject: `Portfolio Transmission from ${name}`
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('FormSubmit endpoint error');
-      }
-
-      localStorage.setItem('last_contact_submit_time', Date.now().toString());
-      const subCount = parseInt(localStorage.getItem('form_submissions_count') || '0', 10) + 1;
-      localStorage.setItem('form_submissions_count', subCount.toString());
-
-      btn.textContent = 'Message Sent';
-      showToast('Transmission received! Thank you for getting in touch.', 'success');
-      form.reset();
-      if (charCounter) charCounter.textContent = `0 / ${MAX_MSG_LEN}`;
-      
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        btn.textContent = originalText;
-      }, 3000);
-
-    } catch (error) {
-      console.warn('[Contact Form] Submission error, using mailto fallback:', error);
-      const mailtoUrl = `mailto:alpha.coil966@passinbox.com?subject=${encodeURIComponent('Portfolio Message from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-      window.location.href = mailtoUrl;
-      btn.textContent = 'Opening Mail...';
-      showToast('Opening default email client...', 'info');
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        btn.textContent = originalText;
-        form.reset();
-      }, 3000);
-    }
-  });
-}
-
-/* ============ COPY EMAIL TO CLIPBOARD ============ */
-const copyEmailBtn = document.getElementById('copyEmailBtn');
-if (copyEmailBtn) {
-  copyEmailBtn.addEventListener('click', async () => {
-    const email = 'alpha.coil966@passinbox.com';
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(email);
-      } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = email;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-      }
-      
-      copyEmailBtn.classList.add('copied');
-      const copyIcon = document.getElementById('copyEmailIcon');
-      const copyText = document.getElementById('copyEmailText');
-      if (copyIcon) {
-        copyIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
-      }
-      if (copyText) copyText.textContent = 'Copied!';
-      
-      setTimeout(() => {
-        copyEmailBtn.classList.remove('copied');
-        if (copyIcon) {
-          copyIcon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
-        }
-        if (copyText) copyText.textContent = 'Copy';
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
-    }
-  });
-}
-
-/* ============ MOBILE MENU ============ */
-const menuBtn = document.getElementById('menuBtn'), overlay = document.getElementById('mobileOverlay'), closeX = document.getElementById('closeX');
-menuBtn.addEventListener('click', () => { overlay.classList.add('open'); if (lenis) lenis.stop(); });
-closeX.addEventListener('click', () => { overlay.classList.remove('open'); if (lenis) lenis.start(); });
-overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { overlay.classList.remove('open'); if (lenis) lenis.start(); }));
-
-/* ============ GLOBAL RIPPLE ============ */
-document.addEventListener('click', function(e) {
-  const btn = e.target.closest('.btn');
-  if (!btn || prefersReducedMotion) return;
-  const ripple = document.createElement('span');
-  ripple.className = 'ripple';
-  const rect = btn.getBoundingClientRect();
-  ripple.style.left = (e.clientX - rect.left) + 'px';
-  ripple.style.top = (e.clientY - rect.top) + 'px';
-  ripple.style.width = ripple.style.height = '10px';
-  btn.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
-});
-</script>
+  </script>
 </body>
 </html>
