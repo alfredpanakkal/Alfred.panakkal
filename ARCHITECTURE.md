@@ -42,7 +42,6 @@ Load-time reveals are pure CSS (the `.reveal` class with staggered delays), disa
 
 - **FormSubmit.co** (stateless): first submission from a new form requires a one-time email confirmation to the owner (`alpha.coil966@passinbox.com`). No API keys involved.
 - **localStorage schema:** a single key, `theme` (`"light"` or `"dark"`).
-- **Download links** point to the raw file on GitHub (`.../main/index.html`) so the standalone file can be saved from any host.
 
 ## 5. Deployment Flow
 
@@ -52,7 +51,7 @@ GitHub `main` → Vercel build (`vite build`) → `dist/` (`index.html` + copied
 
 | Decision | Rationale |
 | :--- | :--- |
-| Single-file HTML over the previous React+Vite SPA | The site must be downloadable and fully functional offline (a portfolio requirement); a zero-JS-dependency page is trivially portable and fast |
+| Single-file HTML over the previous React+Vite SPA | A zero-JS-dependency page is trivially portable and fast; the file remains fully functional when saved offline |
 | Vite kept in pipeline | Vercel already configured for it; emits `index.html` as-is with no build coupling |
 | FormSubmit.co over `/api/contact` | No server-side code desired; the mailto fallback covers outages |
 | Inlined compiled Tailwind CSS | Removes the CSS build dependency entirely; file stays standalone |

@@ -14,7 +14,6 @@ I'm a maritime professional and full-stack developer building practical digital 
 The deployed portfolio is a **single-file static site**: all markup, CSS, and JavaScript live in [`index.html`](index.html) with no build step required to serve it.
 
 - **One file:** `index.html` inlines the compiled Tailwind CSS and all vanilla-JS behaviour (theme toggle, mobile nav, contact form). Only external dependency is Google Fonts.
-- **Offline-portable:** the "Download HTML" button serves the raw `index.html` from this repo so visitors can keep a fully working offline copy.
 - **Deployment:** Vercel builds the repo automatically; the Vite pipeline emits `index.html` plus the static assets from `public/` (`robots.txt`, `sitemap.xml`, `manifest.json`, `llms.txt`).
 - **Contact form:** posts via FormSubmit.co (AJAX) with a honeypot field and a `mailto:` fallback; no server-side code.
 - **SEO:** meta tags, Open Graph, Person JSON-LD, sitemap, and robots are all kept in sync with the live domain.

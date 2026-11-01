@@ -19,8 +19,6 @@ A **single-file static portfolio site** for Alfred Panakkal Jose, deployed on Ve
 - Preserve the design token system (light/dark themes via `.dark` class + `localStorage` theme key).
 - Preserve accessibility: skip link, `:focus-visible` outlines, aria labels, `prefers-reduced-motion` support.
 - Preserve the contact form contract: honeypot field, AJAX POST to `formsubmit.co/ajax/alpha.coil966@passinbox.com`, `mailto:` fallback on failure.
-- The "Download HTML" links (header, mobile drawer, footer) must point at the raw file:
-  `https://raw.githubusercontent.com/alfredpanakkal/Alfred.panakkal/main/index.html`
 - Write commits that describe the *why* of the change.
 
 ## Don't
@@ -29,6 +27,7 @@ A **single-file static portfolio site** for Alfred Panakkal Jose, deployed on Ve
 - ❌ Do not delete the legacy scaffolding (`src/`, `package.json`, `vite.config.ts`, `bun.lock`, `.env.example`, the zip) without an explicit user request — it is documented as unused.
 - ❌ Do not modify the Google site verification meta or add analytics/tracking without an explicit request.
 - ❌ Do not refactor working code, rename classes, or "improve" adjacent sections while fixing something else.
+- ❌ Do not re-add a "Download HTML" feature — it was deliberately removed from the header, mobile drawer, and footer.
 - ❌ Do not hardcode secrets. `alpha.coil966@passinbox.com` is a public contact address and is expected in source.
 
 ## Verification checklist before finishing any change

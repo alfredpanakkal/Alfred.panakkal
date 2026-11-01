@@ -33,14 +33,13 @@ Production: https://alfred-panakkal.vercel.app
 3. Open the mobile menu at narrow width; links navigate; Escape closes.
 4. Submit the contact form once (test data) — expect the FormSubmit success status, not the mailto fallback.
 5. Visit `/robots.txt` and `/sitemap.xml` — both serve updated content.
-6. Click "Download HTML" — the file downloads and opens standalone from disk.
 
 ## One-time setup status
 
 - ✅ Vercel project linked to the repo (`alfred-panakkal.vercel.app`).
 - ✅ FormSubmit endpoint configured in the form JS.
 - ⏳ **FormSubmit activation:** the *first* real submission triggers a confirmation email to `alpha.coil966@passinbox.com`; click its link once to start receiving messages.
-- ⏳ Optional: add a custom domain in Vercel → then update `sitemap.xml`, `robots.txt`, JSON-LD `url`, and the raw-file download links to match.
+- ⏳ Optional: add a custom domain in Vercel → then update `sitemap.xml`, `robots.txt`, and JSON-LD `url` to match.
 
 ## Rollback
 
