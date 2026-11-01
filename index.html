@@ -45,10 +45,10 @@
   }
   </script>
 
-  <!-- Google Fonts: Inter & Space Grotesk -->
+  <!-- Google Fonts: Inter, Space Grotesk & Cinzel -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Space+Grotesk:wght@500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Space+Grotesk:wght@500;600&family=Cinzel:wght@500;600&display=swap" />
 
   <!-- Inline All Styling for 100% Standalone Offline Portability -->
   <style>
@@ -57,23 +57,27 @@
   /* ===== Portfolio interactions ===== */
 
   /* 1. Typewriter hero name: types once, blinks 4 times, cursor then disappears.
-     "Alfred Panakkal" is 15 characters, hence 15ch and steps(15). */
+     "Alfred Panakkal." is 16 characters, hence 16ch and steps(16). */
   .typed {
-    font-family: var(--font-mono);
+    font-family: "Cinzel", Georgia, serif;
     font-size: 1rem;
     letter-spacing: 0.02em;
-    width: 15ch;
+    width: 16ch;
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid currentColor; /* the cursor */
     animation:
-      typedTyping 1.2s steps(15) 0.3s both,
+      typedTyping 1.2s steps(16) 0.3s both,
       typedBlink 0.8s step-end 1.5s 4 forwards,
       typedHide 0s linear 4.7s forwards;
   }
   @keyframes typedTyping { from { width: 0; } }
   @keyframes typedBlink  { 50% { border-color: transparent; } }
   @keyframes typedHide   { to { border-color: transparent; } }
+  /* Hero tagline: smaller, italic, presented as a quotation. */
+  .tagline-quote { font-style: italic; }
+  .tagline-quote::before { content: "\201C"; }
+  .tagline-quote::after { content: "\201D"; }
   @media (prefers-reduced-motion: reduce) {
     .typed { animation: none; border-right: 0; width: auto; }
   }
@@ -210,10 +214,10 @@
     <main>
       <!-- ===== HERO COMPONENT ===== -->
       <section class="wrap pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
-        <p class="typed reveal">Alfred Panakkal</p>
+        <p class="typed reveal">Alfred Panakkal.</p>
         <p class="label reveal reveal-2">Third Officer &middot; Full-Stack Developer</p>
         <div class="mt-4 grid lg:mt-5 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-10">
-          <h1 class="reveal reveal-2 font-display text-display font-medium text-fg lg:col-span-7">
+          <h1 class="reveal reveal-2 font-display text-title tagline-quote font-medium text-fg lg:col-span-7">
             I build software for real-world problems — at sea and beyond.
           </h1>
           <p class="reveal reveal-3 mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg sm:leading-relaxed lg:col-span-5 lg:mt-2 lg:max-w-none">
