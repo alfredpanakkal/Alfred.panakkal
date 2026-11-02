@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alfred Panakkal | Maritime Officer &amp; Full-Stack Developer</title>
-  <meta name="description" content="A Third Officer and full-stack developer building practical maritime software, offline-capable web applications, and productivity tools." />
+  <meta name="description" content="A Third Officer and full-stack developer building practical maritime software, local-first web applications, and productivity tools." />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
   <meta name="google-site-verification" content="4s1bay3OXeqPzy-WaYKfv2LY-w2k6R0A1wUMsyEvb-8" />
@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#f3f0e8" />
   <meta name="author" content="Alfred Panakkal Jose" />
   <meta property="og:title" content="Alfred Panakkal | Maritime Officer &amp; Full-Stack Developer" />
-  <meta property="og:description" content="A Third Officer and full-stack developer building practical maritime software, offline-capable web applications, and productivity tools." />
+  <meta property="og:description" content="A Third Officer and full-stack developer building practical maritime software, local-first web applications, and productivity tools." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alfred-panakkal.vercel.app/" />
   <meta property="og:image" content="https://alfred-panakkal.vercel.app/og.png" />
@@ -335,7 +335,7 @@
             I build software for real-world problems — at sea and beyond.
           </h1>
           <p class="reveal reveal-3 mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg sm:leading-relaxed lg:col-span-5 lg:mt-2 lg:max-w-none">
-            I'm a maritime officer and full-stack developer building practical web applications for navigation, maritime operations, and everyday productivity. My work combines operational experience with modern software engineering, with a focus on reliability, usability, and offline access.
+            I'm a Third Officer on ocean-going tankers, and I build web apps for navigation, shipboard admin and everyday routines. Most of them started as something I ran into on watch or in the bond store. Some are built to cope with a weak connection, because at sea you often have one.
           </p>
           <div class="reveal reveal-4 mt-8 flex flex-wrap items-center gap-3 lg:col-span-7 lg:mt-0">
             <a href="#projects" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[background-color,color,border-color,transform,opacity] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.98] bg-solid text-solid-fg hover:opacity-90 min-h-11 px-5 py-2.5">
@@ -359,7 +359,7 @@
             <p class="label">Projects</p>
             <h2 class="mt-3 font-display text-title font-medium">Software from operational friction</h2>
             <p class="mt-4 max-w-xl leading-relaxed text-muted">
-              Tools I built because the work needed them — navigational safety, shipboard admin, and small utilities that stay usable offline.
+              Tools I built because the work needed them — navigational safety, shipboard admin, and small utilities. Some run fully offline; the rest are built to cope with a weak connection.
             </p>
           </header>
 
@@ -372,7 +372,7 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm.Warning — Maritime Safety Information Pipeline</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A maritime safety platform for collecting, parsing, validating, and visualizing navigational warnings — built to turn complex warning text into structured, map-ready information.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">Turns NAVAREA warnings from official sources into structured, map-ready data. The original bulletin text is kept verbatim and can't be edited, and every admin correction is written to an audit log.</p>
                   <details class="case-study mt-5">
                     <summary>Read the full case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
@@ -398,7 +398,11 @@
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Data integrity</dt>
-                      <dd class="mt-1 text-muted">The original raw source text is stored unmodified, ingestion is upsert-only so history is never silently lost, and every manual edit through the admin console writes an audit record.</dd>
+                      <dd class="mt-1 text-muted">The raw bulletin text is stored verbatim with a SHA-256 checksum and can never be edited from the admin console. Ingestion is upsert-only — a warning that disappears from a feed is marked cancelled or expired, never deleted. Every admin edit writes an audit row (who, what, why) in the same database transaction as the change; if the audit log is unreachable, the edit is refused outright.</dd>
+                    </div>
+                    <div>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Limits</dt>
+                      <dd class="mt-1 text-muted">A reference and planning aid — always confirm against the official source before using it for navigation.
                     </div>
                   </dl>
                   <figure class="mt-8 max-w-2xl">
@@ -444,7 +448,7 @@
                   
                   </details>
                   <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">Maritime &middot; Geospatial &middot; TypeScript &middot; Python &middot; Supabase</p>
+                    <p class="text-sm text-faint">Maritime &middot; Geospatial &middot; TypeScript &middot; Python &middot; Supabase &middot; PostGIS &middot; GitHub Actions</p>
                     <div class="flex flex-wrap items-center gap-x-5">
                       <a href="https://helmwarning.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live application
@@ -494,11 +498,7 @@
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/Helm.Ports" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
@@ -512,39 +512,36 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-xl font-medium tracking-tight text-fg sm:text-2xl">Helm Almanac</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A celestial almanac and star chart for navigation practice — positions of the sun, moon, planets and stars are computed in the browser, so there are no tables to download.</p>
                   <details class="case-study mt-5">
                     <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
-                      <dd class="mt-1 text-muted">Vessel schedules, nautical events, and astronomical references live in separate books and PDFs — little use when the satellite link drops.</dd>
+                      <dd class="mt-1 text-muted">Almanac data and star charts live in separate books and PDFs. You need the right page for the right date, plus the sums to reduce a sight — and none of it works when the satellite link drops.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
-                      <dd class="mt-1 text-muted">A maritime almanac that unifies vessel schedules, nautical events, and navigational reference data in an offline-ready interface — everything a watchkeeper needs in one place.</dd>
+                      <dd class="mt-1 text-muted">A celestial almanac and star chart for navigation practice. Positions are computed in the browser with the astronomy-engine library — no tables to download, no dataset to keep updated. Six sections (Almanac, Star Chart, Compass, MyHelm, Admin, About), UTC offsets and an assumed-position workflow, saved waypoints, and your last observer position kept locally.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Accuracy</dt>
-                      <dd class="mt-1 text-muted">Astronomical numbers only matter if they are right, so the app ships with an admin-gated accuracy benchmark that validates computed values — protected by a rate-limited login.</dd>
+                      <dd class="mt-1 text-muted">Astronomical numbers only matter if they are right, so the app ships with an admin-gated accuracy section that validates computed values, behind the same Firebase admin gate as the console.</dd>
                     </div>
                     <div>
-                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
-                      <dd class="mt-1 text-muted">Keeps operational reference material available during watch, including under constrained bandwidth at sea.</dd>
+                      <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Limits</dt>
+                      <dd class="mt-1 text-muted">Your last observer position and saved waypoints stay in local storage, but sign-in (Google, via Firebase) and sync need a connection — it is not yet a full offline app, and it doesn't replace the Nautical Almanac or official publications.</dd>
                     </div>
                   </dl>
                   </details>
                   <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Next.js &middot; Tailwind CSS</p>
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Vite &middot; Tailwind CSS &middot; Firebase</p>
                     <div class="flex flex-wrap items-center gap-x-5">
                       <a href="https://helmalmanac.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/Helm-Almanac" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
@@ -559,36 +556,32 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Helm Productivity</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A productivity suite for watchkeeping, tasks, and routines — structured around shipboard time, not a 9-to-5 week.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A focus and routine app: Pomodoro timer, projects and tasks, kanban board, habit tracking, focus analytics and achievements — plus a focus soundscape synthesised in the browser.</p>
                   <details class="case-study mt-5">
                     <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
-                      <dd class="mt-1 text-muted">Watchkeeping runs on four-hour watches, rest-hour rules, and rotating routines — but mainstream productivity apps assume a 9-to-5 week, a live connection, and one desk in one office.</dd>
+                      <dd class="mt-1 text-muted">Four-hour watches, rest-hour rules and rotating routines make focus hard to keep — and mainstream productivity apps assume a 9-to-5 week, a live connection, and one desk in one office.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
-                      <dd class="mt-1 text-muted">A Pomodoro timer, habit tracker, and Kanban board structured around shipboard time, with procedural focus soundscapes generated in the app — no audio streaming over a satellite link.</dd>
+                      <dd class="mt-1 text-muted">A Pomodoro timer, projects and tasks, kanban board, habit tracking, focus analytics and achievements — all state saved in the browser. The focus soundscape is synthesised procedurally in code, so there are no audio files and it works with no connection.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
-                      <dd class="mt-1 text-muted">Routines and focus survive time zones, watch changes, and dead zones, because everything runs in the browser.</dd>
+                      <dd class="mt-1 text-muted">Routines and focus survive dead zones because the core app runs in the browser. Cloud features need a connection, and it is not yet an installable PWA — that's on the roadmap.</dd>
                     </div>
                   </dl>
                   </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Tailwind CSS</p>
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Vite &middot; Tailwind CSS &middot; Firebase</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://helmproductivity.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/The-Helm---Productivity-app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
@@ -603,7 +596,7 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Bond Vault</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">An inventory system for tracking, auditing, and managing bond stock — designed around the logs officers already keep.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A bond store ledger for shipboard stock, crew accounts and logs. Data stays on the device in IndexedDB, with JSON export and import.</p>
                   <details class="case-study mt-5">
                     <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
@@ -613,26 +606,22 @@
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
-                      <dd class="mt-1 text-muted">A purpose-built ledger that tracks opening stock, received, and issued provisions, computes theoretical remaining-on-board per item, logs physical counts as discrepancy audits, and keeps a running tab per crew member — with print-ready statements and signature lines for sign-off.</dd>
+                      <dd class="mt-1 text-muted">A purpose-built ledger that tracks opening stock, received and issued provisions per period, computes theoretical remaining-on-board for every item, and reconciles it against manual audit entries — with a running tab per crew member, crew account statements sent by email, CSV export, and a JSON backup that restores the whole app.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Offline &amp; audit</dt>
-                      <dd class="mt-1 text-muted">Offline-first by design: data persists to IndexedDB through automatic save cycles, exports to CSV, and mirrors to a human-readable JSON state file that can restore the whole app. Multi-currency support and a low-light dark theme sized for night bridges.</dd>
+                      <dd class="mt-1 text-muted">Data persists to IndexedDB on the device — no account needed to run it. A configurable currency list, a low-light dark theme sized for night bridges, and a pending-sync flag that marks local changes for the optional cloud backup. There is no service worker yet, so the app needs a connection to load the first time — use the export button for backups.</dd>
                     </div>
                   </dl>
                   </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; React &middot; IndexedDB</p>
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Vite &middot; IndexedDB</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://helmbond.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/BOND-VAULT" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
@@ -647,7 +636,7 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Seatime &amp; NRI Calculator</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A calculator for sea-time days, NRI tax exemption status, and contract records, stored locally in the browser.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">Tracks sea time and Indian NRI day counts across contracts, and compares old and new tax regimes for FY 2026–27. Installable, and works offline.</p>
                   <details class="case-study mt-5">
                     <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
@@ -657,26 +646,22 @@
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
-                      <dd class="mt-1 text-muted">A calculator that tallies sea-time days and contract records, evaluates NRI tax exemption status, and keeps everything stored locally in the browser — no accounts, no cloud.</dd>
+                      <dd class="mt-1 text-muted">Day counts against the 184-day threshold (185 in a leap year), voyage logging, a document vault, and an old-versus-new tax-regime comparison for FY 2026–27. Guest Mode keeps everything on the device — no accounts, no cloud unless you opt in.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
-                      <dd class="mt-1 text-muted">Seafarers can answer the day-count question with a record instead of a guess.</dd>
+                      <dd class="mt-1 text-muted">Seafarers can answer the day-count question with a record instead of a guess. It's a record-keeping and estimation aid, not tax advice — have a chartered accountant confirm the thresholds and slabs for your case.</dd>
                     </div>
                   </dl>
                   </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">TypeScript &middot; React &middot; LocalStorage</p>
+                    <p class="text-sm text-faint">TypeScript &middot; React &middot; Vite &middot; Chart.js &middot; PWA &middot; Firebase</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://helm-nri.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/HELM-Seafarer" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
@@ -691,41 +676,37 @@
                 </div>
                 <div class="md:col-span-9">
                   <h3 class="font-display text-lg font-medium tracking-tight text-fg sm:text-xl">Mudhra Converter</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A converter between modern Malayalam Unicode and the legacy ML-TT ASCII typefaces still used in print — chillu normalization, longest-match conjunct sequencing, and pre-base vowel reordering.</p>
+                  <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">A Malayalam font converter: Unicode to legacy ML-TT/ASCII fonts and back, with 35 font options. Runs in the browser and works offline as an installable app.</p>
                   <details class="case-study mt-5">
                     <summary>Read the case study</summary>
                   <dl class="mt-5 space-y-4 text-sm leading-relaxed sm:text-base">
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The problem</dt>
-                      <dd class="mt-1 text-muted">Malayalam for the web is written in Unicode, logically mapped — you type how it sounds. The legacy ML-TT typefaces still used across print and DTP are visually mapped ASCII, where you type how it looks. Between the two sit hundreds of conjunct characters, pre-base vowels, and invisible joiners.</dd>
+                      <dd class="mt-1 text-muted">Malayalam for the web is written in Unicode; the legacy ML-TT typefaces still used across print and DTP are visually-mapped ASCII. Older documents and print workflows live in that legacy encoding and don't mix with Unicode text.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">The solution</dt>
-                      <dd class="mt-1 text-muted">A converter built as a small parsing engine: it strips zero-width joiners, normalizes chillu characters, matches the longest possible conjunct sequences first, reorders pre-base vowel signs to their visual position, and splits two-part vowels around the base consonant.</dd>
+                      <dd class="mt-1 text-muted">A longest-match, table-driven converter: 35 font maps (glyph tables from the CC0 indic-archive/ml-ascii-fonts project), matched greedily in both directions — Unicode to legacy and back — with the chosen font and direction kept between visits.</dd>
                     </div>
                     <div>
                       <dt class="text-xs font-medium uppercase tracking-[0.12em] text-faint">Why it matters</dt>
-                      <dd class="mt-1 text-muted">One paste turns a Unicode document into copy for the print shop — and all conversion runs client-side: nothing is uploaded or stored.</dd>
+                      <dd class="mt-1 text-muted">One paste turns a Unicode document into copy for the print shop. It installs as a PWA and runs fully offline — all conversion happens client-side, nothing is uploaded or stored.</dd>
                     </div>
                   </dl>
                   </details>
                   <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-sm text-faint">JavaScript &middot; Vite &middot; Client-side</p>
+                    <p class="text-sm text-faint">JavaScript &middot; Vite &middot; PWA</p>
                     <div class="flex flex-wrap gap-x-5">
                       <a href="https://mudhra-converter.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent transition-colors duration-150 hover:text-accent-hover">
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/MUDHRA.CONVERTER" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
             </li>
-<!-- 08: Helm Fasting -->
+<!-- 08: Helm Fasting — HIDDEN 2026-11-02 after audit: the app stores data on the server (file-based), has no service worker, and the live site showed a failed-records banner, so the offline claim was false. Restore this card only after storage moves into the browser and the error is fixed. Original card preserved inside this comment:
             <li class="border-t border-line py-8 sr last:border-b md:py-10">
               <article class="grid gap-4 md:grid-cols-12 md:gap-8">
                 <div class="flex items-baseline justify-between md:col-span-3 md:block">
@@ -759,15 +740,12 @@
                         Live
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
                       </a>
-                      <a href="https://github.com/alfredpanakkal/The-Helm-Fasting" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-fg/80 transition-colors duration-150 hover:text-fg">
-                        Source
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-3.5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
-                      </a>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </article>
             </li>
+            -->
 
                       </ol>
         </div>
@@ -784,24 +762,24 @@
 
           <div class="mt-10 sr grid gap-8 sm:mt-12 sm:grid-cols-2 sm:gap-10">
             <div>
-              <h3 class="text-sm font-medium text-fg">Offline-aware applications</h3>
-              <p class="mt-3 text-sm leading-7 text-muted">Apps designed for unreliable satellite links and limited bandwidth: local storage, progressive web app behaviour, and interfaces that stay usable with no connection.</p>
-              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm Almanac, Helm Fasting, Seatime &amp; NRI Calculator</p>
+              <h3 class="text-sm font-medium text-fg">Local-first where it counts</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">Two apps are installable offline PWAs (Seatime &amp; NRI Calculator, Mudhra Converter). Bond Vault keeps its data in IndexedDB on the device, and Helm Productivity generates its focus soundscape in code — no audio files, no streaming.</p>
+              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Seatime &amp; NRI Calculator, Mudhra Converter, Bond Vault, Helm Productivity</p>
             </div>
             <div>
               <h3 class="text-sm font-medium text-fg">Data processing &amp; validation</h3>
-              <p class="mt-3 text-sm leading-7 text-muted">Structured extraction, validation, and traceability. Parsed data keeps a link back to its source, and anything ambiguous is flagged rather than guessed.</p>
-              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm.Warning, Bond Vault</p>
-            </div>
-            <div>
-              <h3 class="text-sm font-medium text-fg">Geospatial interfaces</h3>
-              <p class="mt-3 text-sm leading-7 text-muted">Coordinate handling and interactive mapping: PostGIS geometry, Leaflet maps, and validation of positions before they reach a chart.</p>
+              <p class="mt-3 text-sm leading-7 text-muted">Raw source text preserved verbatim with checksums, deterministic parsing with confidence tiers, upsert-only ingestion, and admin edits that fail if the audit log is unreachable.</p>
               <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm.Warning</p>
             </div>
             <div>
-              <h3 class="text-sm font-medium text-fg">Practical product engineering</h3>
-              <p class="mt-3 text-sm leading-7 text-muted">Responsive interfaces, operational workflows, and applications that are documented, maintainable, and deployed on real infrastructure.</p>
-              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm Productivity, Mudhra Converter</p>
+              <h3 class="text-sm font-medium text-fg">Geospatial interfaces</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">Coordinates, map views and validation before anything reaches a chart: PostGIS geometry, Leaflet maps, and a custom SVG map with level-of-detail rendering.</p>
+              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm.Warning, Helm.Ports</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-fg">Tested, deployed products</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">Helm.Warning ships with a Vitest unit suite across parsing and geometry plus Playwright end-to-end smoke tests, and every project deploys on Vercel.</p>
+              <p class="mt-2 text-xs leading-relaxed text-faint">Seen in: Helm.Warning and all projects</p>
             </div>
           </div>
 
@@ -809,12 +787,20 @@
             <p class="label">Stack</p>
             <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-10">
               <div>
-                <h3 class="text-sm font-medium text-fg">Development</h3>
-                <p class="mt-3 text-sm leading-7 text-muted">TypeScript &middot; JavaScript &middot; React &middot; Next.js &middot; Node.js &middot; Python</p>
+                <h3 class="text-sm font-medium text-fg">Languages</h3>
+                <p class="mt-3 text-sm leading-7 text-muted">TypeScript &middot; JavaScript &middot; Python</p>
               </div>
               <div>
-                <h3 class="text-sm font-medium text-fg">Tools</h3>
-                <p class="mt-3 text-sm leading-7 text-muted">Git &middot; GitHub &middot; Tailwind CSS &middot; PostgreSQL &middot; SQLite &middot; Vercel</p>
+                <h3 class="text-sm font-medium text-fg">Frontend</h3>
+                <p class="mt-3 text-sm leading-7 text-muted">React &middot; Vite &middot; Tailwind CSS</p>
+              </div>
+              <div>
+                <h3 class="text-sm font-medium text-fg">Backend &amp; data</h3>
+                <p class="mt-3 text-sm leading-7 text-muted">Node.js &middot; Express &middot; Supabase &middot; Firebase &middot; IndexedDB</p>
+              </div>
+              <div>
+                <h3 class="text-sm font-medium text-fg">Geospatial &amp; tooling</h3>
+                <p class="mt-3 text-sm leading-7 text-muted">Leaflet &middot; PostGIS &middot; Git &middot; GitHub &middot; Vercel &middot; Vitest &middot; Playwright</p>
               </div>
               <div>
                 <h3 class="text-sm font-medium text-fg">Maritime</h3>
@@ -866,11 +852,14 @@
                 <p class="mt-1 text-sm text-faint">Ongoing</p>
               </div>
               <div class="md:col-span-8">
-                <p class="leading-relaxed text-muted">Design, ship, and maintain open-source web applications for maritime productivity and offline use.</p>
+                <p class="leading-relaxed text-muted">Design, ship, and maintain web applications for maritime productivity — built with AI coding assistants, reviewed and owned by me.</p>
                 <ul class="mt-5 space-y-3">
-                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Build production apps in React, Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.</li>
-                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Engineer offline-first caching and local storage for users on constrained satellite bandwidth.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Build and deploy web apps in TypeScript, React, and Tailwind CSS, hosted on Vercel.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Run a Python scraper and parser pipeline into Supabase for Helm.Warning, with an admin review console and an append-only audit log.</li>
                   <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Keep interfaces restrained, documented, and usable on a phone as well as a desktop.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Build local-first features: offline service-worker apps (two projects) and IndexedDB storage (Bond Vault).</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Write tests for the riskiest code: a Vitest unit suite across parsing and geometry, plus Playwright end-to-end smoke tests on Helm.Warning.</li>
+                  <li class="relative pl-4 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.55em] before:h-1 before:w-1 before:rounded-full before:bg-faint">Work with AI coding assistants: I decide what gets built and how it's structured, and I review everything before it ships.</li>
                 </ul>
               </div>
             </li>
@@ -891,7 +880,7 @@
 
             <div class="max-w-2xl space-y-5 text-base leading-relaxed text-muted lg:col-span-8">
               <p>As a Third Officer on ocean-going tankers, the work is watchkeeping, passage planning, bridge equipment, and safety management. Months at sea under constrained satellite connectivity made it obvious how much operational work still depends on paper logs, fragmented schedules, and tools that assume a stable network.</p>
-              <p>I learned full-stack development the same way I learned the bridge: by needing it. I build with AI coding assistants in the loop, and I am deliberate about how they are used: the requirements, the design decisions, the review, and the responsibility for what ships are mine, while the drafting and refactoring accelerate the work. Every application I publish starts from a real bottleneck on board, turning repetitive manual records into software that still works when the link drops.</p>
+              <p>I got into software the same way I learned the bridge: by needing it. Every app I publish starts from a real bottleneck, usually a manual record, a scattered reference, or a tool that assumes a steady connection. I build with AI coding assistants. I decide what gets built and how it's structured, I review the output, and I'm responsible for what ships.</p>
               <p>The through-line is not “maritime themed apps.” It is procedural care. A watch and a codebase both fail the same way: quietly, then all at once, if the details are treated as optional.</p>
             </div>
           </div>
