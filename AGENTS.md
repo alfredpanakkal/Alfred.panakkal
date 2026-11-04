@@ -1,7 +1,7 @@
 # AGENTS.md — Rules for AI Agents Working on This Repo
 
 ## What this project is
-A **single-file static portfolio site** for Alfred Panakkal Jose, deployed on Vercel at <https://alfred-panakkal.vercel.app>. Everything the browser needs lives in `index.html`.
+A **single-file static portfolio site** for Alfred Panakkal Jose, deployed on Vercel at <https://alfredpanakkal.web.app>. Everything the browser needs lives in `index.html`.
 
 ## The one rule
 > **`index.html` is the single source of truth.** It contains all markup, all CSS (inlined compiled Tailwind v4), and all JavaScript. There is no framework and no build-required site code.
@@ -15,7 +15,7 @@ A **single-file static portfolio site** for Alfred Panakkal Jose, deployed on Ve
   - `public/sitemap.xml`
   - `public/robots.txt` (absolute `Sitemap:` URL)
   - `public/llms.txt`
-  - Live domain is **https://alfred-panakkal.vercel.app** — never reference `alfredpanakkal.github.io`.
+  - Live domain is **https://alfredpanakkal.web.app** — never reference `alfredpanakkal.github.io`.
 - Preserve the design token system (light/dark themes via `.dark` class + `localStorage` theme key).
 - Preserve accessibility: skip link, `:focus-visible` outlines, aria labels, `prefers-reduced-motion` support.
 - Preserve the contact form contract: honeypot field, AJAX POST to `formsubmit.co/ajax/alpha.coil966@passinbox.com`, `mailto:` fallback on failure.

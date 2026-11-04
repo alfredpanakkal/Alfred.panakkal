@@ -4,7 +4,7 @@
 
 I'm a maritime professional and full-stack developer building practical digital tools for maritime operations, productivity, and everyday problems. My work combines the precision of navigational watchkeeping with modern software engineering to create useful, responsive, and reliable applications.
 
-**Portfolio:** [alfred-panakkal.vercel.app](https://alfred-panakkal.vercel.app/)  
+**Portfolio:** [alfredpanakkal.web.app](https://alfredpanakkal.web.app/)  
 **GitHub:** [@alfredpanakkal](https://github.com/alfredpanakkal) · **LinkedIn:** [Connect with me](https://linkedin.com/in/alfredpanakkal)
 
 ---
@@ -51,7 +51,7 @@ My goal is to bridge real-world operational experience and software engineering 
 
 ## Featured Projects
 
-Explore my [GitHub repositories](https://github.com/alfredpanakkal?tab=repositories) and [portfolio](https://alfred-panakkal.vercel.app/) for current projects, live demonstrations, and source code.
+Explore my [GitHub repositories](https://github.com/alfredpanakkal?tab=repositories) and [portfolio](https://alfredpanakkal.web.app/) for current projects, live demonstrations, and source code.
 
 ### Helm.Warning / Navarea Warning Plotter
 Maritime safety tooling for NAVAREA navigational warnings — geographic coordinate extraction, hazard visualization, and warning management.
@@ -88,7 +88,7 @@ Areas of professional experience include:
 
 I'm interested in maritime technology, full-stack development, open-source collaboration, and practical software engineering.
 
-- **Portfolio:** https://alfred-panakkal.vercel.app/
+- **Portfolio:** https://alfredpanakkal.web.app/
 - **GitHub:** https://github.com/alfredpanakkal
 - **LinkedIn:** https://linkedin.com/in/alfredpanakkal
 
