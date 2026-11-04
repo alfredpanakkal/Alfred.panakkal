@@ -6,46 +6,46 @@
 GitHub: alfredpanakkal/Alfred.panakkal (branch: main)
    │  push
    ▼
-Vercel project (auto-linked): builds with `vite build`
-   │  emits index.html (unchanged — no module scripts) + public/* assets
+GitHub Actions: bun install + vite build -> dist/
+   │
    ▼
-Production: https://alfred-panakkal.vercel.app
+Firebase Hosting (site: alfredpanakkal)
+   │
+   ▼
+Production: https://alfredpanakkal.web.app
 ```
 
-- **Trigger:** every push to `main` auto-deploys. No manual steps.
-- **Build command:** `vite build` (Vercel defaults). No env vars are required by the site.
-- **Output:** `dist/` served as static files.
+- **Trigger:** every push to `main` auto-deploys (also manual via the Actions tab).
+- **Build:** `bun install --frozen-lockfile` then `vite build`; output `dist/` served as static files.
+- **Firebase project:** `gen-lang-client-0431355172` (HELM WEB APPS).
+- **Secret:** `FIREBASE_SERVICE_ACCOUNT_GEN_LANG_CLIENT_0431355172` (repo Actions secret).
 
 ## What deploys where
 
 | Source | URL after deploy |
 | :--- | :--- |
-| `index.html` | `/` |
+| `index.html` (built) | `/` |
 | `public/robots.txt` | `/robots.txt` |
 | `public/sitemap.xml` | `/sitemap.xml` |
 | `public/manifest.json` | `/manifest.json` |
 | `public/llms.txt` | `/llms.txt` |
 
-## Post-deploy verification
-
-1. Open <https://alfred-panakkal.vercel.app> — hero renders, no console errors.
-2. Toggle light/dark theme; reload — theme persists.
-3. Open the mobile menu at narrow width; links navigate; Escape closes.
-4. Submit the contact form once (test data) — expect the FormSubmit success status, not the mailto fallback.
-5. Visit `/robots.txt` and `/sitemap.xml` — both serve updated content.
-
 ## One-time setup status
 
-- ✅ Vercel project linked to the repo (`alfred-panakkal.vercel.app`).
-- ✅ FormSubmit endpoint configured in the form JS.
-- ⏳ **FormSubmit activation:** the *first* real submission triggers a confirmation email to `alpha.coil966@passinbox.com`; click its link once to start receiving messages.
-- ⏳ Optional: add a custom domain in Vercel → then update `sitemap.xml`, `robots.txt`, and JSON-LD `url` to match.
+- [x] `firebase.json` (site `alfredpanakkal`, SPA rewrite, cache headers)
+- [x] `.firebaserc` (project `gen-lang-client-0431355172`)
+- [x] `.github/workflows/firebase-hosting.yml` (build + deploy to live channel)
+- [x] Service-account secret added to repo Actions secrets
+- [ ] Hosting site `alfredpanakkal` created in Firebase console (Hosting -> Add another site)
+- [ ] First successful deploy
 
 ## Rollback
 
-- Vercel dashboard → the project's **Deployments** list → promote a previous deployment (instant, no repo change needed).
-- Git-level: `git revert <sha>` and push to `main`; Vercel auto-deploys the revert.
+- Firebase console -> Hosting -> Release history -> roll back to a previous release.
+- Git-level: `git revert <sha>` and push to `main`; the workflow auto-deploys the revert.
 
-## Environment / secrets
+## Notes
 
-The site needs **no secrets**. `.env.example` (legacy scaffolding) describes variables for the unused Gemini AI example and can be ignored or removed.
+- `cleanUrls: true` is enabled; URLs have no `.html` extension.
+- Vercel still serves https://alfred-panakkal.vercel.app until that project is removed; keep or retire as desired.
+- If the domain changes from `alfredpanakkal.web.app`, update `sitemap.xml`, `robots.txt`, and JSON-LD `url` to match.
