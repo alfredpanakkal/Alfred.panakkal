@@ -14,7 +14,7 @@
 ## Featured Projects & Applications
 
 - [Helm.Warning](https://helmwarning.vercel.app): Maritime safety platform that collects, parses, and visualizes NAVAREA navigational warnings on a world map. [GitHub Repository](https://github.com/alfredpanakkal/Helm.Warning.Backend).
-- [Helm.Ports](https://helmports.vercel.app): A fast, self-contained explorer for 5,410 world ports and anchorages derived from the NGA World Port Index — channel depths, tidal ranges, and entrance restrictions, with no database and no map tiles. [GitHub Repository](https://github.com/alfredpanakkal/Helm.Ports).
+- [Helm.Ports](https://helmports.vercel.app): A fast, self-contained explorer for 3,814 world ports and anchorages across 195 countries and territories, derived from the NGA World Port Index — channel depths, tidal ranges, and entrance restrictions, with no database and no map tiles. [GitHub Repository](https://github.com/alfredpanakkal/Helm.Ports).
 - [Helm Almanac](https://helmalmanac.vercel.app): A comprehensive maritime almanac application for tracking vessel schedules, nautical events, and navigational reference data. [GitHub Repository](https://github.com/alfredpanakkal/Helm-Almanac).
 - [Helm Productivity](https://helmproductivity.vercel.app): A minimalist productivity suite engineered for seafarers and developers to manage watchkeeping, tasks, and routines effectively. [GitHub Repository](https://github.com/alfredpanakkal/The-Helm---Productivity-app).
 - [Bond Vault (Helm Bond)](https://helmbond.vercel.app): An inventory system for tracking, auditing, and managing bond stock — designed around the logs officers already keep. [GitHub Repository](https://github.com/alfredpanakkal/BOND-VAULT).
