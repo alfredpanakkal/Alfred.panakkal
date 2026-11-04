@@ -1,11 +1,9 @@
 # Deploys the Vite build to Firebase Hosting on every push to main.
 # Setup (one-time):
-# 1. Replace YOUR_FIREBASE_PROJECT_ID below and in .firebaserc with your Firebase project ID
-#    (Firebase Console -> Project settings -> General -> Project ID).
-# 2. Generate a service account: Firebase Console -> Project settings -> Service accounts ->
+# 1. Generate a service account: Firebase Console -> Project settings -> Service accounts ->
 #    "Generate new private key" (JSON).
-# 3. Add a GitHub Actions secret named FIREBASE_SERVICE_ACCOUNT_<YOUR_PROJECT_ID>
-#    (project ID upper-cased, dashes -> underscores) with that JSON as the value.
+# 2. Add a GitHub Actions secret named FIREBASE_SERVICE_ACCOUNT_SERAPHIC_POINT_XLSXP
+#    with that JSON as the value.
 # Docs: https://github.com/FirebaseExtended/action-hosting-deploy
 name: Deploy to Firebase Hosting
 
@@ -15,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  FIREBASE_PROJECT_ID: YOUR_FIREBASE_PROJECT_ID
+  FIREBASE_PROJECT_ID: seraphic-point-xlsxp
 
 jobs:
   build_and_deploy:
