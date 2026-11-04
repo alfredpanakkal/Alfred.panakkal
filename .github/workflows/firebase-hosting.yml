@@ -1,0 +1,42 @@
+# Deploys the Vite build to Firebase Hosting on every push to main.
+# Setup (one-time):
+# 1. Replace YOUR_FIREBASE_PROJECT_ID below and in .firebaserc with your Firebase project ID
+#    (Firebase Console -> Project settings -> General -> Project ID).
+# 2. Generate a service account: Firebase Console -> Project settings -> Service accounts ->
+#    "Generate new private key" (JSON).
+# 3. Add a GitHub Actions secret named FIREBASE_SERVICE_ACCOUNT_<YOUR_PROJECT_ID>
+#    (project ID upper-cased, dashes -> underscores) with that JSON as the value.
+# Docs: https://github.com/FirebaseExtended/action-hosting-deploy
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  FIREBASE_PROJECT_ID: YOUR_FIREBASE_PROJECT_ID
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets[format('FIREBASE_SERVICE_ACCOUNT_{0}', env.FIREBASE_PROJECT_ID)] }}'
+          channelId: live
+          projectId: ${{ env.FIREBASE_PROJECT_ID }}
