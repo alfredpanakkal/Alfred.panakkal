@@ -59,4 +59,4 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 # Sitemap Location
-Sitemap: https://alfred-panakkal.vercel.app/sitemap.xml
+Sitemap: https://alfredpanakkal.web.app/sitemap.xml

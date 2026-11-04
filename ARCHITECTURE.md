@@ -45,7 +45,7 @@ Load-time reveals are pure CSS (the `.reveal` class with staggered delays), disa
 
 ## 5. Deployment Flow
 
-GitHub `main` → Vercel build (`vite build`) → `dist/` (`index.html` + copied `public/` assets) → live at <https://alfred-panakkal.vercel.app>. See DEPLOYMENT.md for details and verification steps.
+GitHub `main` → Vercel build (`vite build`) → `dist/` (`index.html` + copied `public/` assets) → live at <https://alfredpanakkal.web.app>. See DEPLOYMENT.md for details and verification steps.
 
 ## 6. Decision Log
 
