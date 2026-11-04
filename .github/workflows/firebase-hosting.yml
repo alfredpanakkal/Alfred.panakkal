@@ -2,7 +2,7 @@
 # Setup (one-time):
 # 1. Generate a service account: Firebase Console -> Project settings -> Service accounts ->
 #    "Generate new private key" (JSON).
-# 2. Add a GitHub Actions secret named FIREBASE_SERVICE_ACCOUNT_SERAPHIC_POINT_XLSXP
+# 2. Add a GitHub Actions secret named FIREBASE_SERVICE_ACCOUNT_GEN_LANG_CLIENT_0431355172
 #    with that JSON as the value.
 # Docs: https://github.com/FirebaseExtended/action-hosting-deploy
 name: Deploy to Firebase Hosting
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  FIREBASE_PROJECT_ID: seraphic-point-xlsxp
+  FIREBASE_PROJECT_ID: gen-lang-client-0431355172
 
 jobs:
   build_and_deploy:
